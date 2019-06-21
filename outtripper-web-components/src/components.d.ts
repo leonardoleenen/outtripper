@@ -9,6 +9,160 @@ import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 
 
 export namespace Components {
+  interface ChatAlert {
+    /**
+    * The first name
+    */
+    'first': string;
+    /**
+    * The last name
+    */
+    'last': string;
+    /**
+    * The middle name
+    */
+    'middle': string;
+  }
+  interface ChatButton {
+    /**
+    * The first name
+    */
+    'first': string;
+    /**
+    * The last name
+    */
+    'last': string;
+    /**
+    * The middle name
+    */
+    'middle': string;
+  }
+  interface ChatButtonOutlined {
+    /**
+    * The first name
+    */
+    'first': string;
+    /**
+    * The last name
+    */
+    'last': string;
+    /**
+    * The middle name
+    */
+    'middle': string;
+  }
+  interface ChatButtonToggle {
+    /**
+    * The first name
+    */
+    'first': string;
+    /**
+    * The last name
+    */
+    'last': string;
+    /**
+    * The middle name
+    */
+    'middle': string;
+  }
+  interface ChatCalloutLoad {
+    /**
+    * The first name
+    */
+    'first': string;
+    /**
+    * The last name
+    */
+    'last': string;
+    /**
+    * The middle name
+    */
+    'middle': string;
+  }
+  interface ChatCalloutSystem {
+    /**
+    * The first name
+    */
+    'first': string;
+    /**
+    * The last name
+    */
+    'last': string;
+    /**
+    * The middle name
+    */
+    'middle': string;
+  }
+  interface ChatCalloutUser {
+    /**
+    * The first name
+    */
+    'first': string;
+    /**
+    * The last name
+    */
+    'last': string;
+    /**
+    * The middle name
+    */
+    'middle': string;
+  }
+  interface ChatInputPricing {
+    /**
+    * The first name
+    */
+    'first': string;
+    /**
+    * The last name
+    */
+    'last': string;
+    /**
+    * The middle name
+    */
+    'middle': string;
+  }
+  interface ChatPanel {
+    /**
+    * The first name
+    */
+    'first': string;
+    /**
+    * The last name
+    */
+    'last': string;
+    /**
+    * The middle name
+    */
+    'middle': string;
+  }
+  interface ChatSelect {
+    /**
+    * The first name
+    */
+    'first': string;
+    /**
+    * The last name
+    */
+    'last': string;
+    /**
+    * The middle name
+    */
+    'middle': string;
+  }
+  interface ChatUserCard {
+    /**
+    * The first name
+    */
+    'first': string;
+    /**
+    * The last name
+    */
+    'last': string;
+    /**
+    * The middle name
+    */
+    'middle': string;
+  }
   interface MyComponent {
     /**
     * The first name
@@ -28,17 +182,248 @@ export namespace Components {
 declare global {
 
 
+  interface HTMLChatAlertElement extends Components.ChatAlert, HTMLStencilElement {}
+  var HTMLChatAlertElement: {
+    prototype: HTMLChatAlertElement;
+    new (): HTMLChatAlertElement;
+  };
+
+  interface HTMLChatButtonElement extends Components.ChatButton, HTMLStencilElement {}
+  var HTMLChatButtonElement: {
+    prototype: HTMLChatButtonElement;
+    new (): HTMLChatButtonElement;
+  };
+
+  interface HTMLChatButtonOutlinedElement extends Components.ChatButtonOutlined, HTMLStencilElement {}
+  var HTMLChatButtonOutlinedElement: {
+    prototype: HTMLChatButtonOutlinedElement;
+    new (): HTMLChatButtonOutlinedElement;
+  };
+
+  interface HTMLChatButtonToggleElement extends Components.ChatButtonToggle, HTMLStencilElement {}
+  var HTMLChatButtonToggleElement: {
+    prototype: HTMLChatButtonToggleElement;
+    new (): HTMLChatButtonToggleElement;
+  };
+
+  interface HTMLChatCalloutLoadElement extends Components.ChatCalloutLoad, HTMLStencilElement {}
+  var HTMLChatCalloutLoadElement: {
+    prototype: HTMLChatCalloutLoadElement;
+    new (): HTMLChatCalloutLoadElement;
+  };
+
+  interface HTMLChatCalloutSystemElement extends Components.ChatCalloutSystem, HTMLStencilElement {}
+  var HTMLChatCalloutSystemElement: {
+    prototype: HTMLChatCalloutSystemElement;
+    new (): HTMLChatCalloutSystemElement;
+  };
+
+  interface HTMLChatCalloutUserElement extends Components.ChatCalloutUser, HTMLStencilElement {}
+  var HTMLChatCalloutUserElement: {
+    prototype: HTMLChatCalloutUserElement;
+    new (): HTMLChatCalloutUserElement;
+  };
+
+  interface HTMLChatInputPricingElement extends Components.ChatInputPricing, HTMLStencilElement {}
+  var HTMLChatInputPricingElement: {
+    prototype: HTMLChatInputPricingElement;
+    new (): HTMLChatInputPricingElement;
+  };
+
+  interface HTMLChatPanelElement extends Components.ChatPanel, HTMLStencilElement {}
+  var HTMLChatPanelElement: {
+    prototype: HTMLChatPanelElement;
+    new (): HTMLChatPanelElement;
+  };
+
+  interface HTMLChatSelectElement extends Components.ChatSelect, HTMLStencilElement {}
+  var HTMLChatSelectElement: {
+    prototype: HTMLChatSelectElement;
+    new (): HTMLChatSelectElement;
+  };
+
+  interface HTMLChatUserCardElement extends Components.ChatUserCard, HTMLStencilElement {}
+  var HTMLChatUserCardElement: {
+    prototype: HTMLChatUserCardElement;
+    new (): HTMLChatUserCardElement;
+  };
+
   interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {}
   var HTMLMyComponentElement: {
     prototype: HTMLMyComponentElement;
     new (): HTMLMyComponentElement;
   };
   interface HTMLElementTagNameMap {
+    'chat-alert': HTMLChatAlertElement;
+    'chat-button': HTMLChatButtonElement;
+    'chat-button-outlined': HTMLChatButtonOutlinedElement;
+    'chat-button-toggle': HTMLChatButtonToggleElement;
+    'chat-callout-load': HTMLChatCalloutLoadElement;
+    'chat-callout-system': HTMLChatCalloutSystemElement;
+    'chat-callout-user': HTMLChatCalloutUserElement;
+    'chat-input-pricing': HTMLChatInputPricingElement;
+    'chat-panel': HTMLChatPanelElement;
+    'chat-select': HTMLChatSelectElement;
+    'chat-user-card': HTMLChatUserCardElement;
     'my-component': HTMLMyComponentElement;
   }
 }
 
 declare namespace LocalJSX {
+  interface ChatAlert extends JSXBase.HTMLAttributes<HTMLChatAlertElement> {
+    /**
+    * The first name
+    */
+    'first'?: string;
+    /**
+    * The last name
+    */
+    'last'?: string;
+    /**
+    * The middle name
+    */
+    'middle'?: string;
+  }
+  interface ChatButton extends JSXBase.HTMLAttributes<HTMLChatButtonElement> {
+    /**
+    * The first name
+    */
+    'first'?: string;
+    /**
+    * The last name
+    */
+    'last'?: string;
+    /**
+    * The middle name
+    */
+    'middle'?: string;
+  }
+  interface ChatButtonOutlined extends JSXBase.HTMLAttributes<HTMLChatButtonOutlinedElement> {
+    /**
+    * The first name
+    */
+    'first'?: string;
+    /**
+    * The last name
+    */
+    'last'?: string;
+    /**
+    * The middle name
+    */
+    'middle'?: string;
+  }
+  interface ChatButtonToggle extends JSXBase.HTMLAttributes<HTMLChatButtonToggleElement> {
+    /**
+    * The first name
+    */
+    'first'?: string;
+    /**
+    * The last name
+    */
+    'last'?: string;
+    /**
+    * The middle name
+    */
+    'middle'?: string;
+  }
+  interface ChatCalloutLoad extends JSXBase.HTMLAttributes<HTMLChatCalloutLoadElement> {
+    /**
+    * The first name
+    */
+    'first'?: string;
+    /**
+    * The last name
+    */
+    'last'?: string;
+    /**
+    * The middle name
+    */
+    'middle'?: string;
+  }
+  interface ChatCalloutSystem extends JSXBase.HTMLAttributes<HTMLChatCalloutSystemElement> {
+    /**
+    * The first name
+    */
+    'first'?: string;
+    /**
+    * The last name
+    */
+    'last'?: string;
+    /**
+    * The middle name
+    */
+    'middle'?: string;
+  }
+  interface ChatCalloutUser extends JSXBase.HTMLAttributes<HTMLChatCalloutUserElement> {
+    /**
+    * The first name
+    */
+    'first'?: string;
+    /**
+    * The last name
+    */
+    'last'?: string;
+    /**
+    * The middle name
+    */
+    'middle'?: string;
+  }
+  interface ChatInputPricing extends JSXBase.HTMLAttributes<HTMLChatInputPricingElement> {
+    /**
+    * The first name
+    */
+    'first'?: string;
+    /**
+    * The last name
+    */
+    'last'?: string;
+    /**
+    * The middle name
+    */
+    'middle'?: string;
+  }
+  interface ChatPanel extends JSXBase.HTMLAttributes<HTMLChatPanelElement> {
+    /**
+    * The first name
+    */
+    'first'?: string;
+    /**
+    * The last name
+    */
+    'last'?: string;
+    /**
+    * The middle name
+    */
+    'middle'?: string;
+  }
+  interface ChatSelect extends JSXBase.HTMLAttributes<HTMLChatSelectElement> {
+    /**
+    * The first name
+    */
+    'first'?: string;
+    /**
+    * The last name
+    */
+    'last'?: string;
+    /**
+    * The middle name
+    */
+    'middle'?: string;
+  }
+  interface ChatUserCard extends JSXBase.HTMLAttributes<HTMLChatUserCardElement> {
+    /**
+    * The first name
+    */
+    'first'?: string;
+    /**
+    * The last name
+    */
+    'last'?: string;
+    /**
+    * The middle name
+    */
+    'middle'?: string;
+  }
   interface MyComponent extends JSXBase.HTMLAttributes<HTMLMyComponentElement> {
     /**
     * The first name
@@ -55,6 +440,17 @@ declare namespace LocalJSX {
   }
 
   interface IntrinsicElements {
+    'chat-alert': ChatAlert;
+    'chat-button': ChatButton;
+    'chat-button-outlined': ChatButtonOutlined;
+    'chat-button-toggle': ChatButtonToggle;
+    'chat-callout-load': ChatCalloutLoad;
+    'chat-callout-system': ChatCalloutSystem;
+    'chat-callout-user': ChatCalloutUser;
+    'chat-input-pricing': ChatInputPricing;
+    'chat-panel': ChatPanel;
+    'chat-select': ChatSelect;
+    'chat-user-card': ChatUserCard;
     'my-component': MyComponent;
   }
 }
