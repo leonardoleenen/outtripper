@@ -80,32 +80,12 @@ export namespace Components {
     'middle': string;
   }
   interface ChatCalloutSystem {
-    /**
-    * The first name
-    */
-    'first': string;
-    /**
-    * The last name
-    */
-    'last': string;
-    /**
-    * The middle name
-    */
-    'middle': string;
+    'message': string;
+    'urlAvatar': string;
   }
   interface ChatCalloutUser {
-    /**
-    * The first name
-    */
-    'first': string;
-    /**
-    * The last name
-    */
-    'last': string;
-    /**
-    * The middle name
-    */
-    'middle': string;
+    'message': string;
+    'urlAvatar': string;
   }
   interface ChatInputPricing {
     /**
@@ -121,20 +101,7 @@ export namespace Components {
     */
     'middle': string;
   }
-  interface ChatPanel {
-    /**
-    * The first name
-    */
-    'first': string;
-    /**
-    * The last name
-    */
-    'last': string;
-    /**
-    * The middle name
-    */
-    'middle': string;
-  }
+  interface ChatPanel {}
   interface ChatSelect {
     /**
     * The first name
@@ -150,18 +117,7 @@ export namespace Components {
     'middle': string;
   }
   interface ChatUserCard {
-    /**
-    * The first name
-    */
-    'first': string;
-    /**
-    * The last name
-    */
-    'last': string;
-    /**
-    * The middle name
-    */
-    'middle': string;
+    'userName': string;
   }
   interface MyComponent {
     /**
@@ -341,32 +297,12 @@ declare namespace LocalJSX {
     'middle'?: string;
   }
   interface ChatCalloutSystem extends JSXBase.HTMLAttributes<HTMLChatCalloutSystemElement> {
-    /**
-    * The first name
-    */
-    'first'?: string;
-    /**
-    * The last name
-    */
-    'last'?: string;
-    /**
-    * The middle name
-    */
-    'middle'?: string;
+    'message'?: string;
+    'urlAvatar'?: string;
   }
   interface ChatCalloutUser extends JSXBase.HTMLAttributes<HTMLChatCalloutUserElement> {
-    /**
-    * The first name
-    */
-    'first'?: string;
-    /**
-    * The last name
-    */
-    'last'?: string;
-    /**
-    * The middle name
-    */
-    'middle'?: string;
+    'message'?: string;
+    'urlAvatar'?: string;
   }
   interface ChatInputPricing extends JSXBase.HTMLAttributes<HTMLChatInputPricingElement> {
     /**
@@ -382,20 +318,7 @@ declare namespace LocalJSX {
     */
     'middle'?: string;
   }
-  interface ChatPanel extends JSXBase.HTMLAttributes<HTMLChatPanelElement> {
-    /**
-    * The first name
-    */
-    'first'?: string;
-    /**
-    * The last name
-    */
-    'last'?: string;
-    /**
-    * The middle name
-    */
-    'middle'?: string;
-  }
+  interface ChatPanel extends JSXBase.HTMLAttributes<HTMLChatPanelElement> {}
   interface ChatSelect extends JSXBase.HTMLAttributes<HTMLChatSelectElement> {
     /**
     * The first name
@@ -411,18 +334,7 @@ declare namespace LocalJSX {
     'middle'?: string;
   }
   interface ChatUserCard extends JSXBase.HTMLAttributes<HTMLChatUserCardElement> {
-    /**
-    * The first name
-    */
-    'first'?: string;
-    /**
-    * The last name
-    */
-    'last'?: string;
-    /**
-    * The middle name
-    */
-    'middle'?: string;
+    'userName'?: string;
   }
   interface MyComponent extends JSXBase.HTMLAttributes<HTMLMyComponentElement> {
     /**
