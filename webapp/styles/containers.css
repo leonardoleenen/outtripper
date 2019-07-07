@@ -1,0 +1,16 @@
+.splashContainer {
+    display: grid;
+    grid-template-rows: 4fr 1fr 1fr;
+    @apply text-white
+}
+
+.splashContainer h2 {
+    @apply mt-48 text-6xl font-bold mx-4 leading-none
+}
+
+.splashContainer p {
+    @apply mx-4 font-thin text-sm
+}
+
+
+

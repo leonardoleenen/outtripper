@@ -1,0 +1,3 @@
+.btnStartNow {
+  @apply bg-transparent border border-white my-8 py-2 px-10 rounded font-thin mx-4
+}
