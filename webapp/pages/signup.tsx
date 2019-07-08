@@ -10,7 +10,7 @@ import Loading from '../components/Loading';
 import SystemProfile from '../components/SystemProfile';
 import { initSignUp } from '../redux/actions/users';
 import {signUpProcess} from '../services/index';
-import {RenderEngine} from '../services/renderEngine';
+import {RenderEngine, ProcessNode} from '../services/renderEngine';
 
 
 class SignUp extends React.Component {
@@ -19,13 +19,12 @@ class SignUp extends React.Component {
     isLoading: true,
     currentStage: null,
     process: null, 
-    chatTrace: []
   }
 
   ds: OutTripperDatabase = dataService
-  engine:RenderEngine = new RenderEngine(signUpProcess)
 
   async componentDidMount() {
+    let {chatTrace, engine} = this.props 
 
     const result = await firebase.auth().getRedirectResult()
     if (result.credential) {
@@ -33,16 +32,19 @@ class SignUp extends React.Component {
         dataService.setUser(new User(result.user.uid,result.user.displayName,result.user.photoURL))
       }
       this.setState({isLoading:false})
-      this.props.initSignUp(result.user.uid,result.user.displayName,result.user.photoURL, signUpProcess, signUpProcess.inputOperationName)
-      let ct = this.state.chatTrace
-      ct.push( this.engine.renderNode())
-      this.setState({
-        process: signUpProcess, 
-        currentStage: signUpProcess.inputOperationName,
-        chatTrace: ct
-      })
-     
-          
+      if (!engine) 
+        engine = new RenderEngine(signUpProcess)
+      
+      chatTrace.push(React.createElement(SystemProfile, {userName: 'Travis'} as any,null))
+      chatTrace.push( engine.renderNode(signUpProcess[engine.currentStage] as ProcessNode,null))
+      engine.move()
+      chatTrace.push( engine.renderNode(signUpProcess[engine.currentStage] as ProcessNode,null))
+      this.props['initSignUp'](
+        result.user.uid,
+        result.user.displayName,
+        result.user.photoURL, 
+        signUpProcess, 
+        engine)
     }else {
       const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
       firebase.auth().signInWithRedirect(googleAuthProvider);
@@ -50,33 +52,38 @@ class SignUp extends React.Component {
 
   }
 
+  
   render() {
+    const engine:RenderEngine = this.props['engine']
+    const chatTrace:[]  = this.props['chatTrace']
+
     if (this.state.isLoading)
       return(<Loading></Loading>)
+  
+  
+    if (engine){
+      const currentComand = signUpProcess[engine.currentStage].inputCommand &&   engine.renderNode(signUpProcess[engine.currentStage].inputCommand as ProcessNode,null)
+      const command  = currentComand || React.createElement('span',null,null)
+      const rootDiv = React.createElement('div', {className:'p-2'},[[...chatTrace],command])
+      return rootDiv
+    }
 
-    const rootDiv = React.createElement('div', {className:'p-2'},this.state.chatTrace)
-    return rootDiv 
-
+    return <div></div>
   }
 }
 
 const mapStateToProps = state => {
   return {
-    contact: state.signupProcess.userData
+    contact: state.signupProcess.userData,
+    engine: state.signupProcess.engine,
+    chatTrace: state.signupProcess.chatTrace
   }
 }
 
 const mapDispatchToProps = dispatch => {
   return {
-    initSignUp: (id,cn,photoCover,process,currentState) => dispatch(initSignUp(id,cn,photoCover,process,currentState))
+    initSignUp: (id,cn,photoCover,process,engine) => dispatch(initSignUp(id,cn,photoCover,process,engine))
   }
 }
 
 export default withRouter(connect(mapStateToProps,mapDispatchToProps)(SignUp))
-
-
-/* <div className='p-2 ' id='chatPanel'>
-       
-        <SystemProfile userName='Leonardo Leenen'></SystemProfile>
-        <ChatSystem urlAvatar="https://i.vimeocdn.com/portrait/11968448_640x640" message={`Welcome! My Name is Daniel and I will assist you in your signup process. Let's go!. What is your operation Name?  `}></ChatSystem>
-      </div>*/

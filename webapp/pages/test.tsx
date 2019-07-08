@@ -1,15 +1,13 @@
 import React from 'react'
-import Loading from '../components/Loading'
-
+import ChatMultiButtom from '../components/ChatMultiButton'
 
 class Test extends React.Component {
 
     
     render() {
         return(
-        <Loading>
-            
-        </Loading>)
+            <ChatMultiButtom optionValues={['FISHING','HUNTING', 'BIRDING']}></ChatMultiButtom>
+        )
         
     }
 }

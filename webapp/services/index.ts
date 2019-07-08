@@ -4,58 +4,90 @@ import Dexie from 'dexie';
 import { User, IUser, IDataBaseService } from "./type";
 
 
-export const  firebaseConfig = {
-    apiKey: "AIzaSyDdgmV1ZbpihvTi2IMNrBs0D089DRpof1M",
-    authDomain: "outtripper-app.firebaseapp.com",
-    databaseURL: "https://outtripper-app.firebaseio.com",
-    projectId: "outtripper-app",
-    storageBucket: "outtripper-app.appspot.com",
-    messagingSenderId: "sender-id",
-    appID: "app-id",
-  };
-  
-  
-  if (!firebase.apps.length) {
-    firebase.initializeApp(firebaseConfig);
+export const firebaseConfig = {
+  apiKey: "AIzaSyDdgmV1ZbpihvTi2IMNrBs0D089DRpof1M",
+  authDomain: "outtripper-app.firebaseapp.com",
+  databaseURL: "https://outtripper-app.firebaseio.com",
+  projectId: "outtripper-app",
+  storageBucket: "outtripper-app.appspot.com",
+  messagingSenderId: "sender-id",
+  appID: "app-id",
+};
+
+
+if (!firebase.apps.length) {
+  firebase.initializeApp(firebaseConfig);
+}
+
+export class OutTripperDatabase extends Dexie implements IDataBaseService {
+
+  getUser(): Promise<IUser> {
+    return this.user.toCollection().first()
   }
 
-  export class OutTripperDatabase extends Dexie implements IDataBaseService {
-
-      getUser(): Promise<IUser> {
-          return this.user.toCollection().first()
-      }
-
-      setUser(user: IUser): void {
-            this.user.put(user)
-      }
+  setUser(user: IUser): void {
+    this.user.put(user)
+  }
 
 
 
-    user: Dexie.Table<IUser,string>
+  user: Dexie.Table<IUser, string>
 
-    constructor () {
-        super("OutTripperDatabase");
-        this.version(1).stores({
-            user: 'id'
-        });
-        this.user.mapToClass(User);
-    }
+  constructor() {
+    super("OutTripperDatabase");
+    this.version(1).stores({
+      user: 'id'
+    });
+    this.user.mapToClass(User);
+  }
 }
 
 export const dataService = new OutTripperDatabase()
 
 export default firebase
 
-  
+
 export const signUpProcess = {
-    welcome: {
-        message: "Welcome! My Name is Daniel and I will assist you in your signup process. Let's go!. What is your operation Name?",
-        nextStage: 'inputOperationName',
+  welcome: {
+    message: "Welcome! My Name is Daniel and I will assist you in your signup process. Let's go!",
+    nextStage: 'inputOperationName',
+    component: 'ChatSystem'
+  },
+  inputOperationName: {
+    message: 'Please, write your operation, service or company name',
+    component: 'ChatSystem',
+    inputCommand: {
+      component: 'ChatInput',
+      action: 'SIGNUP SET OPERATION NAME',
+      attribute: 'operationName',
     },
-    inputOperationName: {
-        message:'Please, write your operation, service or company name',
-        action: 'SIGNUP SET OPERATION NAME',
-        attribute: 'operationName'
+    nextStage: 'operationKind'
+  },
+  operationKind: {
+    message: 'What kind operation do you have?',
+    component: 'ChatSystem',
+    inputCommand: {
+      component: 'ChatMultiButton',
+      params: {
+        optionValues: ['FISHING','TREKKING','HUNTING', 'BIRDWATCHING'],
+      },
+      action: 'OPERATION KIND',
+      attribute: 'operationKind'
     },
+    nextStage: 'operationSize'
+  },
+  operationSize: {
+    message:'Cool!! Talkme about our company size',
+    component: 'ChatSystem',
+    inputCommand: {
+      component: 'ChatMultiButton',
+      params: {
+        optionValues: ["I'M A GUIDE",'LODGE'],
+      },
+      action: 'OPERATION SIZE',
+      attribute: 'operationSize'
+    }
+  }
+
 
 }
