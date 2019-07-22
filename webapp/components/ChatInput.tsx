@@ -24,7 +24,7 @@ class ChatInput extends React.Component {
 
   handleSubmit() {
     const toDispatch={}
-    let {inputComandAttribute,chatTrace, user} = this.props 
+    let {chatTrace, user} = this.props 
     
     const engine: RenderEngine = this.props.engine
 

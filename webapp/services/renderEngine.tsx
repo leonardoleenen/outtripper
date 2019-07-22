@@ -4,6 +4,8 @@ import ChatSystem from '../components/ChatSystem'
 import ChatInput from '../components/ChatInput'
 import ChatUser from '../components/ChatUser'
 import ChatMultiButton from '../components/ChatMultiButton'
+import ChatGroupToggleButtons from '../components/ChatGroupToggleButtons'
+import ChatInputSelect from '../components/ChatInputSelect'
 
 import Hashids from 'hashids'
 
@@ -25,7 +27,8 @@ export interface IEngine {
 export class RenderEngine implements IEngine {
 
   renderUserResponse(message: String, urlAvatar: any) {
-    return React.createElement(ChatUser,{message, urlAvatar},null)
+    const hashids = new Hashids(new Date().getTime().toString() +  this.process[this.currentStage]['message'])
+    return React.createElement(ChatUser,{message, urlAvatar,key: hashids.encode(1,2,3,4,5)},null)
   }
   
   currentStage: string;
@@ -52,14 +55,19 @@ export class RenderEngine implements IEngine {
       case 'ChatMultiButton':
         cType = ChatMultiButton
         break
+      case 'ChatGroupToggleButtons':
+        cType = ChatGroupToggleButtons
+        break
+      case 'ChatInputSelect':
+        cType = ChatInputSelect
+        break
     }
 
-    
     return React.createElement(cType, {
       ...params,
       ...node['params'],
       message: node['message'],
-      key: hashids.encode(1,2)
+      key: hashids.encode(1,2,3,4,5)
     }, null)
   }
 

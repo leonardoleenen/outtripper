@@ -18,10 +18,12 @@ export class User implements IUser {
     id?: string;
     photoCover: string;
 
-    constructor(_id:string, _cn:string,_photoCover:string) {
+
+    constructor(_id:string, _cn:string,_photoCover:string ) {
         this.cn=_cn
         this.id = _id
         this.photoCover = _photoCover
+
     }
 }
 

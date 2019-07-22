@@ -1,14 +1,12 @@
 import React from 'react'
-import ChatMultiButtom from '../components/ChatMultiButton'
+
+import ChatLoading from '../components/ChatLoading';
 
 class Test extends React.Component {
-
-    
     render() {
         return(
-            <ChatMultiButtom optionValues={['FISHING','HUNTING', 'BIRDING']}></ChatMultiButtom>
-        )
-        
+            <ChatLoading></ChatLoading>
+        ) 
     }
 }
 

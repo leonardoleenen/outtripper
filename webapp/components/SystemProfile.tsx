@@ -10,7 +10,7 @@ class SystemProfile extends React.Component {
   
   render() {
     return <div className="max-w-sm rounded overflow-hidden mt-24  m-auto mb-24">
-      <img className="w-32 h-32 rounded-full mb-2  shadow-xl m-auto" src="https://i.vimeocdn.com/portrait/11968448_640x640" alt="" />
+      <img className="w-32 h-32 rounded-full mb-2  shadow-xl m-auto" src="../static/wimo.jpg" alt="" />
       <div className="px-6 py-4 text-center">
         <div className=" text-xl mb-2">{this.props.userName}</div>
         <div className="flex text-center mb-2 content-center items-center justify-center" >

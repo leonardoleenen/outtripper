@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import '../styles/index.css'
-import { RenderEngine } from '../services/renderEngine';
+import { RenderEngine, ProcessNode } from '../services/renderEngine';
 import {signUpProcess} from '../services/index';
 class ChatMultiButton extends React.Component {
 
@@ -11,11 +11,12 @@ class ChatMultiButton extends React.Component {
   }
 
   submit(value) {
-    const toDispatch={}
-    let {inputComandAttribute,chatTrace, user} = this.props 
+    // this.props['isWriting']
     
-    const engine: RenderEngine = this.props.engine
-    debugger
+    const toDispatch={}
+    let {chatTrace, user} = this.props 
+    
+    const engine: RenderEngine = this.props['engine']
     toDispatch['type']=  engine.process[engine.currentStage].inputCommand.action
     toDispatch[engine.process[engine.currentStage].inputCommand.attribute] = value 
 
@@ -25,12 +26,12 @@ class ChatMultiButton extends React.Component {
 
     toDispatch['chatTrace'] = Object.assign([],chatTrace)
     toDispatch['engine'] =  engine
-    this.props.submit(toDispatch)
+    this.props['submit'](toDispatch)
   }
 
   render() {
     const optionValues:[] =  this.props['optionValues']
-    return <div>
+    return <div style={{display: 'grid', gridTemplateColumns:'1fr 1fr 1fr'}}> 
       {optionValues.map( button => (
         <button 
           key= {button}

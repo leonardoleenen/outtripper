@@ -49,45 +49,84 @@ export default firebase
 
 export const signUpProcess = {
   welcome: {
-    message: "Welcome! My Name is Daniel and I will assist you in your signup process. Let's go!",
+    message: "Welcome! My Name is Pedro and I will assist you in your signup process. Let's go!",
     nextStage: 'inputOperationName',
-    component: 'ChatSystem'
+    component: 'SystemProfile'
   },
-  inputOperationName: {
-    message: 'Please, write your operation, service or company name',
+  operationKind: {
+    message: "What kind operation do you have?",
+    component: 'ChatSystem',
+    inputCommand: {
+      component: 'ChatMultiButton',
+      action: 'SET OPERATION KIND',
+      attribute: 'operationKind',
+      params: {
+        optionValues: ["FISH", 'HUNT','TREK'],
+      },
+    },
+    nextStage: 'operationName'
+  },
+  operationName: {
+    message: "Please, What's your operation name?",
     component: 'ChatSystem',
     inputCommand: {
       component: 'ChatInput',
-      action: 'SIGNUP SET OPERATION NAME',
+      action: 'SET OPERATION NAME',
       attribute: 'operationName',
     },
-    nextStage: 'operationKind'
+    nextStage: 'operationLevel'
   },
-  operationKind: {
-    message: 'What kind operation do you have?',
+  operationLevel: {
+    message: "What kind of service you offer?",
     component: 'ChatSystem',
     inputCommand: {
       component: 'ChatMultiButton',
+      action: 'SET OPERATION NAME',
+      attribute: 'operationName',
       params: {
-        optionValues: ['FISHING','TREKKING','HUNTING', 'BIRDWATCHING'],
+        optionValues: ["I'M GUIDE", 'LODGE'],
       },
-      action: 'OPERATION KIND',
-      attribute: 'operationKind'
     },
-    nextStage: 'operationSize'
+    nextStage: 'lastName'
   },
-  operationSize: {
-    message:'Cool!! Talkme about our company size',
-    component: 'ChatSystem',
-    inputCommand: {
-      component: 'ChatMultiButton',
-      params: {
-        optionValues: ["I'M A GUIDE",'LODGE'],
-      },
-      action: 'OPERATION SIZE',
-      attribute: 'operationSize'
-    }
-  }
-
+  
 
 }
+
+
+/*
+
+  inputOperationName: {
+    message: 'Please, Whats your name?',
+    component: 'ChatSystem',
+    inputCommand: {
+      component: 'ChatInput',
+      action: 'SET FIRST NAME',
+      attribute: 'firstName',
+    },
+    nextStage: 'lastName'
+  },
+  lastName: {
+    message: 'Please, Whats your LastName?',
+    component: 'ChatSystem',
+    inputCommand: {
+      component: 'ChatInput',
+      action: 'SET LAST NAME',
+      attribute: 'lastName',
+    },
+    nextStage: 'favoriteColor'
+  },
+  favoriteColor: {
+    message: 'What is your favorite color? ',
+    component: 'ChatSystem',
+    inputCommand: {
+      component: 'ChatMultiButton',
+      params: {
+        optionValues: ["RED", 'BLUG','YELLOW'],
+      },
+      action: 'SET FAVORITE COLOR',
+      attribute: 'favoriteColor'
+    },
+    nextStage: 'Address'
+  }
+  */

@@ -7,7 +7,6 @@ import { dataService, OutTripperDatabase } from '../services/index';
 import { withRouter } from 'next/router';
 import { User } from '../services/type';
 import Loading from '../components/Loading';
-import SystemProfile from '../components/SystemProfile';
 import { initSignUp } from '../redux/actions/users';
 import {signUpProcess} from '../services/index';
 import {RenderEngine, ProcessNode} from '../services/renderEngine';
@@ -19,10 +18,11 @@ class SignUp extends React.Component {
     isLoading: true,
     currentStage: null,
     process: null, 
+    isWriting: false 
   }
 
   ds: OutTripperDatabase = dataService
-
+  sp = signUpProcess
   async componentDidMount() {
     let {chatTrace, engine} = this.props 
 
@@ -33,12 +33,11 @@ class SignUp extends React.Component {
       }
       this.setState({isLoading:false})
       if (!engine) 
-        engine = new RenderEngine(signUpProcess)
+        engine = new RenderEngine(this.sp)
       
-      chatTrace.push(React.createElement(SystemProfile, {userName: 'Travis'} as any,null))
-      chatTrace.push( engine.renderNode(signUpProcess[engine.currentStage] as ProcessNode,null))
+      chatTrace.push( engine.renderNode(this.sp[engine.currentStage] as ProcessNode,{userName: 'Travis'} as any))
       engine.move()
-      chatTrace.push( engine.renderNode(signUpProcess[engine.currentStage] as ProcessNode,null))
+      chatTrace.push( engine.renderNode(this.sp[engine.currentStage] as ProcessNode,null))
       this.props['initSignUp'](
         result.user.uid,
         result.user.displayName,
@@ -49,10 +48,12 @@ class SignUp extends React.Component {
       const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
       firebase.auth().signInWithRedirect(googleAuthProvider);
     }
-
+  }
+  
+  handleIsWriting() {
+    this.setState({isWriting:true})
   }
 
-  
   render() {
     const engine:RenderEngine = this.props['engine']
     const chatTrace:[]  = this.props['chatTrace']
