@@ -1,6 +1,5 @@
 import { Component, h } from '@stencil/core';
 
-
 @Component({
   tag: 'chat-panel',
   styleUrl: 'chat-panel.css',
@@ -10,6 +9,7 @@ export class ChatPanel {
   
   componentWillLoad() {
     
+
   }
 
   render() {

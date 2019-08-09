@@ -25,5 +25,7 @@
     "tailwindcss": "^1.0.4"
   },
   "license": "MIT",
-  "dependencies": {}
+  "dependencies": {
+    "uuid": "^3.3.2"
+  }
 }
