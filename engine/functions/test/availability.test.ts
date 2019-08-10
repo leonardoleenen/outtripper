@@ -5,6 +5,8 @@ export const projectId = "firestore-emulator";
 
 // const auth = null
 
+let db = undefined
+
 async function authedApp(auth:any) {
   return await admin.initializeTestApp({ projectId, auth }).firestore();
 }
@@ -15,9 +17,8 @@ async function authedApp(auth:any) {
 const rules  = `
 service cloud.firestore {
   match /databases/{database}/documents {
-    match /availability/{availabilityId} {
-      allow read, write = if true;
-      allow create = if true;
+    match /{document=**} {
+      allow read, write
     }
   }
 }
@@ -31,9 +32,9 @@ beforeEach(async () => {
 }); 
 
 beforeAll(async () => {
-  const db = await authedApp(null);
-  await initDatabase(db)
+  db = await authedApp(null);
   await admin.loadFirestoreRules({ projectId, rules });
+  await initDatabase(db)
 });
  
 afterAll(async () => {
@@ -44,12 +45,13 @@ afterAll(async () => {
  
 describe('get availability', () => {
   it('get full params', async() => {
-    const db = await authedApp(null);
+    // const db = await authedApp(null);
     //availbilityService.setConnector(db)
     //const result = await availbilityService.getByProgramDateAndPax('JLWK',moment('2019-10-01','YYYY-MM-DD').toDate(),2)
     //expect(result.length!=0).toBe(true)
-    const result = await db.collection('availability').get()
-    console.log(result)
+    // db = await authedApp(null);
+    //const result = await admin.firestore().collection('availability').get()
+    //console.log(result)
     expect(1).toBe(1)
   })
 
