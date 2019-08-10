@@ -1,13 +1,11 @@
-
-import moment from 'moment';
-import {availbilityService, initDatabase}  from '../src/services/index';
+import { initDatabase}  from '../src/services/index';
 import  * as admin from "@firebase/testing";
 
 export const projectId = "firestore-emulator";
 
-const auth = null
+// const auth = null
 
-async function authedApp(auth) {
+async function authedApp(auth:any) {
   return await admin.initializeTestApp({ projectId, auth }).firestore();
 }
 
@@ -17,13 +15,9 @@ async function authedApp(auth) {
 const rules  = `
 service cloud.firestore {
   match /databases/{database}/documents {
-    match /users/{userId} {
-      allow read;
-      allow create: if request.auth.uid == userId && request.resource.data.createdAt == request.time;
-    }
     match /availability/{availabilityId} {
-      allow read;
-      allow create;
+      allow read, write = if true;
+      allow create = if true;
     }
   }
 }
@@ -43,8 +37,8 @@ beforeAll(async () => {
 });
  
 afterAll(async () => {
-  console.log('llamamos al afterAll')
-  const db = await authedApp(null);
+  //const db = await authedApp(null);
+
   Promise.all(admin.apps().map(app => app.delete()));
 });
  
@@ -55,7 +49,7 @@ describe('get availability', () => {
     //const result = await availbilityService.getByProgramDateAndPax('JLWK',moment('2019-10-01','YYYY-MM-DD').toDate(),2)
     //expect(result.length!=0).toBe(true)
     const result = await db.collection('availability').get()
-    console.log(result.length)
+    console.log(result)
     expect(1).toBe(1)
   })
 

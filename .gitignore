@@ -1,1 +1,6 @@
 /node_modules/
+engine/.vscode/
+engine/functions/.cache/
+engine/firebase-debug.log 
+engine/firestore-debug.log
+*.log

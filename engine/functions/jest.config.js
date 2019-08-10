@@ -12,7 +12,7 @@ module.exports = {
   // browser: false,
 
   // The directory where Jest should store its cached dependency information
-  // cacheDirectory: "/private/var/folders/0c/8qk8bt8n3cjg_y8nz_6m8scm0000gn/T/jest_dx",
+  // cacheDirectory: "/private/var/folders/xl/4w32_rzx4tq4f36j3vg8b1fh0000gp/T/jest_dy",
 
   // Automatically clear mock calls and instances between every test
   // clearMocks: false,
@@ -114,7 +114,7 @@ module.exports = {
   // A list of paths to directories that Jest should use to search for files in
   // roots: [
   //   "<rootDir>"
-  //],
+  // ],
 
   // Allows you to use a custom runner instead of Jest's default test runner
   // runner: "jest-runner",
@@ -183,14 +183,30 @@ module.exports = {
   // Whether to use watchman for file crawling
   // watchman: true,
 
-  "roots": [
-    "<rootDir>/test"
-  ],
   "transform": {
-    "^.+\\.test.js": "<rootDir>/node_modules/babel-jest",
-    "^.+\\.ts": "<rootDir>/node_modules/babel-jest",
+    "^.+\\.js$": "<rootDir>/node_modules/babel-jest",
+    "^.+\\.tsx?$": "ts-jest",
+    "^.+\\.ts?$": "ts-jest"
   },
-  "transformIgnorePatterns": [
-    "<rootDir>/node_modules/(?!@agm)"
-  ]
+  "testMatch": [
+    "**/__tests__/**/*.ts?(x)",
+    "**/?(*.)+(spec|test).ts?(x)"
+  ],
+  "moduleNameMapper": {
+    "^.+\\.css$": "identity-obj-proxy",
+    "^(app/.+)$": "<rootDir>/src/$1/",
+    "^(components/.+)$": "<rootDir>/src/$1/",
+    "^(stores/.+)$": "<rootDir>/src/$1/",
+    "^(views/.+)$": "<rootDir>/src/$1/",
+    "^(assets/.+)$": "<rootDir>/src/$1/",
+    "^(models/.+)$": "<rootDir>/src/$1/"
+  },
+  "moduleFileExtensions": [
+    "ts",
+    "tsx",
+    "js",
+    "jsx"
+  ],
+  "automock": false,
+
 };

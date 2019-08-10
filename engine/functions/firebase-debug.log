@@ -1,82 +1,60 @@
-[debug] [2019-08-01T15:53:00.192Z] ----------------------------------------------------------------------
-[debug] [2019-08-01T15:53:00.194Z] Command:       /usr/local/Cellar/node/12.6.0/bin/node /usr/local/bin/firebase emulators:start
-[debug] [2019-08-01T15:53:00.194Z] CLI Version:   7.2.2
-[debug] [2019-08-01T15:53:00.194Z] Platform:      darwin
-[debug] [2019-08-01T15:53:00.194Z] Node Version:  v12.6.0
-[debug] [2019-08-01T15:53:00.195Z] Time:          Thu Aug 01 2019 12:53:00 GMT-0300 (Argentina Standard Time)
-[debug] [2019-08-01T15:53:00.195Z] ----------------------------------------------------------------------
+[debug] [2019-08-10T20:17:13.999Z] ----------------------------------------------------------------------
+[debug] [2019-08-10T20:17:14.002Z] Command:       /Users/leonardoleenen/.nvm/versions/node/v8.14.0/bin/node /Users/leonardoleenen/.nvm/versions/node/v8.14.0/bin/firebase emulators:start
+[debug] [2019-08-10T20:17:14.002Z] CLI Version:   7.2.2
+[debug] [2019-08-10T20:17:14.002Z] Platform:      darwin
+[debug] [2019-08-10T20:17:14.002Z] Node Version:  v8.14.0
+[debug] [2019-08-10T20:17:14.002Z] Time:          Sat Aug 10 2019 17:17:14 GMT-0300 (-03)
+[debug] [2019-08-10T20:17:14.002Z] ----------------------------------------------------------------------
 [debug] 
-[debug] [2019-08-01T15:53:00.201Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2019-08-01T15:53:00.202Z] > authorizing via signed-in user
-[info] i  Starting emulators: ["functions"]
-[warn] ⚠  Your requested "node" version "8" doesn't match your global version "12"
-[debug] [2019-08-01T15:53:00.227Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/jurassiclake-pclmpb/adminSdkConfig  
+[debug] [2019-08-10T20:17:14.039Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-08-10T20:17:14.039Z] > authorizing via signed-in user
+[info] i  Starting emulators: ["functions","firestore"]
+[info] ✔  functions: Using node@8 from host.
+[debug] [2019-08-10T20:17:14.069Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2019-08-10T20:17:14.069Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2019-08-10T20:17:14.586Z] <<< HTTP RESPONSE 200
+[debug] [2019-08-10T20:17:14.748Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/outtripper-app/adminSdkConfig  
  
-[debug] [2019-08-01T15:53:01.442Z] <<< HTTP RESPONSE 200
+[debug] [2019-08-10T20:17:16.167Z] <<< HTTP RESPONSE 200
 [info] ✔  functions: Emulator started at http://localhost:5001
-[info] i  functions: Watching "/Users/leonardoleenen/projects/jurassiclake/functions" for Cloud Functions...
-[debug] [2019-08-01T15:53:01.934Z] [runtime-status] Functions runtime initialized. {"cwd":"/Users/leonardoleenen/projects/jurassiclake/functions","node_version":"12.6.0"}
-[debug] [2019-08-01T15:53:01.935Z] [runtime-status] Disabled runtime features: undefined {}
-[debug] [2019-08-01T15:53:01.936Z] [runtime-status] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.3.0","resolution":"/Users/leonardoleenen/projects/jurassiclake/functions/node_modules/firebase-admin/lib/index.js"}
-[debug] [2019-08-01T15:53:01.937Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.2.0","resolution":"/Users/leonardoleenen/projects/jurassiclake/functions/node_modules/firebase-functions/lib/index.js"}
-[debug] [2019-08-01T15:53:02.060Z] [runtime-status] Found google-gax at /Users/leonardoleenen/projects/jurassiclake/functions/node_modules/google-gax/build/src/index.js {}
-[debug] [2019-08-01T15:53:02.060Z] [runtime-status] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"},{"name":"google-gax","status":"mocked"}]
-[debug] [2019-08-01T15:53:02.108Z] [runtime-status] Checked functions.config() {"config":{}}
-[debug] [2019-08-01T15:53:02.108Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.2.0","resolution":"/Users/leonardoleenen/projects/jurassiclake/functions/node_modules/firebase-functions/lib/index.js"}
-[debug] [2019-08-01T15:53:02.109Z] [runtime-status] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.3.0","resolution":"/Users/leonardoleenen/projects/jurassiclake/functions/node_modules/firebase-admin/lib/index.js"}
-[debug] [2019-08-01T15:53:02.147Z] [runtime-status] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"8.3.0","resolution":"/Users/leonardoleenen/projects/jurassiclake/functions/node_modules/firebase-admin/lib/index.js"}}
-[warn] ⚠  Error: Cannot find module '/Users/leonardoleenen/projects/jurassiclake/functions/lib/index.js'. Please verify that the package.json has a valid "main" entry
-    at tryPackage (internal/modules/cjs/loader.js:228:19)
-    at Function.Module._findPath (internal/modules/cjs/loader.js:365:18)
-    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:612:27)
-    at Function.Module._load (internal/modules/cjs/loader.js:527:27)
-    at Module.require (internal/modules/cjs/loader.js:683:19)
-    at require (internal/modules/cjs/helpers.js:16:16)
-    at /usr/local/lib/node_modules/firebase-tools/lib/emulator/functionsEmulatorRuntime.js:660:33
+[debug] [2019-08-10T20:17:16.430Z] Ignoring unsupported arg: projectId
+[debug] [2019-08-10T20:17:16.431Z] Ignoring unsupported arg: auto_download
+[debug] [2019-08-10T20:17:16.431Z] Starting emulator firestore with args {"host":"localhost","port":8080,"projectId":"outtripper-app","auto_download":true,"rules":"/Users/leonardoleenen/projects/outtripper/engine/functions/test/firestore.rules","functions_emulator":"localhost:5001"}
+[info] i  firestore: Emulator logging to firestore-debug.log
+[debug] [2019-08-10T20:17:21.571Z] API endpoint: http://
+[debug] [2019-08-10T20:17:21.572Z] localhost:8080
+If you are using a library that supports the FIRESTORE_EMULATOR_HOST environment variable, run:
+
+   export FIRESTORE_EMULATOR_HOST=localhost:8080
+
+Dev App Server is now running.
+
+
+[info] ✔  firestore: Emulator started at http://localhost:8080
+[info] i  firestore: For testing set FIRESTORE_EMULATOR_HOST=localhost:8080
+[info] i  functions: Watching "/Users/leonardoleenen/projects/outtripper/engine/functions" for Cloud Functions...
+[debug] [2019-08-10T20:17:22.164Z] [runtime-status] Functions runtime initialized. {"cwd":"/Users/leonardoleenen/projects/outtripper/engine/functions","node_version":"8.14.0"}
+[debug] [2019-08-10T20:17:22.164Z] [runtime-status] Disabled runtime features: undefined {}
+[debug] [2019-08-10T20:17:22.166Z] [runtime-status] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.3.0","resolution":"/Users/leonardoleenen/projects/outtripper/engine/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2019-08-10T20:17:22.167Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.2.0","resolution":"/Users/leonardoleenen/projects/outtripper/engine/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2019-08-10T20:17:23.149Z] [runtime-status] Found google-gax at /Users/leonardoleenen/projects/outtripper/engine/functions/node_modules/google-gax/build/src/index.js {}
+[debug] [2019-08-10T20:17:23.149Z] [runtime-status] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"},{"name":"google-gax","status":"mocked"}]
+[debug] [2019-08-10T20:17:23.220Z] [runtime-status] Checked functions.config() {"config":{}}
+[debug] [2019-08-10T20:17:23.221Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.2.0","resolution":"/Users/leonardoleenen/projects/outtripper/engine/functions/node_modules/firebase-functions/lib/index.js"}
+[debug] [2019-08-10T20:17:23.222Z] [runtime-status] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.3.0","resolution":"/Users/leonardoleenen/projects/outtripper/engine/functions/node_modules/firebase-admin/lib/index.js"}
+[debug] [2019-08-10T20:17:23.288Z] [runtime-status] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"8.3.0","resolution":"/Users/leonardoleenen/projects/outtripper/engine/functions/node_modules/firebase-admin/lib/index.js"}}
+[warn] ⚠  Error: Cannot find module '/Users/leonardoleenen/projects/outtripper/engine/functions'
+    at Function.Module._resolveFilename (module.js:548:15)
+    at Function.Module._load (module.js:475:25)
+    at Module.require (module.js:597:17)
+    at require (internal/module.js:11:18)
+    at /Users/leonardoleenen/.nvm/versions/node/v8.14.0/lib/node_modules/firebase-tools/lib/emulator/functionsEmulatorRuntime.js:660:33
     at Generator.next (<anonymous>)
-    at fulfilled (/usr/local/lib/node_modules/firebase-tools/lib/emulator/functionsEmulatorRuntime.js:4:58)
-    at processTicksAndRejections (internal/process/task_queues.js:85:5)
-[warn] ⚠  We were unable to load your functions code. (see above)
-   - It appears your code is written in Typescript, which must be compiled before emulation.
-   - You may be able to run "npm run build" in your functions directory to resolve this.
-[debug] [2019-08-01T15:53:36.453Z] ----------------------------------------------------------------------
-[debug] [2019-08-01T15:53:36.454Z] Command:       /usr/local/Cellar/node/12.6.0/bin/node /usr/local/bin/firebase emulators:start
-[debug] [2019-08-01T15:53:36.455Z] CLI Version:   7.2.2
-[debug] [2019-08-01T15:53:36.455Z] Platform:      darwin
-[debug] [2019-08-01T15:53:36.455Z] Node Version:  v12.6.0
-[debug] [2019-08-01T15:53:36.455Z] Time:          Thu Aug 01 2019 12:53:36 GMT-0300 (Argentina Standard Time)
-[debug] [2019-08-01T15:53:36.455Z] ----------------------------------------------------------------------
-[debug] 
-[debug] [2019-08-01T15:53:36.462Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2019-08-01T15:53:36.462Z] > authorizing via signed-in user
-[info] i  Starting emulators: ["functions"]
-[warn] ⚠  Your requested "node" version "8" doesn't match your global version "12"
-[debug] [2019-08-01T15:53:36.487Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/jurassiclake-pclmpb/adminSdkConfig  
- 
-[debug] [2019-08-01T15:53:37.692Z] <<< HTTP RESPONSE 200
-[info] ✔  functions: Emulator started at http://localhost:5001
-[info] i  functions: Watching "/Users/leonardoleenen/projects/jurassiclake/functions" for Cloud Functions...
-[debug] [2019-08-01T15:53:38.201Z] [runtime-status] Functions runtime initialized. {"cwd":"/Users/leonardoleenen/projects/jurassiclake/functions","node_version":"12.6.0"}
-[debug] [2019-08-01T15:53:38.201Z] [runtime-status] Disabled runtime features: undefined {}
-[debug] [2019-08-01T15:53:38.203Z] [runtime-status] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.3.0","resolution":"/Users/leonardoleenen/projects/jurassiclake/functions/node_modules/firebase-admin/lib/index.js"}
-[debug] [2019-08-01T15:53:38.204Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.2.0","resolution":"/Users/leonardoleenen/projects/jurassiclake/functions/node_modules/firebase-functions/lib/index.js"}
-[debug] [2019-08-01T15:53:38.335Z] [runtime-status] Found google-gax at /Users/leonardoleenen/projects/jurassiclake/functions/node_modules/google-gax/build/src/index.js {}
-[debug] [2019-08-01T15:53:38.335Z] [runtime-status] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"},{"name":"google-gax","status":"mocked"}]
-[debug] [2019-08-01T15:53:38.380Z] [runtime-status] Checked functions.config() {"config":{}}
-[debug] [2019-08-01T15:53:38.381Z] [runtime-status] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.2.0","resolution":"/Users/leonardoleenen/projects/jurassiclake/functions/node_modules/firebase-functions/lib/index.js"}
-[debug] [2019-08-01T15:53:38.381Z] [runtime-status] Resolved module firebase-admin {"declared":true,"installed":true,"version":"8.3.0","resolution":"/Users/leonardoleenen/projects/jurassiclake/functions/node_modules/firebase-admin/lib/index.js"}
-[debug] [2019-08-01T15:53:38.418Z] [runtime-status] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"8.3.0","resolution":"/Users/leonardoleenen/projects/jurassiclake/functions/node_modules/firebase-admin/lib/index.js"}}
-[warn] ⚠  Error: Cannot find module '/Users/leonardoleenen/projects/jurassiclake/functions/lib/index.js'. Please verify that the package.json has a valid "main" entry
-    at tryPackage (internal/modules/cjs/loader.js:228:19)
-    at Function.Module._findPath (internal/modules/cjs/loader.js:365:18)
-    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:612:27)
-    at Function.Module._load (internal/modules/cjs/loader.js:527:27)
-    at Module.require (internal/modules/cjs/loader.js:683:19)
-    at require (internal/modules/cjs/helpers.js:16:16)
-    at /usr/local/lib/node_modules/firebase-tools/lib/emulator/functionsEmulatorRuntime.js:660:33
-    at Generator.next (<anonymous>)
-    at fulfilled (/usr/local/lib/node_modules/firebase-tools/lib/emulator/functionsEmulatorRuntime.js:4:58)
-    at processTicksAndRejections (internal/process/task_queues.js:85:5)
+    at fulfilled (/Users/leonardoleenen/.nvm/versions/node/v8.14.0/lib/node_modules/firebase-tools/lib/emulator/functionsEmulatorRuntime.js:4:58)
+    at <anonymous>
+    at process._tickCallback (internal/process/next_tick.js:189:7)
+    at Function.Module.runMain (module.js:696:11)
 [warn] ⚠  We were unable to load your functions code. (see above)
    - It appears your code is written in Typescript, which must be compiled before emulation.
    - You may be able to run "npm run build" in your functions directory to resolve this.

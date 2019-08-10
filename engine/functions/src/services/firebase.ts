@@ -15,8 +15,8 @@ export const getConnector = async() => {
   return admin
 }
 
-export const firebase = getConnector().firebase
-export const firestore = getConnector().firestore
+//export const firebase = getConnector().firebase
+//export const firestore = getConnector().firestore
 export const connector = getConnector()
 
 

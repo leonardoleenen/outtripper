@@ -1,0 +1,3 @@
+# init
+
+firebase emulators:start 

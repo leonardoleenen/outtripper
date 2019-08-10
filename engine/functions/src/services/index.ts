@@ -1,5 +1,5 @@
 import {IAvailabilityService, IProgram, IAvailability, Program,Availability} from '../types';
-import moment from 'moment'
+import * as moment from 'moment'
 
 import {firestore} from '../services/firebase';
 
