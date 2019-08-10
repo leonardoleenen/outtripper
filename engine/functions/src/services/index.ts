@@ -11,7 +11,7 @@ if (process.env.NODE_ENV != 'test') {
 
 class AvailabilityService implements IAvailabilityService {
 
-  firestore:any
+  firestore:any = process.env.NODE_ENV != 'test' ? admin.firestore() : undefined
   
   /** Overwrite connector  */
   setConnector(connector:any) { 
@@ -106,14 +106,12 @@ export const availbilityService = new AvailabilityService()
 export const initDatabase= (firestore:any): Promise<any>  => {
   const p = new Program("JLWP","Jurassic Lake Weekly program",10,1)
   const availabilityCollection = firestore.collection('availability')
-
-  availabilityCollection.add(new Availability(p,moment('2019-10-05','YYYY-MM-DD').toDate(),moment('2019-10-12','YYYY-MM-DD').toDate(), 10).toJSON())
+  
   return Promise.all(
     [
       availabilityCollection.add(new Availability(p,moment('2019-10-05','YYYY-MM-DD').toDate(),moment('2019-10-12','YYYY-MM-DD').toDate(), 10).toJSON()),
       availabilityCollection.add(new Availability(p,moment('2019-10-12','YYYY-MM-DD').toDate(),moment('2019-10-19','YYYY-MM-DD').toDate(), 8).toJSON()),
       availabilityCollection.add(new Availability(p,moment('2019-10-19','YYYY-MM-DD').toDate(),moment('2019-10-12','YYYY-MM-DD').toDate(), 4).toJSON()),
       availabilityCollection.add(new Availability(p,moment('2019-10-26','YYYY-MM-DD').toDate(),moment('2019-10-26','YYYY-MM-DD').toDate(), 6).toJSON())
-    ])
-   
+    ])  
 }
