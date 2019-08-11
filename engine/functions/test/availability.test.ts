@@ -17,8 +17,9 @@ async function authedApp(auth:any) {
 const rules  = `
 service cloud.firestore {
   match /databases/{database}/documents {
-    match /{document=**} {
-      allow read, write
+    match /availability/{availabilityId} {
+      allow create : if true;
+      allow read, write : if true;
     }
   }
 }
@@ -27,12 +28,14 @@ service cloud.firestore {
 
 beforeEach(async () => {
   //await admin.clearFirestoreData({ projectId });
-}); 
+});  
 
 beforeAll(async () => {
   db = await authedApp(null);
-  await admin.loadFirestoreRules({ projectId, rules });
+  console.log(rules)
+  // await admin.loadFirestoreRules({ projectId, rules });
   await initDatabase(db)
+  //db.collection('availability').doc('pepe').set({foo: 'bar'})
   const result = await db.collection('availability').get()
 
   console.log(result)
@@ -46,21 +49,10 @@ afterAll(async () => {
 });
  
 describe('get availability', () => {
-  it('get full params', async() => {
-    // const db = await authedApp(null);
-    //availbilityService.setConnector(db)
-    //const result = await availbilityService.getByProgramDateAndPax('JLWK',moment('2019-10-01','YYYY-MM-DD').toDate(),2)
-    //expect(result.length!=0).toBe(true)
-    // db = await authedApp(null);
-    //const result = await admin.firestore().collection('availability').get()
-    //console.log(result)\
-    // const db = await authedApp(null);
+  it('get availability with full parameters', async() => {
     availbilityService.setConnector(db)
-    const result = await availbilityService.getByProgramDateAndPax('JLWK',moment('2019-10-01','YYYY-MM-DD').toDate(),2)
-
-    const r2  = await db.collection('availability').get()
-    console.log(result,r2)
-    expect(1).toBe(1)
+    const result = await availbilityService.getByProgramDateAndPax('JLWP',moment('2019-10-01','YYYY-MM-DD').toDate(),2)
+    expect(result.length>0).toBe(true)
   })
 
   it('get Dates only by starting date', async() =>{
