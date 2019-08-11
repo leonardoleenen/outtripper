@@ -4,11 +4,9 @@ import {availbilityService,initDatabase}  from './services/index';
 import * as moment from 'moment'
 const {WebhookClient} = require('dialogflow-fulfillment');
 // const {Card, Suggestion} = require('dialogflow-fulfillment');
-import * as admin  from 'firebase-admin'
 
-if (process.env.NODE_ENV !== 'test') {
-  admin.initializeApp()
-}
+import firebase from './services/firebase';
+
 
 const cors = require('cors')({
   origin: true,
@@ -25,7 +23,7 @@ export const helloWorld = functions.https.onRequest((request, response) => {
 
 
 export const initMockDatabase = functions.https.onRequest((request, response) => {
-  initDatabase(admin.firestore()).
+  initDatabase(firebase.firestore()).
     then((r:any) => {
       return cors(request, response, () => {
         response.json({result:"Done", value: r})

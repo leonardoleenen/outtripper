@@ -3,3 +3,7 @@
 firebase emulators:start 
 npm install 
 npm test
+
+for debug functions
+ndb firebase serve
+

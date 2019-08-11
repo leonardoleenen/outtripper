@@ -1,18 +1,14 @@
 import {IAvailabilityService, IProgram, IAvailability, Program,Availability} from '../types';
 import * as moment from 'moment'
 
-import * as admin  from 'firebase-admin'
-
-
-
-if (process.env.NODE_ENV !== 'test') {
-  admin.initializeApp()
-}
+import firebase from './firebase'
 
 class AvailabilityService implements IAvailabilityService {
 
-  firestore:any = process.env.NODE_ENV !== 'test' ? admin.firestore() : undefined
+  firestore:any = (process.env.NODE_ENV !== 'test' && firebase!== undefined) ? firebase.firestore() : undefined
   
+  //firestore:any = firebase.firestore()
+
   /** Overwrite connector  */
   setConnector(connector:any) { 
     this.firestore = connector
@@ -91,7 +87,7 @@ class AvailabilityService implements IAvailabilityService {
   }
 
   getAll() : Promise<IAvailability[]> {
-    return this.firestore().collection('availability').get().then((querySnapshot : any) => {
+    return this.firestore.collection('availability').get().then((querySnapshot : any) => {
       querySnapshot.forEach((doc: any) => {
         this.result.push(Availability.JSONToClass(doc.data())) //Please, don't forget .data() method!! 
       });
