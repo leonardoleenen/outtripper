@@ -6,5 +6,8 @@
       "firestore": {
         "port": 8080
       }
+    },
+    "functions": {
+      "predeploy": "npm --prefix functions run build"
     }
   }

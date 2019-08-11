@@ -38,7 +38,7 @@ beforeAll(async () => {
  
 afterAll(async () => {
   await admin.clearFirestoreData({ projectId });
-  Promise.all(admin.apps().map(app => app.delete()));
+  Promise.all(admin.apps().map(app => app.delete())).catch(err => console.log(err))
 
 });
  
@@ -49,8 +49,10 @@ describe('get availability', () => {
     expect(result.length>0).toBe(true)
   })
 
-  it('get Dates only by starting date', async() =>{
-  
+  it('get message of availability', async() =>{
+    availbilityService.setConnector(db)
+    await availbilityService.getByProgramDateAndPax('JLWP',moment('2019-10-01','YYYY-MM-DD').toDate(),2)
+    expect(availbilityService.humanize()).not.toBe('')
   })
 })
 

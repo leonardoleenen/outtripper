@@ -5,13 +5,13 @@ import * as admin  from 'firebase-admin'
 
 
 
-if (process.env.NODE_ENV != 'test') {
+if (process.env.NODE_ENV !== 'test') {
   admin.initializeApp()
 }
 
 class AvailabilityService implements IAvailabilityService {
 
-  firestore:any = process.env.NODE_ENV != 'test' ? admin.firestore() : undefined
+  firestore:any = process.env.NODE_ENV !== 'test' ? admin.firestore() : undefined
   
   /** Overwrite connector  */
   setConnector(connector:any) { 
@@ -52,7 +52,7 @@ class AvailabilityService implements IAvailabilityService {
   }
 
   humanize(): string {
-    let message = 'Sorry, we need more info'
+    const message = 'Sorry, we need more info'
 
     if(this.result.length===0)
       return  "Sorry, we don't more space left for this dates."

@@ -12,6 +12,13 @@
   "compileOnSave": true,
   "include": [
     "test/**/*.test.ts",
+    "src",
     "node_modules/@types"
+  ],
+  "exclude": [
+    "tmp",
+    "dist",
+    "test",
+    "node_modules"
   ]
 }
