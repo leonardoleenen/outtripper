@@ -2,6 +2,7 @@ import { availbilityService, initDatabase}  from '../src/services/index';
 import  * as admin from "@firebase/testing";
 import * as moment from 'moment'
 export const projectId = "firestore-emulator";
+import * from '@types/jest'
 
 // const auth = null
 
