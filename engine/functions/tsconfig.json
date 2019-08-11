@@ -7,10 +7,11 @@
     "sourceMap": true,
     "strict": true,
     "target": "es2017",
-    "types": ["jest"]
+    "types": ["jest", "node"]
   },
   "compileOnSave": true,
   "include": [
-    "src"
+    "test/**/*.test.ts",
+    "node_modules/@types"
   ]
 }

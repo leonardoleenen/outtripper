@@ -1,3 +1,5 @@
 # init
 
 firebase emulators:start 
+npm install 
+npm test

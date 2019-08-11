@@ -2,7 +2,6 @@ import { availbilityService, initDatabase}  from '../src/services/index';
 import  * as admin from "@firebase/testing";
 import * as moment from 'moment'
 export const projectId = "firestore-emulator";
-import * from '@types/jest'
 
 // const auth = null
 
@@ -33,17 +32,11 @@ beforeEach(async () => {
 
 beforeAll(async () => {
   db = await authedApp(null);
-  console.log(rules)
-  // await admin.loadFirestoreRules({ projectId, rules });
+  await admin.loadFirestoreRules({ projectId, rules });
   await initDatabase(db)
-  //db.collection('availability').doc('pepe').set({foo: 'bar'})
-  const result = await db.collection('availability').get()
-
-  console.log(result)
 });
  
 afterAll(async () => {
-  //const db = await authedApp(null);
   await admin.clearFirestoreData({ projectId });
   Promise.all(admin.apps().map(app => app.delete()));
 
