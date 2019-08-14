@@ -7,6 +7,11 @@ export interface IProgram {
   toJSON(): any
 }
 
+export interface IPeriod {
+  startingAt: Date,
+  till: Date
+}
+
 export interface IAvailability {
   program: IProgram,
   startingAt: Date,
@@ -36,7 +41,7 @@ export interface IAvailabilityService {
    * @param till 
    * @param freeSpots 
    */
-  set(program: IProgram, startingAt: Date, till: Date, freeSpots: number): Promise<void>
+  set(program: IProgram, period: IPeriod, till: Date, freeSpots: number): Promise<void>
 
   /**
    * Get All availability 
@@ -49,14 +54,14 @@ export interface IAvailabilityService {
    * @param startingDate 
    * @param pax 
    */
-  getByProgramDateAndPax(idProgram: string, startingDate: Date,pax: number): Promise<IAvailability[]>
+  getByProgramDateAndPax(idProgram: string,  period: IPeriod,pax: number): Promise<IAvailability[]>
 
 
   /**
    * get Availability by dates no matters programs and pax
    * @param startingAt 
    */
-  getByDates(startingAt: Date): Promise<IAvailability[]>
+  getByDates( period: IPeriod): Promise<IAvailability[]>
 
 
   /**
@@ -64,19 +69,23 @@ export interface IAvailabilityService {
    * @param startingAt 
    * @param pax 
    */
-  getByDatesAndPax(startingAt: Date, pax: number): Promise<IAvailability[]>
+  getByDatesAndPax( period: IPeriod, pax: number): Promise<IAvailability[]>
 
 
   /**
    * Converts an availability list to human text
    * @param availability 
    */
-  humanize(): String
+  humanize(): IHumanMessage
 
   /** Choice a random availability date. This method must be called after any method get */
   choiceRandom(): IAvailability
 }
 
+export interface IHumanMessage {
+  message: string, 
+  payload?: IImage[] | ICard[]
+}
 
 export class Program implements IProgram {
   id: string;
@@ -136,4 +145,18 @@ export class Availability implements IAvailability {
 
     return new Availability(Program.JSONToClass(value.program),_starting,_till, value.freeSpots)
   }
+}
+
+
+export interface IImage {
+  kind: 'Image',
+  url: string
+}
+
+export interface ICard {
+  kind: 'Card',
+  title: string,
+  text: string, 
+  imageUrl: string, 
+
 }

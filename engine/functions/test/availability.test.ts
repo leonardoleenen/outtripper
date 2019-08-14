@@ -2,6 +2,9 @@ import { availbilityService, initDatabase}  from '../src/services/index';
 import  * as admin from "@firebase/testing";
 import * as moment from 'moment'
 export const projectId = "firestore-emulator";
+import {groupBy} from 'underscore'
+import { IAvailability, IPeriod } from '../src/types';
+
 
 // const auth = null
 
@@ -43,16 +46,48 @@ afterAll(async () => {
 });
  
 describe('get availability', () => {
-  it('get availability with full parameters', async() => {
+  it('get availability with full parameters - got only one program', async() => {
     availbilityService.setConnector(db)
-    const result = await availbilityService.getByProgramDateAndPax('JLWP',moment('2019-10-01','YYYY-MM-DD').toDate(),2)
-    expect(result.length>0).toBe(true)
+    const period: IPeriod = {
+      startingAt: moment('2019-10-01T00:00:00-03:00','YYYY-MM-DD').toDate(),
+      till: moment('2019-10-30T00:00:00-03:00','YYYY-MM-DD').toDate()
+    }
+    const result = await availbilityService.getByProgramDateAndPax('JLWP',period,2)
+    expect(result.length>0 && Object.keys(groupBy(result, (m:IAvailability) => m.program.id)).length===1).toBe(true)
   })
 
   it('get message of availability', async() =>{
     availbilityService.setConnector(db)
-    await availbilityService.getByProgramDateAndPax('JLWP',moment('2019-10-01','YYYY-MM-DD').toDate(),2)
+    const period: IPeriod = {
+      startingAt: moment('2019-10-01T00:00:00-03:00','YYYY-MM-DD').toDate(),
+      till: moment('2019-10-30T00:00:00-03:00','YYYY-MM-DD').toDate()
+    }
+    await availbilityService.getByProgramDateAndPax('JLWP',period,2)
     expect(availbilityService.humanize()).not.toBe('')
+  })
+
+
+  it('get availability without program filter with to diferents programs', async() => {
+    availbilityService.setConnector(db)
+    const period: IPeriod = {
+      startingAt: moment('2020-02-01T00:00:00-03:00','YYYY-MM-DD').toDate(),
+      till: moment('2020-02-28T00:00:00-03:00','YYYY-MM-DD').toDate()
+    }
+    const result = await availbilityService.getByDatesAndPax(period,2)
+    expect(Object.keys(groupBy(result, (m:IAvailability) => m.program.id)).length>1).toBe(true)
+  })
+
+  it('get availability random', async() => {
+    availbilityService.setConnector(db)
+    const period: IPeriod = {
+      startingAt: moment('2019-10-01T00:00:00-03:00','YYYY-MM-DD').toDate(),
+      till: moment('2019-10-30T00:00:00-03:00','YYYY-MM-DD').toDate()
+    }
+    await availbilityService.getByProgramDateAndPax('JLWP',period,2)
+
+    const randomDate = jest.fn(() => availbilityService.choiceRandom());
+    randomDate()
+    expect(randomDate).toHaveReturned()
   })
 })
 

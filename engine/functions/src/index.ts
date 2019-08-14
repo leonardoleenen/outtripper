@@ -2,10 +2,12 @@ import * as functions from 'firebase-functions';
 
 import {availbilityService,initDatabase}  from './services/index';
 import * as moment from 'moment'
-const {WebhookClient} = require('dialogflow-fulfillment');
+const {WebhookClient, Image} = require('dialogflow-fulfillment');
 // const {Card, Suggestion} = require('dialogflow-fulfillment');
-
+//import {Image} from 'dialogflow-fulfillment';
+import {last} from 'underscore';
 import firebase from './services/firebase';
+import { IPeriod, IHumanMessage, ICard, IImage } from './types';
 
 
 const cors = require('cors')({
@@ -17,9 +19,6 @@ const cors = require('cors')({
 // // Start writing Firebase Functions
 // // https://firebase.google.com/docs/functions/typescript
 //
-export const helloWorld = functions.https.onRequest((request, response) => {
-  response.send("Hello from Firebase!");
- });
 
 
 export const initMockDatabase = functions.https.onRequest((request, response) => {
@@ -32,31 +31,6 @@ export const initMockDatabase = functions.https.onRequest((request, response) =>
     catch(err => console.log(err))
 })   
 
-export const getAll = functions.https.onRequest((request, response) => {
-  availbilityService.getAll().
-    then(result => {
-      return cors(request, response, () => {
-        response.send();
-      });
-    }).
-    catch(err => console.log(err))
-})
-
-export const getByProgramDateAndPax = functions.https.onRequest((request, response) => {
-  availbilityService.getByProgramDateAndPax(
-    request.body.idProgram,
-    moment(request.body.startingAt,'YYYY-MM-DD hh:mm:ss').toDate(),
-    request.body.pax).
-      then(result => {
-        return cors(request, response, () => {
-          response.json({
-            result:'done', 
-            toHuman: availbilityService.humanize(),
-            value: result})
-        })
-      }).
-      catch(err => console.log(err))
-})
 
 
 
@@ -73,23 +47,38 @@ function sendReatesAndInfoByEmail(agent: any) {
   agent.add('We have sent to your email address all detail info and rates about our lodge. Do you want another inquire?');
 }
 
-async function getAvailability(agent : any) {
-  const body =  {
-    "idProgram":"JLWP",
-    "startingAt":"2019-10-01", 
-    "pax":1
-  };
 
-  await availbilityService.getByProgramDateAndPax(
-    body.idProgram,
-    moment(body.startingAt,'YYYY-MM-DD hh:mm:ss').toDate(),
-    body.pax)
-    
-  availbilityService.humanize()
-  agent.add(availbilityService.humanize());
-  
- // agent.add('We have this dates available. Which may be works for you?');
+async function getAvailabilityByPeriodAndPax(agent : any) {
+  const context = <any|null>last(agent.contexts)
+
+  const period : IPeriod = {
+    startingAt: moment(context.parameters.availability_range.startDate,'YYYY-MM-DD').toDate(),
+    till: moment(context.parameters.availability_range.endDate,'YYYY-MM-DD').toDate()
+  }
+
+  await availbilityService.getByDatesAndPax(period,context.parameters.paxQtyToTravel)
+  agent.add(availbilityService.humanize().message); 
+  const components: ICard[] | IImage[] | undefined  = (<IHumanMessage>availbilityService.humanize()).payload 
+  if (components)
+    components.forEach((e:any)  => {
+      if (e.kind === 'Image'){
+        agent.add(new Image(e.url))
+      }
+    })
+
+
 }
+
+async function getRandomAvailability(agent:any) {
+  const context = <any|null>last(agent.contexts)
+  const period : IPeriod = {
+    startingAt: moment(context.parameters.availability_range.startDate,'YYYY-MM-DD').toDate(),
+    till: moment(context.parameters.availability_range.endDate,'YYYY-MM-DD').toDate()
+  }
+  await availbilityService.getByDatesAndPax(period,context.parameters.paxQtyToTravel)
+  agent.add(availbilityService.dateToHuman([availbilityService.choiceRandom()]))
+}
+
 
 export const fullfilmentEntryPoint =  functions.https.onRequest((request, response) => {
   const agent = new WebhookClient({ request, response });
@@ -101,9 +90,7 @@ export const fullfilmentEntryPoint =  functions.https.onRequest((request, respon
   intentMap.set('Default Welcome Intent', welcome);
   intentMap.set('Default Fallback Intent', fallback);
   intentMap.set('RatesAndInfo - yes - email',sendReatesAndInfoByEmail);
-  intentMap.set('Availability with year and month - fixed angler qty',getAvailability);
-  intentMap.set('Availability for pax with month and year',getAvailability);
-  // intentMap.set('your intent name here', yourFunctionHandler);
-  // intentMap.set('your intent name here', googleAssistantHandler);
+  intentMap.set('Availability with year and month - fixed angler qty',getAvailabilityByPeriodAndPax);
+  intentMap.set('Availability with year and month - fixed angler qty - any date',getRandomAvailability)
   agent.handleRequest(intentMap);
 });
