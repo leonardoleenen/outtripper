@@ -7599,11 +7599,40 @@ video {
   font-family: 'Open Sans', sans-serif;
 }
 
+$bachground-gradient : linear-gradient(179.96deg, #F56565 2.18%, #E53E3E 27.54%, #C53030 52.38%, #9B2C2C 98.95%);
+
+.bg-gradient { 
+  background: $bachground-gradient;
+}
+
+.login {
+  display: grid;
+  grid-template-rows: repeat(9,1fr);
+  grid-gap: 10px;
+  label {
+    color: white;
+    font-family: 'Gochi Hand', cursive;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 64px;
+    line-height: 75px;
+    letter-spacing: 0.75px;
+    grid-row: span 5
+  };
+  .loginIcons {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  };
+  footer {
+    grid-area: 9
+  }
+}
+
 .splash {
   display: grid;
   grid-template-rows: 50% 50%;
   color: white;
-  background: linear-gradient(179.96deg, #F56565 2.18%, #E53E3E 27.54%, #C53030 52.38%, #9B2C2C 98.95%);
+  background: $bachground-gradient;
   label {
     color: white;
     font-family: 'Gochi Hand', cursive;

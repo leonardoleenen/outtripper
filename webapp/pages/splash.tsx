@@ -2,17 +2,16 @@ import React from 'react'
 import '../styles/index.scss'
 
 class Splash extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props)
   }
 
   render() {
     return <div className="h-screen splash">
-      
-      <label className= "m-auto">
+      <label className="m-auto">
         OutTripper
       </label>
-      <p className= "mx-auto">.: Your Booking Chart App :. </p>
+      <p className="mx-auto">.: Your Booking Chart App :. </p>
     </div>
   }
 }
