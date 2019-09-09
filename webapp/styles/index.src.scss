@@ -1,0 +1,45 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Gochi+Hand&display=swap');
+
+* {
+    font-family: 'Open Sans', sans-serif;
+ }
+
+
+
+.splash {
+    display: grid;
+    grid-template-rows: 50% 50%;   
+    color: white;
+    background: linear-gradient(179.96deg, #F56565 2.18%, #E53E3E 27.54%, #C53030 52.38%, #9B2C2C 98.95%);
+    label {
+        color: white;
+        font-family: 'Gochi Hand', cursive;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 64px;
+        line-height: 75px;
+        letter-spacing: 0.75px;
+        margin: 75% 0% 0% 10%;
+    };
+    p {
+        
+        font-family: Open Sans;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 14px;
+        line-height: 25px;
+        /* identical to box height, or 179% */
+        text-align: center;
+        letter-spacing: 0.15px;
+    }
+
+}
+
+
