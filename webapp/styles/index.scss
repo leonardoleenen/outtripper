@@ -7683,9 +7683,13 @@ $bachground-gradient: linear-gradient(
     width: 91.666667%;
     margin: auto
   };
-  img {
+  .avatarNoEvent {
     grid-row: span 2;
     margin: auto
+  };
+  .arrow {
+    margin-left: auto;
+    margin-right: auto
   }
 }
 

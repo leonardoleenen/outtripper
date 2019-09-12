@@ -84,9 +84,12 @@ $bachground-gradient: linear-gradient(
     grid-row: 4; 
     @apply text-xs text-center mb-4 font-thin tracking-wider leading-relaxed w-11/12 m-auto
   };
-  img {
+  .avatarNoEvent {
     grid-row: span 2;
     @apply m-auto
+  };
+  .arrow { 
+    @apply mx-auto
   }
 }
 
