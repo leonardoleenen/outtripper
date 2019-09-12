@@ -7591,40 +7591,101 @@ video {
   z-index: auto;
 }
 
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400&display=swap");
 
-@import url('https://fonts.googleapis.com/css?family=Gochi+Hand&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Gochi+Hand&display=swap");
+
+@import './variables.scss';
 
 * {
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
-$bachground-gradient : linear-gradient(179.96deg, #F56565 2.18%, #E53E3E 27.54%, #C53030 52.38%, #9B2C2C 98.95%);
+$bachground-gradient: linear-gradient(
+  179.96deg,
+  #f56565 2.18%,
+  #e53e3e 27.54%,
+  #c53030 52.38%,
+  #9b2c2c 98.95%
+);
 
-.bg-gradient { 
+.bg-gradient {
   background: $bachground-gradient;
+}
+
+.bottomBar {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  margin-top: 0.25rem;
+  width: 100%;
+  border-top-width: 1px;
+  p {
+    font-weight: 300;
+    font-size: 9px;
+    line-height: 13px;
+    margin: auto
+  };
+  img {
+    margin: auto
+  }
+}
+
+.buttonBottomBar {
+  display: grid;
+  grid-template-rows: 1fr 9px;
+  height: 53px;
+  width: 100%;
+  margin-top: 0.25rem;
 }
 
 .login {
   display: grid;
-  grid-template-rows: repeat(9,1fr);
+  grid-template-rows: repeat(9, 1fr);
   grid-gap: 10px;
   label {
     color: white;
-    font-family: 'Gochi Hand', cursive;
+    font-family: "Gochi Hand", cursive;
     font-style: normal;
     font-weight: normal;
     font-size: 64px;
     line-height: 75px;
     letter-spacing: 0.75px;
-    grid-row: span 5
-  };
+    grid-row: span 5;
+  }
   .loginIcons {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-  };
+  }
   footer {
-    grid-area: 9
+    grid-area: 9;
+  }
+}
+
+.noEvents {
+  display: grid;
+  grid-template-rows: repeat(5, 1fr);
+  grid-gap: 20px;
+  label {
+    color: $black_color;
+    font-size: 2.25rem;
+    margin: auto;
+    font-weight: 600;
+  };
+  article {
+    color: $black_color;
+    grid-row: 4;
+    font-size: 0.75rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    font-weight: 200;
+    letter-spacing: 0.05em;
+    line-height: 1.625;
+    width: 91.666667%;
+    margin: auto
+  };
+  img {
+    grid-row: span 2;
+    margin: auto
   }
 }
 
@@ -7635,14 +7696,14 @@ $bachground-gradient : linear-gradient(179.96deg, #F56565 2.18%, #E53E3E 27.54%,
   background: $bachground-gradient;
   label {
     color: white;
-    font-family: 'Gochi Hand', cursive;
+    font-family: "Gochi Hand", cursive;
     font-style: normal;
     font-weight: normal;
     font-size: 64px;
     line-height: 75px;
     letter-spacing: 0.75px;
     margin: 75% 0% 0% 10%;
-  };
+  }
   p {
     font-family: Open Sans;
     font-style: normal;
@@ -35518,5 +35579,3 @@ $bachground-gradient : linear-gradient(179.96deg, #F56565 2.18%, #E53E3E 27.54%,
     z-index: auto;
   }
 }
-
-
