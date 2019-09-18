@@ -1,7 +1,17 @@
 import * as firebase from "firebase/app";
 import "firebase/auth";
 import Dexie from 'dexie';
-import { User, IUser, IDataBaseService } from "./type";
+import { 
+  User, 
+  Destination,
+  IUser, 
+  IDataBaseService, 
+  IDestination, 
+  ISession,
+  Session,
+  Program, 
+  IProgram
+} from "./type";
 
 
 export const firebaseConfig = {
@@ -20,6 +30,28 @@ if (!firebase.apps.length) {
 }
 
 export class OutTripperDatabase extends Dexie implements IDataBaseService {
+  insertProgram(program: import("./type").IProgram): void {
+    this.program.put(program)
+  }
+
+  getToken(): Promise<string> {
+    return this.session.toCollection().first().then( (session:ISession) => session.token)
+  }
+
+  setSession(data: ISession): void {
+    this.session.put(data)
+  }
+  cleanSession(): void {
+    this.session.clear()
+  }
+
+  insertDestinationInfo(info: IDestination): void {
+    this.destination.put(info)
+  }
+
+  getDestinationInfo(): Promise<IDestination> {
+    throw new Error("Method not implemented.");
+  }
 
   getUser(): Promise<IUser> {
     return this.user.toCollection().first()
@@ -29,15 +61,23 @@ export class OutTripperDatabase extends Dexie implements IDataBaseService {
     this.user.put(user)
   }
 
-
-
   user: Dexie.Table<IUser, string>
+  destination: Dexie.Table<IDestination,string>
+  session: Dexie.Table<ISession,string>
+  program: Dexie.Table<IProgram,string>
 
   constructor() {
     super("OutTripperDatabase");
     this.version(1).stores({
-      user: 'id'
+      user: 'id',
+      destination: 'id',
+      session: 'userid',
+      program: 'id'
     });
+
+    this.session.mapToClass(Program)
+    this.session.mapToClass(Session)
+    this.destination.mapToClass(Destination)
     this.user.mapToClass(User);
   }
 }

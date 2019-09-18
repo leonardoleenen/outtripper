@@ -25,10 +25,16 @@ class IndexPage extends React.Component {
 
   constructor(props) {
     super(props)
+    
   }
 
   async componentWillMount() {
     this.user = await this.ds.getUser()
+  }
+
+
+  componentDidMount() {
+    window['connector'] = this.ds
   }
 
   renderBtnHome() {

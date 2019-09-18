@@ -12,7 +12,10 @@
 
 * {
   font-family: "Open Sans", sans-serif;
+  color: $black_color
 }
+
+
 
 $bachground-gradient: linear-gradient(
   179.96deg,
@@ -118,4 +121,29 @@ $bachground-gradient: linear-gradient(
     text-align: center;
     letter-spacing: 0.15px;
   }
+}
+
+.calendarAvailabilityResume { 
+  display: grid;
+  grid-template-columns: repeat(7,1fr);
+  grid-gap: 5px;
+  .backgroundRed {
+    background-color:$red;
+  };
+  .backgroundOrange {
+    background-color:$orange
+  };
+  .backgroundYellow {
+    background-color:$yellow
+  };
+  .backgroundGreen {
+    background-color: $green
+  };
+  .backgroundGrey {
+    background-color: $grey
+  }
+  label {
+    color: $black_color;
+    @apply font-thin text-sm m-auto
+  };
 }

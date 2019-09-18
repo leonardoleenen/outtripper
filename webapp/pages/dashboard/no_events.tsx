@@ -22,8 +22,8 @@ class NoEvent extends React.Component {
       </article>
       <div style={{display:"grid", gridTemplateColumns:"repeat(6,1fr)"}}>
         <span/>
-        <span/>
         <img className="arrow" src={Arrow}></img>
+        <span/>
         <span/>
         <span/>
         <span/>

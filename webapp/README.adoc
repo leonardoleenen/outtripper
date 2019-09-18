@@ -1,0 +1,9 @@
+User Agency Token
+{
+    cn: "Leonardo Leenen", 
+    userId: "leonardoleenen", 
+    rol: {
+        kind: "AGENCY", 
+        agencyId: "YELLOWDOG"
+    }
+}
