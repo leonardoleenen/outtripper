@@ -1,3 +1,4 @@
+
 User Agency Token
 {
     cn: "Leonardo Leenen", 
@@ -7,3 +8,9 @@ User Agency Token
         agencyId: "YELLOWDOG"
     }
 }
+
+connector.setSession({userid: 'leonardoleenen',token: 'ewogICAgY246ICJMZW9uYXJkbyBHYWJyaWVsIExlZW5lbiIsIAogICAgdXNlcklkOiAibGVvbmFyZG9sZWVuZW4iLAogICAgcm9sOiB7CiAgICAgICAga2luZDogIkFHRU5DWSIsCiAgICAgICAgaWQ6ICJZRUxMT1dET0ciCiAgICB9Cn0=', started_at: new Date()})
+
+window.connector.insertDestinationInfo({id: "JL", name:"Jurassic Lake", maxPax: 10})
+
+connector.insertProgram({id: 'HFW', name: 'Half First Week', maxPax: 10, particularSettings: {kind: 'FORLODGE',month:['October, September, November, December, Juanary, February, March, April'], staringDay: 'Tuesday'}})
