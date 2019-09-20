@@ -19,6 +19,11 @@ body{
   padding: 16px;
 }
 
+h2{font-size: 20px;
+  line-height: 27px;
+  letter-spacing: 0.15px;
+  color: #3B414B;}
+
 
 $bachground-gradient: linear-gradient(
   179.96deg,
@@ -35,7 +40,7 @@ $bachground-gradient: linear-gradient(
 .bottomBar {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  @apply mt-1 w-full border-t;
+  @apply mt-8 pb-2 w-full border-t fixed bottom-0 left-0  bg-white ;
   p {
     font-weight: 300;
     font-size: 9px;
@@ -140,6 +145,73 @@ $bachground-gradient: linear-gradient(
   height: 53px;
   @apply w-full mt-1;
 }
+
+.cardNote{
+  @apply max-w-sm w-full shadow-lg  border border-gray-400 mb-8  rounded-lg p-4 flex-col justify-between leading-normal ;
+  h4{
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 1.25px;
+    color: #3B414B;
+    @apply  font-bold  mb-3;
+  }
+  p{
+    font-size: 9px;
+    line-height: 12px;
+    letter-spacing: 0.15px;
+  }
+}
+
+
+.cardEvent{
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  @apply max-w-sm w-full shadow-lg  border border-gray-400 mb-8 mt-4  rounded-lg  flex-col justify-between leading-normal ;
+  .content{
+    @apply p-3 ; 
+    h2{
+      font-size: 20px;
+      line-height: 27px;
+      display: flex;
+      align-items: center;
+      letter-spacing: 0.15px;
+      @apply  font-bold  ;
+    } 
+  }
+  
+  label{
+    font-size: 9px;
+    line-height: 12px;
+    letter-spacing: 0.15px;}
+  p{
+    font-size: 9px;
+    line-height: 12px;
+    letter-spacing: 0.15px;
+  }
+  .author{
+    font-size: 9px;
+    line-height: 12px;
+    letter-spacing: 0.15px;
+    @apply  mt-3 ;
+  }
+  .price{
+    align-items: center;
+    text-align: center;
+    @apply p-3  rounded-r ;
+    h3{font-size: 22px;
+      line-height:20px;
+      margin: auto auto;
+      letter-spacing: 0.15px;
+      @apply w-full pt-4 ;}
+    
+    label{font-weight: 300;
+      font-size: 9px;
+      line-height: 12px;
+      letter-spacing: 0.15px;
+      @apply w-full ;}
+  }
+}
+
 
 .login {
   display: grid;

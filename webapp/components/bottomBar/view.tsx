@@ -8,7 +8,7 @@ import Calendar from '../../static/svg/Icon/Outline/calendar.svg';
 import MoreHorizontal from '../../static/svg/Icon/Outline/more-horizontal.svg';
 
 export const view = () => {
-    return <div className="bottomBar  absolute bottom-0 left-0 mb-2 ">
+    return <div className="bottomBar   ">
       <div className="buttonBottomBar">
         <img src={Home} />
         <p> Home</p>

@@ -7606,6 +7606,17 @@ body{
   padding: 16px;
 }
 
+h2{
+  font-size: 20px;
+  line-height: 27px;
+  letter-spacing: 0.15px;
+  color: #3B414B;
+}
+
+.content{
+  margin-bottom: 20px;
+}
+
 $bachground-gradient: linear-gradient(
   179.96deg,
   #f56565 2.18%,
@@ -7621,9 +7632,14 @@ $bachground-gradient: linear-gradient(
 .bottomBar {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  margin-top: 0.25rem;
+  margin-top: 2rem;
+  padding-bottom: 0.5rem;
   width: 100%;
   border-top-width: 1px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background-color: #fff;
   p {
     font-weight: 300;
     font-size: 9px;
@@ -7764,6 +7780,107 @@ $bachground-gradient: linear-gradient(
   height: 53px;
   width: 100%;
   margin-top: 0.25rem;
+}
+
+.cardNote{
+  max-width: 24rem;
+  width: 100%;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  border-width: 1px;
+  border-color: #cbd5e0;
+  margin-bottom: 2rem;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+  line-height: 1.5;
+  h4{
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 1.25px;
+    color: #3B414B;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+  }
+  p{
+    font-size: 9px;
+    line-height: 12px;
+    letter-spacing: 0.15px;
+  }
+}
+
+.cardEvent{
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  max-width: 24rem;
+  width: 100%;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  border-width: 1px;
+  border-color: #cbd5e0;
+  margin-bottom: 2rem;
+  margin-top: 1rem;
+  border-radius: 0.5rem;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+  line-height: 1.5;
+  .content{
+    padding: 0.75rem;
+    h2{
+      font-size: 20px;
+      line-height: 27px;
+      display: -webkit-box;
+      display: flex;
+      -webkit-box-align: center;
+              align-items: center;
+      letter-spacing: 0.15px;
+      font-weight: 700;
+    }
+  }
+  label{
+    font-size: 9px;
+    line-height: 12px;
+    letter-spacing: 0.15px;
+  }
+  p{
+    font-size: 9px;
+    line-height: 12px;
+    letter-spacing: 0.15px;
+  }
+  .author{
+    font-size: 9px;
+    line-height: 12px;
+    letter-spacing: 0.15px;
+    margin-top: 0.75rem;
+  }
+  .price{
+    -webkit-box-align: center;
+            align-items: center;
+    text-align: center;
+    padding: 0.75rem;
+    border-top-right-radius: 0.25rem;
+    border-bottom-right-radius: 0.25rem;
+    h3{
+      font-size: 22px;
+      line-height:20px;
+      margin: auto auto;
+      letter-spacing: 0.15px;
+      width: 100%;
+      padding-top: 1rem;
+    }
+    label{
+      font-weight: 300;
+      font-size: 9px;
+      line-height: 12px;
+      letter-spacing: 0.15px;
+      width: 100%;
+    }
+  }
 }
 
 .login {
