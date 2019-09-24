@@ -15,7 +15,7 @@
   color: $black_color
 }
 
-body{
+.body{
   padding: 16px;
 }
 
@@ -88,18 +88,26 @@ $bachground-gradient: linear-gradient(
 
 .searchByText{
   background: #F7FAFC;
-  color:#3B414B;
-  @apply mb-6 shadow appearance-none border rounded-full  w-full py-2 px-3  shadow-2xl leading-tight ;
+  box-shadow: 0px 19px 38px rgba(0, 0, 0, 0.3), 0px 15px 12px rgba(0, 0, 0, 0.22);
+  border-radius: 30px;
+  border-width: 0px;
+  @apply mb-6  appearance-none   w-full py-2 px-3   ;
 
   img{ 
-    height: 16px;
-    width: 16px;
-    color:#3B414B;
+    height: 21px;
+    width: 21px;
+    color: #718096;
+    padding-left: 5PX;
+    padding-top: 8px;
   }
   input{
     background: #F7FAFC;
-    text-indent: 20px;
+    text-indent: 15px;
     width: 80%;
+    font-size: 14px;
+    line-height: 25px;
+    letter-spacing: 0.15px;
+    color: #3B414B;
   }
 }
 
@@ -128,9 +136,9 @@ $bachground-gradient: linear-gradient(
   bottom: 20px;
   right: 20px;
   background: $blue;
-  @apply  absolute  object-right-bottom  shadow-2xl rounded-full;
+  @apply  absolute  object-right-bottom  shadow-2xl rounded-full ;
   :hover{
-    @apply bg-blue-700 text-white font-bold py-2 px-4 rounded-full;
+    @apply bg-blue-700 text-white font-bold py-2 px-4 rounded-full ;
   }
   img{
     height: 21px;
@@ -308,4 +316,225 @@ $bachground-gradient: linear-gradient(
     color: $black_color;
     @apply font-thin text-sm m-auto
   };
+}
+
+.success{
+  h3{
+    font-size: 20px;
+    line-height: 27px;
+    text-align: center;
+    letter-spacing: 0.15px;
+    @apply  m-auto mt-8 mb-8 pl-2 pr-2 ;
+  }
+  p{
+    font-size: 14px;
+    line-height: 18px;
+    text-align: center;
+    letter-spacing: 1.25px;
+    @apply  m-auto mt-6 mb-4 ;
+  }
+  img{
+    @apply  m-auto  mb-8 ;
+  }
+  .buttons{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    bottom: 20px;
+    width: 90%;
+    @apply   absolute ;
+    .buttonLeft{
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 18px;
+      align-items: center;
+      letter-spacing: 1.25px;
+      background: none;
+      color:$blue;
+      bottom: 20px;
+      @apply  text-left ;
+    };
+    .buttonRight{
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 18px;
+      align-items: center;
+      letter-spacing: 1.25px;
+      background: none;
+      color:$blue;
+      bottom: 20px;
+      @apply  text-right  ;
+    }
+  }
+
+}
+
+.inputTextField{ 
+  height: 60px;
+  @apply relative;
+
+input 				{
+  font-size:16px;
+  padding:-1px 10px 10px 0px;
+  display:block;
+  width:100%;
+  border:none;
+  border-bottom:1px solid rgba(0, 0, 0, 0.36);
+}
+input:focus{ outline:none; }
+label 				 {
+  color:#999; 
+  font-size:14px;
+  font-weight:normal;
+  position:absolute;
+  pointer-events:none;
+  left:0px;
+  top:0px;
+  transition:0.2s ease all; 
+  -moz-transition:0.2s ease all; 
+  -webkit-transition:0.2s ease all;
+}
+
+input:focus ~ label, input:valid ~ label 		{
+  top:-15px;
+  font-size:12px;
+  
+}
+input:focus ~ label 		{
+  top:-18px;
+  font-size: 11px;
+  letter-spacing: 0.15px;
+  color:$primary_color;
+  opacity: 0.87;
+}
+
+
+.bar 	{ position:relative; display:block; width:100%; }
+.bar:before, .bar:after 	{
+  content:'';
+  height:1px; 
+  width:0;
+  bottom:0px; 
+  position:absolute;
+  background:$primary_color;
+  color:$primary_color;
+  transition:0.2s ease all; 
+  -moz-transition:0.2s ease all; 
+  -webkit-transition:0.2s ease all;
+}
+.bar:before {
+  left:50%;
+}
+.bar:after {
+  right:50%; 
+}
+
+input:focus ~ .bar:before, input:focus ~ .bar:after {
+  width:50%;
+}
+
+.highlight {
+  position:absolute;
+  height:90%; 
+  width:100%; 
+  left:0;
+  pointer-events:none;
+  opacity:0.5;
+}
+
+input:focus ~ .highlight {
+  -webkit-animation:inputHighlighter 0.3s ease;
+  -moz-animation:inputHighlighter 0.3s ease;
+  animation:inputHighlighter 0.3s ease;
+}
+
+@-webkit-keyframes inputHighlighter {
+	from { background:$primary_color; }
+  to 	{ width:0; background:transparent; }
+}
+@-moz-keyframes inputHighlighter {
+	from { background:$primary_color; }
+  to 	{ width:0; background:transparent; }
+}
+@keyframes inputHighlighter {
+	from { background:$primary_color; }
+  to 	{ width:0; background:transparent; }
+}
+
+p{ letter-spacing: 0.15px;
+  color:$primary_color;
+  opacity: 0.87;
+  font-size: 9px;
+  margin-bottom: 10px;
+}
+
+}
+
+
+
+.headerGradient{
+  background: $bachground-gradient;
+  color:#fff;
+  padding: 10px;
+  @apply mb-8 ;
+  .navigation, h2, img{
+    color:#fff;
+  }
+  h1{
+    font-size: 64px;
+    line-height: 87px;
+    letter-spacing: 0.15px;
+    text-align: center;
+    color:#fff;
+  }
+
+}
+
+.cardReservationOwner{
+  display: grid;
+  grid-template-columns: 75px 2fr 1fr;
+  @apply mb-6 ;
+  img{
+    height: 60px;
+    width: 60px;
+    @apply rounded-full mr-2 ;
+}
+  h2{
+    font-size: 20px;
+    line-height: 27px;
+    letter-spacing: 0.15px;
+    color: #3B414B;
+  }
+  label{
+    font-size: 14px;
+    line-height: 25px;
+    color:$blue;
+    text-align: center;
+    letter-spacing: 0.15px;
+  }
+  .chip{
+    text-align: center;
+    border: 1px solid #3B414B;
+    color: #3B414B;
+    height: 30px;
+    margin-top:10px;
+    @apply  inline-block  rounded-full px-3 py-1 text-sm font-semibold  ;
+  }
+}
+
+
+.reservationGuestList{
+  display: grid;
+  grid-template-columns: 3fr 30px;
+  border-bottom: 1px solid #E0E0E0;
+  @apply p-2 ;
+  h2{
+    font-size: 20px;
+line-height: 27px;
+letter-spacing: 0.15px;
+  }
+  img{
+    width: 20px;
+    height: 20px;
+    @apply m-auto ;
+  }
 }

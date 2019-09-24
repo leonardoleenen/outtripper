@@ -7,7 +7,7 @@ import Navigation from '../components/navigation';
 
 
 export const view = () => {
-  return (<div>
+  return (<div className="body">
     <Navigation/>
     <SearchByText/>
     <ContactRowAgenda/>

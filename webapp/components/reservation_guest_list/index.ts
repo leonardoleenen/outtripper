@@ -1,11 +1,11 @@
 import React from 'react'
 import {view} from './view'
 
-class Navigation extends React.Component {
+class ReservationGuestList extends React.Component {
   constructor(props) {
     super(props)
   }
   render = () => view(this.props)
 }
 
-export default Navigation
+export default ReservationGuestList

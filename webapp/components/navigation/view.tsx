@@ -3,10 +3,10 @@ import '../../styles/index.scss';
 import ArrowLeft from '../../static/svg/Icon/Outline/arrow_left.svg';
 
 
-export const view = () => {
+export const view = (props) => {
   return  <div className="navigation">
       <div><img src={ArrowLeft}/></div>
-      <h2>Agenda</h2>
+      <h2>{props.title}</h2>
       <div></div>
 </div>
 }
