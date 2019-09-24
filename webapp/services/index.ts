@@ -10,7 +10,9 @@ import {
   ISession,
   Session,
   Program, 
-  IProgram
+  IProgram,
+  IDateAvailable,
+  DateAvailable
 } from "./type";
 
 
@@ -30,6 +32,10 @@ if (!firebase.apps.length) {
 }
 
 export class OutTripperDatabase extends Dexie implements IDataBaseService {
+  insertDateAvailable(IDateAvailable: any): void {
+    throw new Error("Method not implemented.");
+  }
+  
   insertProgram(program: import("./type").IProgram): void {
     this.program.put(program)
   }
@@ -65,21 +71,34 @@ export class OutTripperDatabase extends Dexie implements IDataBaseService {
   destination: Dexie.Table<IDestination,string>
   session: Dexie.Table<ISession,string>
   program: Dexie.Table<IProgram,string>
-
+  dateAvailable : Dexie.Table<IDateAvailable, string>
   constructor() {
     super("OutTripperDatabase");
     this.version(1).stores({
       user: 'id',
       destination: 'id',
       session: 'userid',
-      program: 'id'
+      program: 'id',
+      dateAvailable: 'id'
     });
 
+    this.session.mapToClass(DateAvailable)
     this.session.mapToClass(Program)
     this.session.mapToClass(Session)
     this.destination.mapToClass(Destination)
     this.user.mapToClass(User);
   }
+}
+
+export interface IBusinessService { 
+  getResumenAvailability(): Promise<IDatesAvailable[]>
+}
+
+export class BusinessService implements IBusinessService {
+  getResumenAvailability(): Promise<IDatesAvailable[]> {
+    throw new Error("Method not implemented.");
+  }
+  
 }
 
 export const dataService = new OutTripperDatabase()

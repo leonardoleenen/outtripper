@@ -24,6 +24,13 @@ export enum Month {
   December = "December"
 }
 
+export enum ProgramKind {
+  forLodge = 'FORLODGE',
+  forGuide = 'FORGUIDE'
+}
+
+
+
 export interface IUser {
   cn: string,
   email: string
@@ -63,6 +70,17 @@ export interface ISession {
   token: string 
 }
 
+export interface IDateAvailable {
+  id: string 
+  program_id: string 
+  date: Date 
+  programLimit: number 
+  reserved: number 
+}
+
+
+
+
 export interface IDataBaseService {
   getUser(): Promise<IUser>
   setUser(user: IUser): void
@@ -72,6 +90,7 @@ export interface IDataBaseService {
   cleanSession(): void
   getToken(): Promise<string>
   insertProgram(program:IProgram): void
+  insertDateAvailable(IDateAvailable): void
 }
 
 
@@ -84,6 +103,22 @@ export class Session implements ISession {
     this.userid = _userid
     this.started_at = _started_at
     this.token = _token
+  }
+}
+
+export class DateAvailable implements IDateAvailable {
+  id: string 
+  program_id: 
+  string;  date: Date;
+  programLimit: number;
+  reserved: number;
+
+  constructor(_id: string, _program_id: string, _date: Date, _programLimit: number, _reserved: number){
+    this.id = _id
+    this.date = _date
+    this.program_id = _program_id
+    this.programLimit = _programLimit
+    this.reserved = _reserved
   }
 }
 
