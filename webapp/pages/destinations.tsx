@@ -1,14 +1,18 @@
 import React from 'react';
 import "../styles/index.scss"
 import SearchByText from '../components/search_by_text';
+import Destination from '../static/svg/Icon/Outline/destination.svg';
+import Heart from '../static/svg/Icon/Outline/heartLine.svg';
+import CardDestination from '../components/card_destination';
 
 export const view = () => {
-  return (<div className="body">
+  return (<div className="body mt-2">
     <SearchByText />
+    <CardDestination destination="tsimane" description="Bolivia"/>
+    
 
-    <div className="max-w-sm rounded overflow-hidden shadow-lg">
-      <img className="w-full" src="http://res.cloudinary.com/dv26e3u8y/image/upload/v1502724543/Tsimane/img-2-Tsimane.jpg" alt="Sunset in the mountains" />
-    </div>
+ 
+   
 
 
   </div>)

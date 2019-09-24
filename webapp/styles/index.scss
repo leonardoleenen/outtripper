@@ -8261,6 +8261,49 @@ $bachground-gradient: linear-gradient(
   }
 }
 
+.destinations{
+  height: 152px;
+  max-width: 24rem;
+  margin-top: 1rem;
+  border-radius: 0.25rem;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  .destinationsInfo{
+    display: grid;
+    grid-template-columns: 30px 3fr 30px;
+    height: 60px;
+    position: absolute;
+    background:rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+    margin: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0.5rem;
+    position: absolute;
+    color: #fff;
+    h3{
+      font-size: 20px;
+      line-height: 27px;
+      letter-spacing: 0.15px;
+      color: #fff;
+    }
+    p{
+      font-size: 10px;
+      line-height: 12px;
+      letter-spacing: 0.15px;
+      color: #fff;
+    }
+    .icon{
+      height: 20px;
+      width: 20px;
+      margin: auto;
+      margin-top: 0.25rem;
+    }
+  }
+}
+
 @media (min-width: 640px) {
   .sm\:appearance-none {
     -webkit-appearance: none;

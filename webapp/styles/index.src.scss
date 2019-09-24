@@ -582,3 +582,35 @@ letter-spacing: 0.15px;
     @apply m-auto ;
   }
 }
+.destinations{
+  height: 152px;
+  @apply max-w-sm mt-4 rounded overflow-hidden relative shadow-lg ;
+
+.destinationsInfo{ 
+  display: grid;
+  grid-template-columns: 30px 3fr 30px;
+  height: 60px;
+  position: absolute;
+  background:rgba(0, 0, 0, 0.5);
+  border-radius: 4px;
+  @apply m-auto  bottom-0 left-0 right-0  p-2 absolute text-white ;
+  h3{
+    font-size: 20px;
+    line-height: 27px;
+    letter-spacing: 0.15px;
+    @apply  text-white ;
+
+  }
+  p{
+    font-size: 10px;
+    line-height: 12px;
+    letter-spacing: 0.15px;
+    @apply  text-white ;
+  }
+  .icon{
+    height: 20px;
+    width: 20px;
+    @apply m-auto mt-1 ; 
+  }
+}
+}
