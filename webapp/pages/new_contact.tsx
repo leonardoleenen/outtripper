@@ -1,10 +1,14 @@
 import React from 'react';
 import "../styles/index.scss"
+import Head from 'next/head'
 import Navigation from '../components/navigation';
 import InputText from '../components/input_text';
 
 export const view = () => {
   return (<div>
+     <Head>
+    <meta name="viewport" content="width=device-width, user-scalable=no"/>
+      </Head>
     <div className="headerGradient">
       <Navigation title="New Contact" />
     </div>
