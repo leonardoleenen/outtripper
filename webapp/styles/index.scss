@@ -8240,6 +8240,27 @@ $bachground-gradient: linear-gradient(
   }
 }
 
+.extraListRow{
+  display: grid;
+  grid-template-columns: 3fr 30px ;
+  border-bottom: 1px solid #E0E0E0;
+  padding: 0.25rem;
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+  input{
+    font-size: 14px;
+    line-height: 25px;
+    letter-spacing: 0.15px;
+    border: 0px;
+    width: 100%;
+  }
+  img{
+    width: 16px;
+    height: 16px;
+    margin: auto;
+  }
+}
+
 @media (min-width: 640px) {
   .sm\:appearance-none {
     -webkit-appearance: none;

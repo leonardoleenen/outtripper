@@ -561,3 +561,24 @@ letter-spacing: 0.15px;
     @apply m-auto ;
   }
 }
+
+.extraListRow{
+  display: grid;
+  grid-template-columns: 3fr 30px ;
+  border-bottom: 1px solid #E0E0E0;
+  @apply p-1 mt-1 mb-1 ;
+  input{
+    font-size: 14px;
+    line-height: 25px;
+    letter-spacing: 0.15px;
+    border: 0px;
+    @apply w-full ;
+  }
+  
+  img{
+    width: 16px;
+    height: 16px;
+    
+    @apply m-auto ;
+  }
+}
