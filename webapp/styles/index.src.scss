@@ -448,15 +448,15 @@ input:focus ~ .highlight {
 }
 
 @-webkit-keyframes inputHighlighter {
-	from { background:$primary_color; }
+	from { background:transparent; }
   to 	{ width:0; background:transparent; }
 }
 @-moz-keyframes inputHighlighter {
-	from { background:$primary_color; }
+	from { background:transparent; }
   to 	{ width:0; background:transparent; }
 }
 @keyframes inputHighlighter {
-	from { background:$primary_color; }
+	from { background:transparent; }
   to 	{ width:0; background:transparent; }
 }
 
@@ -611,6 +611,48 @@ letter-spacing: 0.15px;
     height: 20px;
     width: 20px;
     @apply m-auto mt-1 ; 
+  }
+}
+}
+
+.reservationNotesDialog{
+  background:rgba(0, 0, 0, 0.5);
+  z-index:999;
+  @apply  w-full flex flex-col items-center justify-center  h-screen  absolute flex items-center justify-center  ;
+  .modal{
+    width: 96%;
+  
+  .content{
+  
+    @apply bg-white shadow p-4 m-2 overflow-y-scroll ;
+    h1{
+      font-weight: 600;
+      font-size: 20px;
+      line-height: 27px;
+      letter-spacing: 0.15px;
+      color: #3B414B;
+      @apply ;
+    }
+    h6{
+      font-size: 12px;
+      line-height: 25px;
+      letter-spacing: 0.15px;
+      color: #3B414B;
+      @apply mb-6 ;
+    }
+    .buttons{
+      color:$blue;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 24px;
+      display: flex;
+      align-items: center;
+      letter-spacing: 0.15px;
+      @apply justify-end ;
+      button{
+        @apply p-1 mr-1 text-right uppercase ;
+      }
+    }
   }
 }
 }
