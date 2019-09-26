@@ -64,6 +64,11 @@ export interface IProgram {
   particularSetting : IProgramForLodge | IProgramForGuide
 }
 
+export interface IPricingGrid {
+  program_id: string
+  price: number
+}
+
 export interface ISession {
   userid: string 
   started_at: Date
@@ -71,10 +76,10 @@ export interface ISession {
 }
 
 export interface IDateAvailable {
-  id: string 
   program_id: string 
-  date: Date 
-  programLimit: number 
+  start_date: Date 
+  end_date: Date
+  program_limit: number 
   reserved: number 
 }
 
@@ -89,8 +94,11 @@ export interface IDataBaseService {
   setSession(data: ISession): void
   cleanSession(): void
   getToken(): Promise<string>
+
   insertProgram(program:IProgram): void
+  getProgram(id:string): Promise<IProgram>
   insertDateAvailable(IDateAvailable): void
+  getDatesAvailables(): Promise<IDateAvailable[]>
 }
 
 
@@ -106,21 +114,7 @@ export class Session implements ISession {
   }
 }
 
-export class DateAvailable implements IDateAvailable {
-  id: string 
-  program_id: 
-  string;  date: Date;
-  programLimit: number;
-  reserved: number;
 
-  constructor(_id: string, _program_id: string, _date: Date, _programLimit: number, _reserved: number){
-    this.id = _id
-    this.date = _date
-    this.program_id = _program_id
-    this.programLimit = _programLimit
-    this.reserved = _reserved
-  }
-}
 
 export class Destination implements IDestination {
   id: string;  name: string;

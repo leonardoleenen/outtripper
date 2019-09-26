@@ -1,22 +1,16 @@
 import * as firebase from "firebase/app";
 import "firebase/auth";
-import Dexie from 'dexie';
 
 import PouchDB from 'pouchdb';
 import PouchDBFind from 'pouchdb-find'
 
 import { 
-  User, 
-  Destination,
   IUser, 
   IDataBaseService, 
   IDestination, 
   ISession,
-  Session,
-  Program, 
-  IProgram,
   IDateAvailable,
-  DateAvailable
+  IProgram,
 } from "./type";
 
 
@@ -35,6 +29,7 @@ if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig);
 }
 
+/*
 export class OutTripperDatabase extends Dexie implements IDataBaseService {
   insertDateAvailable(IDateAvailable: any): void {
     throw new Error("Method not implemented.");
@@ -92,9 +87,22 @@ export class OutTripperDatabase extends Dexie implements IDataBaseService {
     this.destination.mapToClass(Destination)
     this.user.mapToClass(User);
   }
-}
+}*/
+
 
 export class PouchDatabaseService implements IDataBaseService {
+
+  getProgram(id: string): Promise<import("./type").IProgram> {
+    return this.db.get(id)
+  }
+
+  getDatesAvailables(): Promise<IDateAvailable[]> {
+    return this.db.find({
+      selector: {
+        collectionKind: 'datesAvailable'
+      }
+    }).then(result => result.docs)
+  }
 
   private db: any 
   private remote: any
@@ -132,7 +140,11 @@ export class PouchDatabaseService implements IDataBaseService {
   }
 
   getDestinationInfo(): Promise<IDestination> {
-    throw new Error("Method not implemented.");
+    return this.db.find({
+      selector: {
+        collectionKind: 'destination'
+      }
+    }).then(result => result.docs[0])
   }
 
   getUser(): Promise<IUser> {
@@ -140,9 +152,6 @@ export class PouchDatabaseService implements IDataBaseService {
       console.log(atob(result))
       return JSON.parse(atob(result))
     })
-
-    throw new Error("Method not implemented.");
-    //return this.user.toCollection().first()
   }
 
   setUser(user: IUser): void {
@@ -153,11 +162,9 @@ export class PouchDatabaseService implements IDataBaseService {
   constructor() {
     PouchDB.plugin(PouchDBFind);
     this.db = new PouchDB('outtripper')
-    this.remote  = new PouchDB('http://192.168.0.193:5984/outtripper')
+    this.remote  = new PouchDB('http://localhost:5984/outtripper')
     this.db.sync( this.remote, {
       live: true
-    }).on('change', (change) => {
-      console.log(change)
     })
   }
 
@@ -165,19 +172,41 @@ export class PouchDatabaseService implements IDataBaseService {
 }
 
 export interface IBusinessService { 
-  getResumenAvailability(): Promise<IDatesAvailable[]>
-}
+  getResumenAvailability(): Promise<IDateAvailable[]>
+  getDatesAvailabilityList(program_id?:string): Promise<IDateAvailable[]>
 
-export class BusinessService implements IBusinessService {
-  getResumenAvailability(): Promise<IDatesAvailable[]> {
-    throw new Error("Method not implemented.");
-  }
-  
+  getProgram(program_id:string): Promise<IProgram>
 }
 
 // export const dataService = new OutTripperDatabase()
-
 export const dataService = new PouchDatabaseService()
+
+
+export class BusinessService implements IBusinessService {
+  
+
+  ds: any
+
+  getProgram(program_id: string): Promise<IProgram> {
+    return this.ds.getProgram(program_id)
+  }
+
+  getDatesAvailabilityList(program_id?: string): Promise<IDateAvailable[]> {
+    return this.ds.getDatesAvailables()
+  }
+
+  getResumenAvailability(): Promise<IDateAvailable[]> {
+    throw new Error("Method not implemented.");
+  }
+
+  constructor(_ds: any) {
+    this.ds = _ds
+  }
+}
+
+export const businessService = new BusinessService(dataService)
+
+
 
 
 export default firebase

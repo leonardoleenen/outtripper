@@ -8,7 +8,7 @@ import Twitter from '../static/svg/Icon/Outline/twitter_white.svg';
 import Facebook from '../static/svg/Icon/Outline/facebook_white.svg';
 import LinkedIn from '../static/svg/Icon/Outline/linkedin_white.svg';
 
-import { dataService, OutTripperDatabase } from '../services/index';
+import {  BusinessService, businessService } from '../services/index';
 
 
 import { withRouter } from 'next/router';
@@ -20,8 +20,9 @@ class IndexPage extends React.Component {
     isRegistered: false
   }
 
-  ds: OutTripperDatabase = dataService
+  // ds: OutTripperDatabase = dataService
   user: IUser
+  bs: BusinessService = businessService
 
   constructor(props) {
     super(props)
@@ -29,12 +30,12 @@ class IndexPage extends React.Component {
   }
 
   async componentWillMount() {
-    this.user = await this.ds.getUser()
+    // this.user = await this.ds.getUser()
   }
 
 
   componentDidMount() {
-    window['connector'] = this.ds
+    window['connector'] = this.bs
   }
 
   renderBtnHome() {
