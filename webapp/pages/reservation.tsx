@@ -15,6 +15,7 @@ export const view = () => {
     <div className="headerGradient">
       <Navigation title="Jurassic Lake Weekly Program, Oct 13 2019" />
       <h1>$6,900</h1>
+      <div className="notes"> Confirmed</div>
     </div>
 
     <div className="body">

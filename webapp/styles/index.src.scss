@@ -499,7 +499,10 @@ p{ letter-spacing: 0.15px;
   @apply mb-8 text-white ;
   .navigation, h2, img{
     @apply text-white ;
-    filter: #fff;
+    
+  }
+  img{
+    filter: invert(1);
   }
   h1{
     font-size: 64px;
@@ -510,6 +513,12 @@ p{ letter-spacing: 0.15px;
     color:#fff;
     @apply text-white ;
   }
+ .notes{
+  font-size: 14px;
+  line-height: 25px;
+  letter-spacing: 0.15px;
+  @apply text-right text-white ;
+ }
 
 }
 

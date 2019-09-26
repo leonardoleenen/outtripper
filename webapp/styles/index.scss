@@ -8177,8 +8177,10 @@ $bachground-gradient: linear-gradient(
   color: #fff;
   .navigation, h2, img{
     color: #fff;
-    -webkit-filter: #fff;
-            filter: #fff;
+  }
+  img{
+    -webkit-filter: invert(1);
+            filter: invert(1);
   }
   h1{
     font-size: 64px;
@@ -8187,6 +8189,13 @@ $bachground-gradient: linear-gradient(
     text-align: center;
     font-weight: bold;
     color:#fff;
+    color: #fff;
+  }
+  .notes{
+    font-size: 14px;
+    line-height: 25px;
+    letter-spacing: 0.15px;
+    text-align: right;
     color: #fff;
   }
 }
