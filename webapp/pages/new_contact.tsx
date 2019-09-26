@@ -3,7 +3,8 @@ import "../styles/index.scss"
 import Head from 'next/head'
 import Navigation from '../components/navigation';
 import InputText from '../components/input_text';
-
+import ContactAvatar from '../components/contact_avatar';
+import ButtonPrimary from '../components/button_primary';
 export const view = () => {
   return (<div>
      <Head>
@@ -11,9 +12,10 @@ export const view = () => {
       </Head>
     <div className="headerGradient">
       <Navigation title="New Contact" />
+      <ContactAvatar/>
     </div>
 
-    <div className="body">
+    <div className="body mt-12">
       <InputText label="First Name" />
       <InputText label="Last Name" />
       <InputText label="Email" />
@@ -21,6 +23,10 @@ export const view = () => {
       <InputText label="Address Line 2" />
       <InputText label="Zip Code" />
       <InputText label="Country" />
+      
+      <ButtonPrimary text="save"/>
+
+    
     </div>
   
 

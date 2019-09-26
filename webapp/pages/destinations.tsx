@@ -2,18 +2,20 @@ import React from 'react';
 import "../styles/index.scss"
 import SearchByText from '../components/search_by_text';
 import CardDestination from '../components/card_destination';
-import ReservationNotesDialog from '../components/reservation_notes_dialog';
-
+import ExtrasDialog from '../components/extras_dialog'
 export const view = () => {
-  return (<div>
-    <ReservationNotesDialog title="Reservation Note" description="Please, write a few lines about your thougths"/>
-  <div className="body mt-2">
-  
-    <SearchByText />
-    <CardDestination destination="tsimane" description="Bolivia"/>
-    
-</div>
-</div>)
+  return (<div className="destinationsContent">
+    <div className="body pt-2">
+
+      <SearchByText />
+      <CardDestination destination="tsimane" description="Bolivia" />
+      <CardDestination destination="tsimane" description="Bolivia" />
+      <CardDestination destination="tsimane" description="Bolivia" />
+      <CardDestination destination="tsimane" description="Bolivia" />
+      <CardDestination destination="tsimane" description="Bolivia" />
+
+    </div>
+  </div>)
 }
 
 

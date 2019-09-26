@@ -7602,6 +7602,14 @@ video {
   color: $black_color
 }
 
+*:focus{
+  outline:0px;
+}
+
+button:focus{
+  outline:0px;
+}
+
 .body{
   padding: 16px;
 }
@@ -7610,7 +7618,7 @@ h2{
   font-size: 20px;
   line-height: 27px;
   letter-spacing: 0.15px;
-  color: #3B414B;
+  color:$font_color_primary;
 }
 
 $bachground-gradient: linear-gradient(
@@ -7647,6 +7655,28 @@ $bachground-gradient: linear-gradient(
   }
 }
 
+.buttonPrimary{
+  background: $blue;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.24), 0px 0px 2px rgba(0, 0, 0, 0.12);
+  border-radius: 4px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: center;
+  letter-spacing: 1.25px;
+  -webkit-box-pack: center;
+          justify-content: center;
+  margin: auto;
+  display: -webkit-box;
+  display: flex;
+  text-transform: uppercase;
+  color: #fff;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
 .contactRowAgenda{
   display: grid;
   grid-template-columns: 60px 2fr 1fr;
@@ -7676,7 +7706,7 @@ $bachground-gradient: linear-gradient(
     font-size: 9px;
     line-height: 12px;
     letter-spacing: 0.15px;
-    color:#3B414B;
+    color:$font_color_primary;
   }
   .chip{
     text-align: center;
@@ -7721,7 +7751,7 @@ $bachground-gradient: linear-gradient(
     font-size: 14px;
     line-height: 25px;
     letter-spacing: 0.15px;
-    color: #3B414B;
+    color:$font_color_primary;
   }
 }
 
@@ -7731,7 +7761,7 @@ $bachground-gradient: linear-gradient(
   text-align: center;
   -webkit-box-align: center;
           align-items: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.5rem;
   padding: 0.5rem;
   h2{
     font-size: 14px;
@@ -7742,6 +7772,9 @@ $bachground-gradient: linear-gradient(
   img{
     height: 16px;
     width: 16px;
+  }
+  img path {
+    fill: red;
   }
 }
 
@@ -7757,13 +7790,7 @@ $bachground-gradient: linear-gradient(
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
   border-radius: 9999px;
   :hover{
-    background-color: #2b6cb0;
     color: #fff;
-    font-weight: 700;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
     border-radius: 9999px;
   }
   img{
@@ -7800,7 +7827,7 @@ $bachground-gradient: linear-gradient(
     font-size: 14px;
     line-height: 18px;
     letter-spacing: 1.25px;
-    color: #3B414B;
+    color: $font_color_primary;
     font-weight: 700;
     margin-bottom: 0.75rem;
   }
@@ -7932,6 +7959,7 @@ $bachground-gradient: linear-gradient(
     margin: auto
   };
   .arrow {
+    z-index: 999;
     margin-left: auto;
     margin-right: auto
   }
@@ -8051,6 +8079,7 @@ $bachground-gradient: linear-gradient(
 
 .inputTextField{
   height: 60px;
+  margin-bottom: 5px;
   position: relative;
   input 				{
     font-size:16px;
@@ -8074,15 +8103,11 @@ $bachground-gradient: linear-gradient(
     -moz-transition:0.2s ease all;
     -webkit-transition:0.2s ease all;
   }
-  input:focus ~ label, input:valid ~ label 		{
-    top:-15px;
-    font-size:12px;
-  }
   input:focus ~ label 		{
     top:-18px;
     font-size: 11px;
     letter-spacing: 0.15px;
-    color:$primary_color;
+    color:$blue;
     opacity: 0.87;
   }
   .bar 	{ position:relative; display:block; width:100%;
@@ -8093,8 +8118,8 @@ $bachground-gradient: linear-gradient(
     width:0;
     bottom:0px;
     position:absolute;
-    background:$primary_color;
-    color:$primary_color;
+    background:$blue;
+    color:$blue;
     transition:0.2s ease all;
     -moz-transition:0.2s ease all;
     -webkit-transition:0.2s ease all;
@@ -8110,25 +8135,26 @@ $bachground-gradient: linear-gradient(
   }
   .highlight {
     position:absolute;
-    height:90%;
-    width:100%;
-    left:0;
-    pointer-events:none;
-    opacity:0.5;
+    height: 59%;
+    width: 100%;
+    left: 0;
+    pointer-events: none;
+    opacity: 0.5;
+    top: -10px;
   }
   input:focus ~ .highlight {
     -webkit-animation:inputHighlighter 0.3s ease;
     animation:inputHighlighter 0.3s ease;
   }
   @-webkit-keyframes inputHighlighter {
-    from { background:transparent;
+    from { background:$blue;
     }
 
     to 	{ width:0; background:transparent;
     }
   }
   @keyframes inputHighlighter {
-    from { background:transparent;
+    from { background:$blue;
     }
 
     to 	{ width:0; background:transparent;
@@ -8139,30 +8165,36 @@ $bachground-gradient: linear-gradient(
     opacity: 0.87;
     font-size: 9px;
     margin-bottom: 10px;
+    display: none;
   }
 }
 
 .headerGradient{
   background: $bachground-gradient;
-  color:#fff;
   padding: 10px;
+  min-height: 153px;
   margin-bottom: 2rem;
+  color: #fff;
   .navigation, h2, img{
-    color:#fff;
+    color: #fff;
+    -webkit-filter: #fff;
+            filter: #fff;
   }
   h1{
     font-size: 64px;
     line-height: 87px;
     letter-spacing: 0.15px;
     text-align: center;
+    font-weight: bold;
     color:#fff;
+    color: #fff;
   }
 }
 
 .cardReservationOwner{
   display: grid;
   grid-template-columns: 75px 2fr 1fr;
-  margin-bottom: 1.5rem;
+  margin-bottom: 3rem;
   img{
     height: 60px;
     width: 60px;
@@ -8173,10 +8205,10 @@ $bachground-gradient: linear-gradient(
     font-size: 20px;
     line-height: 27px;
     letter-spacing: 0.15px;
-    color: #3B414B;
+    color: $font_color_primary;
   }
   label{
-    font-size: 14px;
+    font-size: $font_size_primary;
     line-height: 25px;
     color:$blue;
     text-align: center;
@@ -8184,8 +8216,8 @@ $bachground-gradient: linear-gradient(
   }
   .chip{
     text-align: center;
-    border: 1px solid #3B414B;
-    color: #3B414B;
+    border: 1px solid $font_color_primary;
+    color:$font_color_primary;
     height: 30px;
     margin-top:10px;
     display: inline-block;
@@ -8224,7 +8256,7 @@ $bachground-gradient: linear-gradient(
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
   h3{
-    font-size: 14px;
+    font-size: $font_size_primary;
     line-height: 25px;
     letter-spacing: 0.15px;
   }
@@ -8237,6 +8269,7 @@ $bachground-gradient: linear-gradient(
     width: 16px;
     height: 16px;
     margin: auto;
+    margin-right: 0.5rem;
   }
 }
 
@@ -8247,8 +8280,8 @@ $bachground-gradient: linear-gradient(
   padding: 0.25rem;
   margin-top: 0.25rem;
   margin-bottom: 0.25rem;
-  input{
-    font-size: 14px;
+  h3{
+    font-size: $font_size_primary;
     line-height: 25px;
     letter-spacing: 0.15px;
     border: 0px;
@@ -8258,48 +8291,54 @@ $bachground-gradient: linear-gradient(
     width: 16px;
     height: 16px;
     margin: auto;
+    margin-right: 0.5rem;
   }
 }
 
-.destinations{
-  height: 152px;
-  max-width: 24rem;
-  margin-top: 1rem;
-  border-radius: 0.25rem;
-  overflow: hidden;
-  position: relative;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  .destinationsInfo{
-    display: grid;
-    grid-template-columns: 30px 3fr 30px;
-    height: 60px;
-    position: absolute;
-    background:rgba(0, 0, 0, 0.5);
-    border-radius: 4px;
-    margin: auto;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 0.5rem;
-    position: absolute;
-    color: #fff;
-    h3{
-      font-size: 20px;
-      line-height: 27px;
-      letter-spacing: 0.15px;
-      color: #fff;
-    }
-    p{
-      font-size: 10px;
-      line-height: 12px;
-      letter-spacing: 0.15px;
-      color: #fff;
-    }
-    .icon{
-      height: 20px;
-      width: 20px;
+.destinationsContent{
+  background: -webkit-gradient(linear, left top, left bottom, from(#F7FAFC), to(#CBD5E0));
+  background: linear-gradient(180deg, #F7FAFC 0%, #CBD5E0 100%);
+  min-height: 100vh;
+  .destinations{
+    height: 152px;
+    box-shadow: 0px 15px 38px rgba(0, 0, 0, 0.3), 0px 4px 4px rgba(0, 0, 0, 0.25);
+    max-width: 24rem;
+    margin-top: 1.5rem;
+    border-radius: 0.25rem;
+    overflow: hidden;
+    position: relative;
+    .destinationsInfo{
+      display: grid;
+      grid-template-columns: 30px 3fr 30px;
+      height: 60px;
+      position: absolute;
+      background:rgba(0, 0, 0, 0.5);
+      border-radius: 4px;
       margin: auto;
-      margin-top: 0.25rem;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 0.5rem;
+      position: absolute;
+      color: #fff;
+      h3{
+        font-size: 20px;
+        line-height: 27px;
+        letter-spacing: 0.15px;
+        color: #fff;
+      }
+      p{
+        font-size: 10px;
+        line-height: 12px;
+        letter-spacing: 0.15px;
+        color: #fff;
+      }
+      .icon{
+        height: 20px;
+        width: 20px;
+        margin: auto;
+        margin-top: 0.25rem;
+      }
     }
   }
 }
@@ -8335,19 +8374,19 @@ $bachground-gradient: linear-gradient(
         font-size: 20px;
         line-height: 27px;
         letter-spacing: 0.15px;
-        color: #3B414B;
+        color:$font_color_primary;
       }
       h6{
-        font-size: 12px;
+        font-size: $font_size_secondary;
         line-height: 25px;
         letter-spacing: 0.15px;
-        color: #3B414B;
+        color: $font_color_primary;
         margin-bottom: 1.5rem;
       }
       .buttons{
         color:$blue;
         font-weight: 500;
-        font-size: 14px;
+        font-size: $font_size_primary;
         line-height: 24px;
         display: -webkit-box;
         display: flex;
@@ -8364,6 +8403,39 @@ $bachground-gradient: linear-gradient(
         }
       }
     }
+  }
+}
+
+.contactAvatar{
+  width: 80px;
+  height: 80px;
+  background: #BBDEFB;
+  color:$blue;
+  float: right;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+          justify-content: center;
+  border-radius: 9999px;
+  margin-right: 1rem;
+  margin-top: 2.5rem;
+  img{
+    height:40px ;
+    width: 40px;
+    margin: 16px auto
+  }
+  a{
+    font-weight: 300;
+    font-size: 9px;
+    line-height: 12px;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+            align-items: center;
+    letter-spacing: 0.15px;
+    color:$blue;
+    text-decoration: none;
+    margin-top: 2rem;
   }
 }
 
@@ -36230,3 +36302,4 @@ $bachground-gradient: linear-gradient(
     z-index: auto;
   }
 }
+

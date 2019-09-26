@@ -14,6 +14,12 @@
   font-family: "Open Sans", sans-serif;
   color: $black_color
 }
+*:focus{
+  outline:0px;
+}
+button:focus{
+  outline:0px;
+}
 
 .body{
   padding: 16px;
@@ -22,7 +28,7 @@
 h2{font-size: 20px;
   line-height: 27px;
   letter-spacing: 0.15px;
-  color: #3B414B;}
+  color:$font_color_primary;}
 
 
 $bachground-gradient: linear-gradient(
@@ -52,6 +58,18 @@ $bachground-gradient: linear-gradient(
   }
 }
 
+.buttonPrimary{
+  background: $blue;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.24), 0px 0px 2px rgba(0, 0, 0, 0.12);
+  border-radius: 4px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: center;
+  letter-spacing: 1.25px;
+  @apply justify-center m-auto flex  uppercase text-white  py-2 px-6  ;
+}
+
 .contactRowAgenda{
   display: grid;
   grid-template-columns: 60px 2fr 1fr;
@@ -78,7 +96,7 @@ $bachground-gradient: linear-gradient(
       font-size: 9px;
       line-height: 12px;
       letter-spacing: 0.15px;
-      color:#3B414B;
+      color:$font_color_primary;
     }
     .chip{
       text-align: center;
@@ -107,7 +125,7 @@ $bachground-gradient: linear-gradient(
     font-size: 14px;
     line-height: 25px;
     letter-spacing: 0.15px;
-    color: #3B414B;
+    color:$font_color_primary;
   }
 }
 
@@ -116,17 +134,20 @@ $bachground-gradient: linear-gradient(
   grid-template-columns: 40px 2fr 40px;
   text-align: center;
   align-items: center;
-  @apply mb-6 p-2;
+  @apply mb-2 p-2;
   h2{
     font-size: 14px;
     line-height: 25px;
     text-align: center;
     letter-spacing: 0.15px;
   }
-  img{
+  img{ 
     height: 16px;
     width: 16px;
   }
+  img path {
+    fill: red;
+}
 }
 
 
@@ -138,7 +159,7 @@ $bachground-gradient: linear-gradient(
   background: $blue;
   @apply  absolute  object-right-bottom  shadow-2xl rounded-full ;
   :hover{
-    @apply bg-blue-700 text-white font-bold py-2 px-4 rounded-full ;
+    @apply text-white  rounded-full ;
   }
   img{
     height: 21px;
@@ -160,7 +181,7 @@ $bachground-gradient: linear-gradient(
     font-size: 14px;
     line-height: 18px;
     letter-spacing: 1.25px;
-    color: #3B414B;
+    color: $font_color_primary;
     @apply  font-bold  mb-3;
   }
   p{
@@ -262,6 +283,7 @@ $bachground-gradient: linear-gradient(
     @apply m-auto
   };
   .arrow { 
+    z-index: 999;
     @apply mx-auto
   }
 }
@@ -370,6 +392,7 @@ $bachground-gradient: linear-gradient(
 
 .inputTextField{ 
   height: 60px;
+  margin-bottom: 5px;
   @apply relative;
 
 input 				{
@@ -394,16 +417,12 @@ label 				 {
   -webkit-transition:0.2s ease all;
 }
 
-input:focus ~ label, input:valid ~ label 		{
-  top:-15px;
-  font-size:12px;
-  
-}
+
 input:focus ~ label 		{
   top:-18px;
   font-size: 11px;
   letter-spacing: 0.15px;
-  color:$primary_color;
+  color:$blue;
   opacity: 0.87;
 }
 
@@ -415,8 +434,8 @@ input:focus ~ label 		{
   width:0;
   bottom:0px; 
   position:absolute;
-  background:$primary_color;
-  color:$primary_color;
+  background:$blue;
+  color:$blue;
   transition:0.2s ease all; 
   -moz-transition:0.2s ease all; 
   -webkit-transition:0.2s ease all;
@@ -434,11 +453,12 @@ input:focus ~ .bar:before, input:focus ~ .bar:after {
 
 .highlight {
   position:absolute;
-  height:90%; 
-  width:100%; 
-  left:0;
-  pointer-events:none;
-  opacity:0.5;
+  height: 59%;
+    width: 100%;
+    left: 0;
+    pointer-events: none;
+    opacity: 0.5;
+    top: -10px;
 }
 
 input:focus ~ .highlight {
@@ -448,15 +468,15 @@ input:focus ~ .highlight {
 }
 
 @-webkit-keyframes inputHighlighter {
-	from { background:transparent; }
+	from { background:$blue; }
   to 	{ width:0; background:transparent; }
 }
 @-moz-keyframes inputHighlighter {
-	from { background:transparent; }
+	from { background:$blue; }
   to 	{ width:0; background:transparent; }
 }
 @keyframes inputHighlighter {
-	from { background:transparent; }
+	from { background:$blue; }
   to 	{ width:0; background:transparent; }
 }
 
@@ -465,6 +485,7 @@ p{ letter-spacing: 0.15px;
   opacity: 0.87;
   font-size: 9px;
   margin-bottom: 10px;
+  display: none;
 }
 
 }
@@ -473,18 +494,21 @@ p{ letter-spacing: 0.15px;
 
 .headerGradient{
   background: $bachground-gradient;
-  color:#fff;
   padding: 10px;
-  @apply mb-8 ;
+  min-height: 153px;
+  @apply mb-8 text-white ;
   .navigation, h2, img{
-    color:#fff;
+    @apply text-white ;
+    filter: #fff;
   }
   h1{
     font-size: 64px;
     line-height: 87px;
     letter-spacing: 0.15px;
     text-align: center;
+    font-weight: bold;
     color:#fff;
+    @apply text-white ;
   }
 
 }
@@ -492,7 +516,7 @@ p{ letter-spacing: 0.15px;
 .cardReservationOwner{
   display: grid;
   grid-template-columns: 75px 2fr 1fr;
-  @apply mb-6 ;
+  @apply mb-12 ;
   img{
     height: 60px;
     width: 60px;
@@ -502,10 +526,10 @@ p{ letter-spacing: 0.15px;
     font-size: 20px;
     line-height: 27px;
     letter-spacing: 0.15px;
-    color: #3B414B;
+    color: $font_color_primary;
   }
   label{
-    font-size: 14px;
+    font-size: $font_size_primary;
     line-height: 25px;
     color:$blue;
     text-align: center;
@@ -513,8 +537,8 @@ p{ letter-spacing: 0.15px;
   }
   .chip{
     text-align: center;
-    border: 1px solid #3B414B;
-    color: #3B414B;
+    border: 1px solid $font_color_primary;
+    color:$font_color_primary;
     height: 30px;
     margin-top:10px;
     @apply  inline-block  rounded-full px-3 py-1 text-sm font-semibold  ;
@@ -539,13 +563,15 @@ letter-spacing: 0.15px;
   }
 }
 
+
+
 .reservationGuestRow{
   display: grid;
   grid-template-columns: 3fr 30px 30px;
   border-bottom: 1px solid #E0E0E0;
   @apply p-1 mt-1 mb-1 ;
   h3{
-    font-size: 14px;
+    font-size: $font_size_primary;
     line-height: 25px;
     letter-spacing: 0.15px;
   }
@@ -558,7 +584,7 @@ letter-spacing: 0.15px;
     width: 16px;
     height: 16px;
     
-    @apply m-auto ;
+    @apply m-auto mr-2   ;
   }
 }
 
@@ -567,8 +593,8 @@ letter-spacing: 0.15px;
   grid-template-columns: 3fr 30px ;
   border-bottom: 1px solid #E0E0E0;
   @apply p-1 mt-1 mb-1 ;
-  input{
-    font-size: 14px;
+  h3{
+    font-size: $font_size_primary;
     line-height: 25px;
     letter-spacing: 0.15px;
     border: 0px;
@@ -579,12 +605,17 @@ letter-spacing: 0.15px;
     width: 16px;
     height: 16px;
     
-    @apply m-auto ;
+    @apply m-auto mr-2 ;
   }
 }
+.destinationsContent{
+  background: linear-gradient(180deg, #F7FAFC 0%, #CBD5E0 100%);
+  @apply min-h-screen ;
+
 .destinations{
   height: 152px;
-  @apply max-w-sm mt-4 rounded overflow-hidden relative shadow-lg ;
+  box-shadow: 0px 15px 38px rgba(0, 0, 0, 0.3), 0px 4px 4px rgba(0, 0, 0, 0.25);
+  @apply max-w-sm mt-6 rounded overflow-hidden relative ;
 
 .destinationsInfo{ 
   display: grid;
@@ -614,6 +645,7 @@ letter-spacing: 0.15px;
   }
 }
 }
+}
 
 .reservationNotesDialog{
   background:rgba(0, 0, 0, 0.5);
@@ -630,20 +662,20 @@ letter-spacing: 0.15px;
       font-size: 20px;
       line-height: 27px;
       letter-spacing: 0.15px;
-      color: #3B414B;
+      color:$font_color_primary;
       @apply ;
     }
     h6{
-      font-size: 12px;
+      font-size: $font_size_secondary;
       line-height: 25px;
       letter-spacing: 0.15px;
-      color: #3B414B;
+      color: $font_color_primary;
       @apply mb-6 ;
     }
     .buttons{
       color:$blue;
       font-weight: 500;
-      font-size: 14px;
+      font-size: $font_size_primary;
       line-height: 24px;
       display: flex;
       align-items: center;
@@ -656,3 +688,29 @@ letter-spacing: 0.15px;
   }
 }
 }
+
+.contactAvatar{
+  width: 80px;
+  height: 80px;
+  background: #BBDEFB;
+  color:$blue;
+  float: right;
+  @apply flex justify-center  rounded-full mr-4  mt-10  ;
+  img{
+    height:40px ;
+    width: 40px;
+    margin: 16px auto
+  }
+  a{
+    font-weight: 300;
+    font-size: 9px;
+    line-height: 12px;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.15px;
+    color:$blue;
+    text-decoration: none;
+    @apply  mt-8  ;
+      }
+}
+
