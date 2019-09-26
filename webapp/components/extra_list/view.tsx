@@ -4,7 +4,7 @@ import Add from '../../static/svg/Icon/Outline/iconAdd.svg';
 import ExtraListRow from './extra_list_row';
 
 export const view = (props) => {
-  return <div> <div className="reservationGuestList mt-6">
+  return <div className="mb-10"> <div className="reservationGuestList mt-6">
     <h2>{props.title}</h2>
     <button>
       <img src={Add} />
