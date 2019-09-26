@@ -1,6 +1,10 @@
 import * as firebase from "firebase/app";
 import "firebase/auth";
 import Dexie from 'dexie';
+
+import PouchDB from 'pouchdb';
+import PouchDBFind from 'pouchdb-find'
+
 import { 
   User, 
   Destination,
@@ -90,6 +94,66 @@ export class OutTripperDatabase extends Dexie implements IDataBaseService {
   }
 }
 
+export class PouchDatabaseService implements IDataBaseService {
+
+  private db: any 
+
+  insertDateAvailable(IDateAvailable: any): void {
+    throw new Error("Method not implemented.");
+  }
+  
+  insertProgram(program: import("./type").IProgram): void {
+    program['collectionKind'] = 'program'
+    program['_id']= program.id
+    this.db.put(program)
+  }
+
+  getToken(): Promise<string> {
+    return this.db.find({
+      selector: {
+        collectionKind: 'session'
+      }
+    }).then(result => result.docs[0].token)
+  }
+
+  setSession(data: ISession): void {
+    data['collectionKind'] = 'session'
+    this.db.post(data)
+  }
+
+  cleanSession(): void {
+    throw new Error("Method not implemented.");
+    //this.session.clear()
+  }
+
+  insertDestinationInfo(info: IDestination): void {
+    this.db.put(info)
+  }
+
+  getDestinationInfo(): Promise<IDestination> {
+    throw new Error("Method not implemented.");
+  }
+
+  getUser(): Promise<IUser> {
+    throw new Error("Method not implemented.");
+    //return this.user.toCollection().first()
+  }
+
+  setUser(user: IUser): void {
+   //  throw new Error("Method not implemented.");
+    this.db.put(user)
+  }
+
+  constructor() {
+    PouchDB.plugin(PouchDBFind);
+    // this.db = new PouchDB('outtripper')
+    this.db = new PouchDB('http://192.168.0.193:5984/outtripper')
+
+  }
+
+  
+}
+
 export interface IBusinessService { 
   getResumenAvailability(): Promise<IDatesAvailable[]>
 }
@@ -101,7 +165,10 @@ export class BusinessService implements IBusinessService {
   
 }
 
-export const dataService = new OutTripperDatabase()
+// export const dataService = new OutTripperDatabase()
+
+export const dataService = new PouchDatabaseService()
+
 
 export default firebase
 

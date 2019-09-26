@@ -5,6 +5,7 @@ engine/firebase-debug.log
 engine/firestore-debug.log
 *.log
 
+webapp/package-lock.json
 .DS_Store
 credentials/
 webapp/.DS_Store

@@ -6,7 +6,6 @@ import ReservationNotesDialog from '../components/reservation_notes_dialog';
 
 export const view = () => {
   return (<div>
-    <ReservationNotesDialog title="Reservation Note" description="Please, write a few lines about your thougths"/>
   <div className="body mt-2">
   
     <SearchByText />
