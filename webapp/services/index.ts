@@ -97,6 +97,7 @@ export class OutTripperDatabase extends Dexie implements IDataBaseService {
 export class PouchDatabaseService implements IDataBaseService {
 
   private db: any 
+  private remote: any
 
   insertDateAvailable(IDateAvailable: any): void {
     throw new Error("Method not implemented.");
@@ -135,6 +136,11 @@ export class PouchDatabaseService implements IDataBaseService {
   }
 
   getUser(): Promise<IUser> {
+    return this.getToken().then(result => {
+      console.log(atob(result))
+      return JSON.parse(atob(result))
+    })
+
     throw new Error("Method not implemented.");
     //return this.user.toCollection().first()
   }
@@ -146,9 +152,13 @@ export class PouchDatabaseService implements IDataBaseService {
 
   constructor() {
     PouchDB.plugin(PouchDBFind);
-    // this.db = new PouchDB('outtripper')
-    this.db = new PouchDB('http://192.168.0.193:5984/outtripper')
-
+    this.db = new PouchDB('outtripper')
+    this.remote  = new PouchDB('http://192.168.0.193:5984/outtripper')
+    this.db.sync( this.remote, {
+      live: true
+    }).on('change', (change) => {
+      console.log(change)
+    })
   }
 
   
