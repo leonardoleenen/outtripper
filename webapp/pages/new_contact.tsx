@@ -12,7 +12,7 @@ export const view = () => {
       </Head>
     <div className="headerGradient">
       <Navigation title="New Contact" />
-      <ContactAvatar/>
+      <ContactAvatar class="path"/>
     </div>
 
     <div className="body mt-12">
