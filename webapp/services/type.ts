@@ -83,6 +83,15 @@ export interface IDateAvailable {
   reserved: number 
 }
 
+export interface Contact {
+  first_name: string 
+  last_name: string 
+  email: string 
+  tags: string[] 
+  created_by: IUser
+  created_at: Date
+  tenant: string 
+}
 
 
 
