@@ -8475,6 +8475,101 @@ $bachground-gradient: linear-gradient(
   }
 }
 
+.availabilityResult{
+  padding:16px;
+  h2{
+    margin-bottom: 0.5rem;
+  }
+  .calendarDay{
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 4px;
+    width: 81px;
+    height: 90px;
+    float: left;
+    margin-right: 30px;
+    margin-top: 0.5rem;
+    margin-bottom: 4rem;
+    .day{
+      background: #68D391;
+      border-radius: 4px 4px 0px 0px;
+      height: 50px;
+      padding-top: 0.25rem;
+      h4{
+        font-weight: 600;
+        font-size: $font_size_primary;
+        line-height: 18px;
+        letter-spacing: 1.25px;
+        text-align: center;
+        color: #fff;
+      }
+      p{
+        font-weight: 300;
+        font-size: 9px;
+        line-height: 12px;
+        text-align: center;
+        letter-spacing: 0.15px;
+        text-align: center;
+        color: #fff;
+      }
+      .circleWhite{
+        display: -webkit-box;
+        display: flex;
+        -webkit-box-pack: center;
+                justify-content: center;
+        -webkit-box-align: center;
+                align-items: center;
+        s{
+          width: 5px;
+          height: 5px;
+          background-color: #fff;
+          text-align: center;
+          margin-right: 0.5rem;
+          border-radius: 9999px;
+          margin-bottom: 0.5rem;
+        }
+      }
+      .chip{
+        background: $red;
+        font-weight: bold;
+        font-size: 9px;
+        line-height: 16px;
+        letter-spacing: 0.15px;
+        margin-top: -11px;
+        width: 38px;
+        -webkit-box-align: end;
+                align-items: end;
+        -webkit-box-pack: center;
+                justify-content: center;
+        margin-left: 55px;
+        color: #fff;
+        text-align: center;
+        position: absolute;
+        border-radius: 0.5rem;
+      }
+    }
+    .price{
+      h4{
+        font-weight: 600;
+        font-size: $font_size_primary;
+        line-height: 18px;
+        letter-spacing: 1.25px;
+        margin-top:6px;
+        margin-bottom: 2px;
+        text-align: center;
+      }
+      h6{
+        font-weight: 300;
+        font-size: 9px;
+        line-height: 12px;
+        letter-spacing: 0.15px;
+        color: #718096;
+        text-align: center;
+      }
+    }
+  }
+}
+
 @media (min-width: 640px) {
   .sm\:appearance-none {
     -webkit-appearance: none;
