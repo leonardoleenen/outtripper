@@ -659,7 +659,7 @@ letter-spacing: 0.15px;
 .reservationNotesDialog{
   background:rgba(0, 0, 0, 0.5);
   z-index:999;
-  @apply  w-full flex flex-col items-center justify-center  h-screen  absolute flex items-center justify-center  ;
+  @apply  w-full flex flex-col items-center justify-center  h-screen  fixed flex items-center justify-center  ;
   .modal{
     width: 96%;
   
@@ -689,7 +689,7 @@ letter-spacing: 0.15px;
       display: flex;
       align-items: center;
       letter-spacing: 0.15px;
-      @apply justify-end ;
+      @apply justify-end mt-3 ;
       button{
         @apply p-1 mr-1 text-right uppercase ;
       }
@@ -723,3 +723,27 @@ letter-spacing: 0.15px;
       }
 }
 
+.extraDialogRow{
+  display: grid;
+  grid-template-columns: 3fr 25px 30px 25px;
+  border-bottom: 1px solid  #C4C4C4;
+  @apply mt-2 mb-2 pb-1 ;
+  img{
+    height: 20px;
+    width: 20px;
+  }
+  p{
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 25px;
+    text-align: center;
+    letter-spacing: 0.15px;
+  }
+  
+  h3{
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 25px;
+    letter-spacing: 0.15px;
+  }
+}
