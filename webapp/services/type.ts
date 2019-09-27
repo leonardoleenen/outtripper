@@ -30,7 +30,6 @@ export enum ProgramKind {
 }
 
 
-
 export interface IUser {
   cn: string,
   email: string
@@ -83,7 +82,7 @@ export interface IDateAvailable {
   reserved: number 
 }
 
-export interface Contact {
+export interface IContact {
   first_name: string 
   last_name: string 
   email: string 
@@ -91,6 +90,8 @@ export interface Contact {
   created_by: IUser
   created_at: Date
   tenant: string 
+  kindOf: string
+  domain: string
 }
 
 
@@ -108,6 +109,9 @@ export interface IDataBaseService {
   getProgram(id:string): Promise<IProgram>
   insertDateAvailable(IDateAvailable): void
   getDatesAvailables(): Promise<IDateAvailable[]>
+
+  insertContact(contact:IContact) : void
+  getContacts(): Promise<IContact[]>
 }
 
 

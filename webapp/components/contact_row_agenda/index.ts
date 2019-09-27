@@ -1,11 +1,17 @@
 import React from 'react'
 import {view} from './view'
 
-class ContactRowAgenda extends React.Component {
+interface Props {
+  first_name: string
+  email: string
+  kindOf: string
+}
+
+class ContactRowAgenda extends React.Component<Props> {
   constructor(props) {
     super(props)
   }
-  render = () => view()
+  render = () => view(this.props)
 }
 
 export default ContactRowAgenda
