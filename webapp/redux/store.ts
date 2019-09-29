@@ -4,6 +4,8 @@ import thunkMiddleware from 'redux-thunk'
 import { combineReducers } from 'redux';
 import {userReducer,signUpReducer} from '../redux/reducers/user';
 import {mainProcessReducer} from '../redux/reducers/core'
+import {agendaReducer} from '../redux/reducers/agenda';
+
 
 
 const initialState = {
@@ -21,7 +23,8 @@ const reducers = combineReducers({
   settings: settingReducer,
   user: userReducer,
   signupProcess: signUpReducer, 
-  mainProcess: mainProcessReducer
+  mainProcess: mainProcessReducer,
+  agenda: agendaReducer
 });
 
 export function initializeStore (initialState) {

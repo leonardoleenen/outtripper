@@ -83,6 +83,8 @@ export interface IDateAvailable {
 }
 
 export interface IContact {
+  _id: string
+  cn : string
   first_name: string 
   last_name: string 
   email: string 

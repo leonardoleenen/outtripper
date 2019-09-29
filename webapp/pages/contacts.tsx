@@ -6,61 +6,60 @@ import SearchByText from '../components/search_by_text';
 import ButtonFloatingAdd from '../components/button_floating_add';
 import Navigation from '../components/navigation';
 import { IContact } from '../services/type';
-import { businessService, BusinessService } from '../services/index';
+import {loadAgenda,filterAgenda} from '../redux/actions/agenda';
 
 
-export const view = (props,state) => {
+import {connect} from 'react-redux'
 
+export const view = (props) => {
   return (<div className="body">
     <Head>
       <meta name="viewport" content="width=device-width, user-scalable=no" />
     </Head>
     <Navigation />
-    <SearchByText />
+    <SearchByText callBack = {props.filter} />
     {
-      state.contacts.map((contact: IContact) => (
+      props.contacts.map((contact: IContact) => (
         <ContactRowAgenda 
+          key={contact._id}
           first_name={contact.first_name}  
+          last_name = {contact.last_name}
           email={contact.email} 
           kindOf={contact.kindOf}/>
     )) 
     }
-    
     <ButtonFloatingAdd />
-
   </div>)
 }
 
 
 interface Props {
-  contacts: IContact[]
+  load: any,
+  filter: any
 }
 
-interface State {
-  contacts: IContact[]
+
+
+
+class Contacts extends React.Component<Props> {
+  constructor (props){ super(props)} 
+  componentDidMount = () =>  this.props.load()
+  render = () => view(this.props )
 }
 
-class Contacts extends React.Component<Props, State> {
 
-  ds: BusinessService =  businessService
-  
-  state : State  = {
-    contacts : []
-  }
 
-  constructor(props) {
-    super(props)
+const mapStateToProps = state  => {
+  return {
+    contacts : state.agenda.contacts
   }
-  
-  componentWillMount() {
-    this.ds.getContacts().then(result => {
-      this.setState({contacts:result})
-    })
-  }
-
-  render = () => {
-    return view(this.props,this.state )
-  }
-
 }
-export default Contacts
+
+const mapDispatchToProps = dispatch => {
+  return {
+    load: () => dispatch(loadAgenda()),
+    filter: (criteria: string) => dispatch(filterAgenda(criteria))
+  }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(Contacts)

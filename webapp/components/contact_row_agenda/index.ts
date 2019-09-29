@@ -3,6 +3,7 @@ import {view} from './view'
 
 interface Props {
   first_name: string
+  last_name: string
   email: string
   kindOf: string
 }

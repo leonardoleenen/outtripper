@@ -1,11 +1,17 @@
 import React from 'react'
 import {view} from './view'
 
-class SearchByText extends React.Component {
+interface Props {
+  callBack: any,
+
+}
+
+class SearchByText extends React.Component <Props> {
   constructor(props) {
     super(props)
-  }
-  render = () => view()
+  }  
+
+  render = () => view(this.props.callBack)
 }
 
 export default SearchByText

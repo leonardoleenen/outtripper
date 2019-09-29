@@ -9,7 +9,7 @@ export const view = (props) => {
       <img src={User}/>
     </div>
     <div >
-      <p>{props.first_name} </p>
+      <p>{` ${props.last_name }, ${props.first_name }`} </p>
       <label>{props.email}</label>
     </div>
     <Chip></Chip>

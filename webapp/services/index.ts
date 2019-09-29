@@ -25,6 +25,8 @@ export const firebaseConfig = {
   appID: "app-id",
 };
 
+import _ from 'underscore';
+
 
 if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig);
@@ -209,7 +211,12 @@ export class BusinessService implements IBusinessService {
   }
 
   getContacts(): Promise<IContact[]> {
-    return this.ds.getContacts()
+    return this.ds.getContacts().then( result => {
+      return _.sortBy(result.map( (e: IContact) => {
+        e.cn = `${e.last_name}, ${e.first_name}`
+        return e
+      }), 'last_name')
+    })
   }
 
   getDatesAvailabilityList(program_id?: string): Promise<IDateAvailable[]> {
