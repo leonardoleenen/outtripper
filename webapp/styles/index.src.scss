@@ -6,30 +6,29 @@
 
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Gochi+Hand&display=swap");
-@import './variables.scss';
-
-
+@import "./variables.scss";
 
 * {
   font-family: "Open Sans", sans-serif;
-  color: $black_color
+  color: $black_color;
 }
-*:focus{
-  outline:0px;
+*:focus {
+  outline: 0px;
 }
-button:focus{
-  outline:0px;
+button:focus {
+  outline: 0px;
 }
 
-.body{
+.body {
   padding: 16px;
 }
 
-h2{font-size: 20px;
+h2 {
+  font-size: 20px;
   line-height: 27px;
   letter-spacing: 0.15px;
-  color:$font_color_primary;}
-
+  color: $font_color_primary;
+}
 
 $bachground-gradient: linear-gradient(
   179.96deg,
@@ -46,19 +45,19 @@ $bachground-gradient: linear-gradient(
 .bottomBar {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  @apply mt-8 pb-2 w-full border-t fixed bottom-0 left-0  bg-white ;
+  @apply mt-8 pb-2 w-full border-t fixed bottom-0 left-0  bg-white;
   p {
     font-weight: 300;
     font-size: 9px;
     line-height: 13px;
-    @apply m-auto
-  };
+    @apply m-auto;
+  }
   img {
-    @apply m-auto
+    @apply m-auto;
   }
 }
 
-.buttonPrimary{
+.buttonPrimary {
   background: $blue;
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.24), 0px 0px 2px rgba(0, 0, 0, 0.12);
   border-radius: 4px;
@@ -67,104 +66,117 @@ $bachground-gradient: linear-gradient(
   line-height: 16px;
   text-align: center;
   letter-spacing: 1.25px;
-  @apply justify-center m-auto flex  uppercase text-white  py-2 px-6  ;
+  @apply justify-center m-auto flex  uppercase text-white  py-2 px-6;
 }
 
-.contactRowAgenda{
+.contactRowAgenda {
   display: grid;
   grid-template-columns: 60px 2fr 1fr;
   @apply p-2  items-center;
-    .avatar{
-      width: 40px;
-      height: 40px;
-      background: #BBDEFB;
-      color:$blue;
-      @apply  rounded-full mr-4;
-      img{
-        height:24px ;
-        width: 24px;
-        margin: 6px auto
-      }
+  .avatar {
+    width: 40px;
+    height: 40px;
+    background: #bbdefb;
+    color: $blue;
+    @apply rounded-full mr-4;
+    img {
+      height: 24px;
+      width: 24px;
+      margin: 6px auto;
     }
-    p{
-      font-size: 14px;
-      line-height: 20px;
-      letter-spacing: 0.15px;
-    }
-    label{
-      font-weight: 300;
-      font-size: 9px;
-      line-height: 12px;
-      letter-spacing: 0.15px;
-      color:$font_color_primary;
-    }
-    .chip{
-      text-align: center;
-      @apply  inline-block  rounded-full px-3 py-1 text-sm font-semibold text-white bg-green-400 ;
-    }
+  };
+  p {
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.15px;
+  };
+  label {
+    font-weight: 300;
+    font-size: 9px;
+    line-height: 12px;
+    letter-spacing: 0.15px;
+    color: $font_color_primary;
+  };
+  .chip_green {
+    text-align: center;
+    @apply inline-block  rounded-full px-3 py-1 text-sm font-semibold text-white bg-green-400;
+  };
+  .chip_red {
+    text-align: center;
+    @apply inline-block  rounded-full px-3 py-1 text-sm font-semibold text-white bg-red-400;
+  }
+  .chip_blue {
+    text-align: center;
+    @apply inline-block  rounded-full px-3 py-1 text-sm font-semibold text-white bg-blue-400;
+  };
+  .chip_unset {
+    text-align: center;
+    color: $black_color;
+    @apply inline-block  rounded-full px-3 py-1 text-sm font-semibold border ;
+  }
 }
 
-.searchByText{
-  background: #F7FAFC;
-  box-shadow: 0px 19px 38px rgba(0, 0, 0, 0.3), 0px 15px 12px rgba(0, 0, 0, 0.22);
+.searchByText {
+  background: #f7fafc;
+  box-shadow: 0px 19px 38px rgba(0, 0, 0, 0.3),
+    0px 15px 12px rgba(0, 0, 0, 0.22);
   border-radius: 30px;
   border-width: 0px;
-  @apply mb-6  appearance-none   w-full py-2 px-3   ;
+  @apply mb-6  appearance-none   w-full py-2 px-3;
 
-  img{ 
+  img {
     height: 21px;
     width: 21px;
     color: #718096;
-    padding-left: 5PX;
+    padding-left: 5px;
     padding-top: 8px;
   }
-  input{
-    background: #F7FAFC;
+  input {
+    background: #f7fafc;
     text-indent: 15px;
     width: 80%;
     font-size: 14px;
     line-height: 25px;
     letter-spacing: 0.15px;
-    color:$font_color_primary;
+    color: $font_color_primary;
   }
 }
 
-.navigation{
+.navigation {
   display: grid;
   grid-template-columns: 40px 2fr 40px;
   text-align: center;
   align-items: center;
   @apply mb-2 p-2;
-  h2{
+  h2 {
     font-size: 14px;
     line-height: 25px;
     text-align: center;
     letter-spacing: 0.15px;
   }
-  img{ 
+  img {
     height: 16px;
     width: 16px;
   }
   img path {
     fill: red;
-}
+  }
 }
 
-
-.buttonFloatingAdd{
+.buttonFloatingAdd {
   height: 56px;
   width: 56px;
   bottom: 20px;
   right: 20px;
   background: $blue;
-  @apply  absolute  object-right-bottom  shadow-2xl rounded-full ;
-  :hover{
-    @apply text-white  rounded-full ;
+  @apply absolute  object-right-bottom  shadow-2xl rounded-full;
+  :hover {
+    @apply text-white  rounded-full;
   }
-  img{
+  img {
     height: 21px;
     width: 21x;
-    @apply m-auto
+    @apply m-auto;
   }
 }
 
@@ -175,72 +187,75 @@ $bachground-gradient: linear-gradient(
   @apply w-full mt-1;
 }
 
-.cardNote{
-  @apply max-w-sm w-full shadow-lg  border border-gray-400 mb-8  rounded-lg p-4 flex-col justify-between leading-normal ;
-  h4{
+.cardNote {
+  @apply max-w-sm w-full shadow-lg  border border-gray-400 mb-8  rounded-lg p-4 flex-col justify-between leading-normal;
+  h4 {
     font-size: 14px;
     line-height: 18px;
     letter-spacing: 1.25px;
     color: $font_color_primary;
-    @apply  font-bold  mb-3;
+    @apply font-bold  mb-3;
   }
-  p{
+  p {
     font-size: 9px;
     line-height: 12px;
     letter-spacing: 0.15px;
   }
 }
 
-
-.cardEvent{
+.cardEvent {
   display: grid;
   grid-template-columns: 2fr 1fr;
-  @apply max-w-sm w-full shadow-lg  border border-gray-400 mb-8 mt-4  rounded-lg  flex-col justify-between leading-normal ;
-  .content{
-    @apply p-3 ; 
-    h2{
+  @apply max-w-sm w-full shadow-lg  border border-gray-400 mb-8 mt-4  rounded-lg  flex-col justify-between leading-normal;
+  .content {
+    @apply p-3;
+    h2 {
       font-size: 20px;
       line-height: 27px;
       display: flex;
       align-items: center;
       letter-spacing: 0.15px;
-      @apply  font-bold  ;
-    } 
+      @apply font-bold;
+    }
   }
-  
-  label{
-    font-size: 9px;
-    line-height: 12px;
-    letter-spacing: 0.15px;}
-  p{
+
+  label {
     font-size: 9px;
     line-height: 12px;
     letter-spacing: 0.15px;
   }
-  .author{
+  p {
     font-size: 9px;
     line-height: 12px;
     letter-spacing: 0.15px;
-    @apply  mt-3 ;
   }
-  .price{
+  .author {
+    font-size: 9px;
+    line-height: 12px;
+    letter-spacing: 0.15px;
+    @apply mt-3;
+  }
+  .price {
     align-items: center;
     text-align: center;
-    @apply p-3  rounded-r ;
-    h3{font-size: 22px;
-      line-height:20px;
+    @apply p-3  rounded-r;
+    h3 {
+      font-size: 22px;
+      line-height: 20px;
       margin: auto auto;
       letter-spacing: 0.15px;
-      @apply w-full pt-4 ;}
-    
-    label{font-weight: 300;
+      @apply w-full pt-4;
+    }
+
+    label {
+      font-weight: 300;
       font-size: 9px;
       line-height: 12px;
       letter-spacing: 0.15px;
-      @apply w-full ;}
+      @apply w-full;
+    }
   }
 }
-
 
 .login {
   display: grid;
@@ -270,21 +285,21 @@ $bachground-gradient: linear-gradient(
   grid-template-rows: repeat(5, 1fr);
   grid-gap: 20px;
   label {
-    color: $black_color; 
-    @apply text-4xl m-auto font-semibold; 
-  };
+    color: $black_color;
+    @apply text-4xl m-auto font-semibold;
+  }
   article {
     color: $black_color;
-    grid-row: 4; 
-    @apply text-xs text-center mb-4 font-thin tracking-wider leading-relaxed w-11/12 m-auto
-  };
+    grid-row: 4;
+    @apply text-xs text-center mb-4 font-thin tracking-wider leading-relaxed w-11/12 m-auto;
+  }
   .avatarNoEvent {
     grid-row: span 2;
-    @apply m-auto
-  };
-  .arrow { 
+    @apply m-auto;
+  }
+  .arrow {
     z-index: 999;
-    @apply mx-auto
+    @apply mx-auto;
   }
 }
 
@@ -315,411 +330,424 @@ $bachground-gradient: linear-gradient(
   }
 }
 
-.calendarAvailabilityResume { 
+.calendarAvailabilityResume {
   display: grid;
-  grid-template-columns: repeat(7,1fr);
+  grid-template-columns: repeat(7, 1fr);
   grid-gap: 5px;
   .backgroundRed {
-    background-color:$red;
-  };
+    background-color: $red;
+  }
   .backgroundOrange {
-    background-color:$orange
-  };
+    background-color: $orange;
+  }
   .backgroundYellow {
-    background-color:$yellow
-  };
+    background-color: $yellow;
+  }
   .backgroundGreen {
-    background-color: $green
-  };
+    background-color: $green;
+  }
   .backgroundGrey {
-    background-color: $grey
+    background-color: $grey;
   }
   label {
     color: $black_color;
-    @apply font-thin text-sm m-auto
-  };
+    @apply font-thin text-sm m-auto;
+  }
 }
 
-.success{
-  h3{
+.success {
+  h3 {
     font-size: 20px;
     line-height: 27px;
     text-align: center;
     letter-spacing: 0.15px;
-    @apply  m-auto mt-8 mb-8 pl-2 pr-2 ;
+    @apply m-auto mt-8 mb-8 pl-2 pr-2;
   }
-  p{
+  p {
     font-size: 14px;
     line-height: 18px;
     text-align: center;
     letter-spacing: 1.25px;
-    @apply  m-auto mt-6 mb-4 ;
+    @apply m-auto mt-6 mb-4;
   }
-  img{
-    @apply  m-auto  mb-8 ;
+  img {
+    @apply m-auto  mb-8;
   }
-  .buttons{
+  .buttons {
     display: grid;
     grid-template-columns: 1fr 1fr;
     bottom: 20px;
     width: 90%;
-    @apply   absolute ;
-    .buttonLeft{
+    @apply absolute;
+    .buttonLeft {
       font-weight: 600;
       font-size: 14px;
       line-height: 18px;
       align-items: center;
       letter-spacing: 1.25px;
       background: none;
-      color:$blue;
+      color: $blue;
       bottom: 20px;
-      @apply  text-left ;
-    };
-    .buttonRight{
+      @apply text-left;
+    }
+    .buttonRight {
       font-weight: 600;
       font-size: 14px;
       line-height: 18px;
       align-items: center;
       letter-spacing: 1.25px;
       background: none;
-      color:$blue;
+      color: $blue;
       bottom: 20px;
-      @apply  text-right  ;
+      @apply text-right;
     }
   }
-
 }
 
-.inputTextField{ 
+.inputTextField {
   height: 60px;
   margin-bottom: 5px;
   @apply relative;
 
-input 				{
-  font-size:16px;
-  padding:-1px 10px 10px 0px;
-  display:block;
-  width:100%;
-  border:none;
-  border-bottom:1px solid rgba(0, 0, 0, 0.36);
-}
-input:focus{ outline:none; }
-label 				 {
-  color:#999; 
-  font-size:14px;
-  font-weight:normal;
-  position:absolute;
-  pointer-events:none;
-  left:0px;
-  top:0px;
-  transition:0.2s ease all; 
-  -moz-transition:0.2s ease all; 
-  -webkit-transition:0.2s ease all;
-}
+  input {
+    font-size: 16px;
+    padding: -1px 10px 10px 0px;
+    display: block;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.36);
+  }
+  input:focus {
+    outline: none;
+  }
+  label {
+    color: #999;
+    font-size: 14px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 0px;
+    top: 0px;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+  }
 
+  input:focus ~ label {
+    top: -18px;
+    font-size: 11px;
+    letter-spacing: 0.15px;
+    color: $blue;
+    opacity: 0.87;
+  }
 
-input:focus ~ label 		{
-  top:-18px;
-  font-size: 11px;
-  letter-spacing: 0.15px;
-  color:$blue;
-  opacity: 0.87;
-}
+  .bar {
+    position: relative;
+    display: block;
+    width: 100%;
+  }
+  .bar:before,
+  .bar:after {
+    content: "";
+    height: 1px;
+    width: 0;
+    bottom: 0px;
+    position: absolute;
+    background: $blue;
+    color: $blue;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+  }
+  .bar:before {
+    left: 50%;
+  }
+  .bar:after {
+    right: 50%;
+  }
 
+  input:focus ~ .bar:before,
+  input:focus ~ .bar:after {
+    width: 50%;
+  }
 
-.bar 	{ position:relative; display:block; width:100%; }
-.bar:before, .bar:after 	{
-  content:'';
-  height:1px; 
-  width:0;
-  bottom:0px; 
-  position:absolute;
-  background:$blue;
-  color:$blue;
-  transition:0.2s ease all; 
-  -moz-transition:0.2s ease all; 
-  -webkit-transition:0.2s ease all;
-}
-.bar:before {
-  left:50%;
-}
-.bar:after {
-  right:50%; 
-}
-
-input:focus ~ .bar:before, input:focus ~ .bar:after {
-  width:50%;
-}
-
-.highlight {
-  position:absolute;
-  height: 59%;
+  .highlight {
+    position: absolute;
+    height: 59%;
     width: 100%;
     left: 0;
     pointer-events: none;
     opacity: 0.5;
     top: -10px;
+  }
+
+  input:focus ~ .highlight {
+    -webkit-animation: inputHighlighter 0.3s ease;
+    -moz-animation: inputHighlighter 0.3s ease;
+    animation: inputHighlighter 0.3s ease;
+  }
+
+  @-webkit-keyframes inputHighlighter {
+    from {
+      background: $blue;
+    }
+    to {
+      width: 0;
+      background: transparent;
+    }
+  }
+  @-moz-keyframes inputHighlighter {
+    from {
+      background: $blue;
+    }
+    to {
+      width: 0;
+      background: transparent;
+    }
+  }
+  @keyframes inputHighlighter {
+    from {
+      background: $blue;
+    }
+    to {
+      width: 0;
+      background: transparent;
+    }
+  }
+
+  p {
+    letter-spacing: 0.15px;
+    color: $primary_color;
+    opacity: 0.87;
+    font-size: 9px;
+    margin-bottom: 10px;
+    display: none;
+  }
 }
 
-input:focus ~ .highlight {
-  -webkit-animation:inputHighlighter 0.3s ease;
-  -moz-animation:inputHighlighter 0.3s ease;
-  animation:inputHighlighter 0.3s ease;
-}
-
-@-webkit-keyframes inputHighlighter {
-	from { background:$blue; }
-  to 	{ width:0; background:transparent; }
-}
-@-moz-keyframes inputHighlighter {
-	from { background:$blue; }
-  to 	{ width:0; background:transparent; }
-}
-@keyframes inputHighlighter {
-	from { background:$blue; }
-  to 	{ width:0; background:transparent; }
-}
-
-p{ letter-spacing: 0.15px;
-  color:$primary_color;
-  opacity: 0.87;
-  font-size: 9px;
-  margin-bottom: 10px;
-  display: none;
-}
-
-}
-
-
-
-.headerGradient{
+.headerGradient {
   background: $bachground-gradient;
   padding: 10px;
   min-height: 153px;
-  @apply mb-8 text-white ;
-  .navigation, h2, img{
-    @apply text-white ;
-    
+  @apply mb-8 text-white;
+  .navigation,
+  h2,
+  img {
+    @apply text-white;
   }
-  .path{
+  .path {
     filter: invert(1);
   }
-  h1{
+  h1 {
     font-size: 64px;
     line-height: 87px;
     letter-spacing: 0.15px;
     text-align: center;
     font-weight: bold;
-    color:#fff;
-    @apply text-white ;
+    color: #fff;
+    @apply text-white;
   }
- .notes{
-  font-size: 14px;
-  line-height: 25px;
-  letter-spacing: 0.15px;
-  @apply text-right text-white ;
- }
-
+  .notes {
+    font-size: 14px;
+    line-height: 25px;
+    letter-spacing: 0.15px;
+    @apply text-right text-white;
+  }
 }
 
-.cardReservationOwner{
+.cardReservationOwner {
   display: grid;
   grid-template-columns: 75px 2fr 1fr;
-  @apply mb-12 ;
-  img{
+  @apply mb-12;
+  img {
     height: 60px;
     width: 60px;
     @apply rounded-full mr-2;
-}
-  h2{
+  }
+  h2 {
     font-size: 20px;
     line-height: 27px;
     letter-spacing: 0.15px;
     color: $font_color_primary;
   }
-  label{
+  label {
     font-size: $font_size_primary;
     line-height: 25px;
-    color:$blue;
+    color: $blue;
     text-align: center;
     letter-spacing: 0.15px;
   }
-  .chip{
+  .chip {
     text-align: center;
     border: 1px solid $font_color_primary;
-    color:$font_color_primary;
+    color: $font_color_primary;
     height: 30px;
-    margin-top:10px;
-    @apply  inline-block  rounded-full px-3 py-1 text-sm font-semibold  ;
+    margin-top: 10px;
+    @apply inline-block  rounded-full px-3 py-1 text-sm font-semibold;
   }
 }
 
-
-.reservationGuestList{
+.reservationGuestList {
   display: grid;
   grid-template-columns: 3fr 30px;
-  border-bottom: 1px solid #E0E0E0;
-  @apply p-2 ;
-  h2{
+  border-bottom: 1px solid #e0e0e0;
+  @apply p-2;
+  h2 {
     font-size: 20px;
-line-height: 27px;
-letter-spacing: 0.15px;
+    line-height: 27px;
+    letter-spacing: 0.15px;
   }
-  img{
+  img {
     width: 20px;
     height: 20px;
-    @apply m-auto ;
+    @apply m-auto;
   }
 }
 
-
-
-.reservationGuestRow{
+.reservationGuestRow {
   display: grid;
   grid-template-columns: 3fr 30px 30px;
-  border-bottom: 1px solid #E0E0E0;
-  @apply p-1 mt-1 mb-1 ;
-  h3{
+  border-bottom: 1px solid #e0e0e0;
+  @apply p-1 mt-1 mb-1;
+  h3 {
     font-size: $font_size_primary;
     line-height: 25px;
     letter-spacing: 0.15px;
   }
-  p{
+  p {
     font-size: 9px;
     line-height: 12px;
-    letter-spacing: 0.15px
+    letter-spacing: 0.15px;
   }
-  img{
+  img {
     width: 16px;
     height: 16px;
-    
-    @apply m-auto mr-3   ;
+
+    @apply m-auto mr-3;
   }
 }
 
-.extraListRow{
+.extraListRow {
   display: grid;
-  grid-template-columns: 3fr 30px ;
-  border-bottom: 1px solid #E0E0E0;
-  @apply p-1 mt-1 mb-1 ;
-  h3{
+  grid-template-columns: 3fr 30px;
+  border-bottom: 1px solid #e0e0e0;
+  @apply p-1 mt-1 mb-1;
+  h3 {
     font-size: $font_size_primary;
     line-height: 25px;
     letter-spacing: 0.15px;
     border: 0px;
-    @apply w-full ;
+    @apply w-full;
   }
-  
-  img{
+
+  img {
     width: 16px;
     height: 16px;
-    
-    @apply m-auto mr-3 ;
+
+    @apply m-auto mr-3;
   }
 }
-.destinationsContent{
-  background: linear-gradient(180deg, #F7FAFC 0%, #CBD5E0 100%);
-  @apply min-h-screen ;
+.destinationsContent {
+  background: linear-gradient(180deg, #f7fafc 0%, #cbd5e0 100%);
+  @apply min-h-screen;
 
-.destinations{
-  height: 152px;
-  box-shadow: 0px 15px 38px rgba(0, 0, 0, 0.3), 0px 4px 4px rgba(0, 0, 0, 0.25);
-  @apply max-w-sm mt-6 rounded overflow-hidden relative ;
+  .destinations {
+    height: 152px;
+    box-shadow: 0px 15px 38px rgba(0, 0, 0, 0.3),
+      0px 4px 4px rgba(0, 0, 0, 0.25);
+    @apply max-w-sm mt-6 rounded overflow-hidden relative;
 
-.destinationsInfo{ 
-  display: grid;
-  grid-template-columns: 30px 3fr 30px;
-  height: 60px;
-  position: absolute;
-  background:rgba(0, 0, 0, 0.5);
-  border-radius: 4px;
-  @apply m-auto  bottom-0 left-0 right-0  p-2 absolute text-white ;
-  h3{
-    font-size: 20px;
-    line-height: 27px;
-    letter-spacing: 0.15px;
-    @apply  text-white ;
-
-  }
-  p{
-    font-size: 10px;
-    line-height: 12px;
-    letter-spacing: 0.15px;
-    @apply  text-white ;
-  }
-  .icon{
-    height: 20px;
-    width: 20px;
-    @apply m-auto mt-1 ; 
-  }
-}
-}
-}
-
-.reservationNotesDialog{
-  background:rgba(0, 0, 0, 0.5);
-  z-index:999;
-  @apply  w-full flex flex-col items-center justify-center  h-screen  absolute flex items-center justify-center  ;
-  .modal{
-    width: 96%;
-  
-  .content{
-  
-    @apply bg-white shadow p-4 m-2 overflow-y-scroll ;
-    h1{
-      font-weight: 600;
-      font-size: 20px;
-      line-height: 27px;
-      letter-spacing: 0.15px;
-      color:$font_color_primary;
-      @apply ;
-    }
-    h6{
-      font-size: $font_size_secondary;
-      line-height: 25px;
-      letter-spacing: 0.15px;
-      color: $font_color_primary;
-      @apply mb-6 ;
-    }
-    .buttons{
-      color:$blue;
-      font-weight: 500;
-      font-size: $font_size_primary;
-      line-height: 24px;
-      display: flex;
-      align-items: center;
-      letter-spacing: 0.15px;
-      @apply justify-end ;
-      button{
-        @apply p-1 mr-1 text-right uppercase ;
+    .destinationsInfo {
+      display: grid;
+      grid-template-columns: 30px 3fr 30px;
+      height: 60px;
+      position: absolute;
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 4px;
+      @apply m-auto  bottom-0 left-0 right-0  p-2 absolute text-white;
+      h3 {
+        font-size: 20px;
+        line-height: 27px;
+        letter-spacing: 0.15px;
+        @apply text-white;
+      }
+      p {
+        font-size: 10px;
+        line-height: 12px;
+        letter-spacing: 0.15px;
+        @apply text-white;
+      }
+      .icon {
+        height: 20px;
+        width: 20px;
+        @apply m-auto mt-1;
       }
     }
   }
 }
+
+.reservationNotesDialog {
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  @apply w-full flex flex-col items-center justify-center  h-screen  absolute flex items-center justify-center;
+  .modal {
+    width: 96%;
+
+    .content {
+      @apply bg-white shadow p-4 m-2 overflow-y-scroll;
+      h1 {
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 27px;
+        letter-spacing: 0.15px;
+        color: $font_color_primary;
+        @apply;
+      }
+      h6 {
+        font-size: $font_size_secondary;
+        line-height: 25px;
+        letter-spacing: 0.15px;
+        color: $font_color_primary;
+        @apply mb-6;
+      }
+      .buttons {
+        color: $blue;
+        font-weight: 500;
+        font-size: $font_size_primary;
+        line-height: 24px;
+        display: flex;
+        align-items: center;
+        letter-spacing: 0.15px;
+        @apply justify-end;
+        button {
+          @apply p-1 mr-1 text-right uppercase;
+        }
+      }
+    }
+  }
 }
 
-.contactAvatar{
+.contactAvatar {
   width: 80px;
   height: 80px;
-  background: #BBDEFB;
-  color:$blue;
+  background: #bbdefb;
+  color: $blue;
   float: right;
-  @apply flex justify-center  rounded-full mr-4  mt-10  ;
-  img{
-    height:40px ;
+  @apply flex justify-center  rounded-full mr-4  mt-10;
+  img {
+    height: 40px;
     width: 40px;
-    margin: 16px auto
+    margin: 16px auto;
   }
-  a{
+  a {
     font-weight: 300;
     font-size: 9px;
     line-height: 12px;
     display: flex;
     align-items: center;
     letter-spacing: 0.15px;
-    color:$blue;
+    color: $blue;
     text-decoration: none;
-    @apply  mt-8  ;
-      }
+    @apply mt-8;
+  }
 }
-

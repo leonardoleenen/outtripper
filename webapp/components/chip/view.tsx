@@ -1,9 +1,9 @@
 import React from 'react';
 import '../../styles/index.scss';
 
-export const view = () => {
-  return <span className="chip" >
-    Saff
+export const view = (color,text) => {
+  return <span className="chip_unset" >
+    {text}
   </span>
 
 }

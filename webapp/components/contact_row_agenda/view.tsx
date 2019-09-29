@@ -12,7 +12,7 @@ export const view = (props) => {
       <p>{` ${props.last_name }, ${props.first_name }`} </p>
       <label>{props.email}</label>
     </div>
-    <Chip></Chip>
+    <Chip color='green' text='Guest'></Chip>
 
   </div>
 }
