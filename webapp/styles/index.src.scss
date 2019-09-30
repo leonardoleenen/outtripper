@@ -84,23 +84,23 @@ $bachground-gradient: linear-gradient(
       width: 24px;
       margin: 6px auto;
     }
-  };
+  }
   p {
     font-size: 14px;
     line-height: 20px;
     letter-spacing: 0.15px;
-  };
+  }
   label {
     font-weight: 300;
     font-size: 9px;
     line-height: 12px;
     letter-spacing: 0.15px;
     color: $font_color_primary;
-  };
+  }
   .chip_green {
     text-align: center;
     @apply inline-block  rounded-full px-3 py-1 text-sm font-semibold text-white bg-green-400;
-  };
+  }
   .chip_red {
     text-align: center;
     @apply inline-block  rounded-full px-3 py-1 text-sm font-semibold text-white bg-red-400;
@@ -108,11 +108,11 @@ $bachground-gradient: linear-gradient(
   .chip_blue {
     text-align: center;
     @apply inline-block  rounded-full px-3 py-1 text-sm font-semibold text-white bg-blue-400;
-  };
+  }
   .chip_unset {
     text-align: center;
     color: $black_color;
-    @apply inline-block  rounded-full px-3 py-1 text-sm font-semibold border ;
+    @apply inline-block  rounded-full px-3 py-1 text-sm font-semibold border;
   }
 }
 
@@ -689,7 +689,7 @@ $bachground-gradient: linear-gradient(
 .reservationNotesDialog {
   background: rgba(0, 0, 0, 0.5);
   z-index: 999;
-  @apply w-full flex flex-col items-center justify-center  h-screen  absolute flex items-center justify-center;
+  @apply w-full flex flex-col items-center justify-center  h-screen  fixed flex items-center justify-center;
   .modal {
     width: 96%;
 
@@ -718,7 +718,7 @@ $bachground-gradient: linear-gradient(
         display: flex;
         align-items: center;
         letter-spacing: 0.15px;
-        @apply justify-end;
+        @apply justify-end mt-3;
         button {
           @apply p-1 mr-1 text-right uppercase;
         }
@@ -749,5 +749,108 @@ $bachground-gradient: linear-gradient(
     color: $blue;
     text-decoration: none;
     @apply mt-8;
+  }
+}
+
+.extraDialogRow {
+  display: grid;
+  grid-template-columns: 3fr 25px 30px 25px;
+  border-bottom: 1px solid #c4c4c4;
+  @apply mt-2 mb-2 pb-1;
+  img {
+    height: 20px;
+    width: 20px;
+  }
+  p {
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 25px;
+    text-align: center;
+    letter-spacing: 0.15px;
+  }
+
+  h3 {
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 25px;
+    letter-spacing: 0.15px;
+  }
+}
+
+.availabilityResult {
+  padding: 16px;
+  h2 {
+    @apply mb-2;
+  }
+  .calendarDay {
+    background: #ffffff;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 4px;
+    width: 81px;
+    height: 90px;
+    float: left;
+    margin-right: 30px;
+    @apply mt-2 mb-16;
+    .day {
+      background: #68d391;
+      border-radius: 4px 4px 0px 0px;
+      height: 50px;
+      @apply pt-1;
+      h4 {
+        font-weight: 600;
+        font-size: $font_size_primary;
+        line-height: 18px;
+        letter-spacing: 1.25px;
+        @apply text-center text-white;
+      }
+      p {
+        font-weight: 300;
+        font-size: 9px;
+        line-height: 12px;
+        text-align: center;
+        letter-spacing: 0.15px;
+        @apply text-center text-white;
+      }
+      .circleWhite {
+        @apply flex justify-center items-center;
+        s {
+          width: 5px;
+          height: 5px;
+          @apply bg-white text-center mr-2 rounded-full mb-2;
+        }
+      }
+      .chip {
+        background: $red;
+        font-weight: bold;
+        font-size: 9px;
+        line-height: 16px;
+        letter-spacing: 0.15px;
+        margin-top: -11px;
+        width: 38px;
+        align-items: end;
+        justify-content: center;
+        margin-left: 55px;
+        @apply text-white  text-center absolute rounded-lg;
+      }
+    }
+    .price {
+      h4 {
+        font-weight: 600;
+        font-size: $font_size_primary;
+        line-height: 18px;
+        letter-spacing: 1.25px;
+        margin-top: 6px;
+        margin-bottom: 2px;
+        @apply text-center;
+      }
+      h6 {
+        font-weight: 300;
+        font-size: 9px;
+        line-height: 12px;
+        letter-spacing: 0.15px;
+        color: #718096;
+        @apply text-center;
+      }
+    }
   }
 }

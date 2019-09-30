@@ -6,12 +6,14 @@ import CardReservationOwner from '../components/card_reservation_owner';
 import ReservationGuestList from '../components/reservation_guest_list';
 import ExtraList from '../components/extra_list';
 import InputText from '../components/input_text';
+import ExtrasDialog from '../components/extras_dialog';
 
 export const view = () => {
   return (<div>
     <Head>
       <meta name="viewport" content="width=device-width, user-scalable=no" />
     </Head>
+    <ExtrasDialog title="Extras"  />
     <div className="headerGradient">
       <Navigation title="Jurassic Lake Weekly Program, Oct 13 2019" />
       <h1>$6,900</h1>
@@ -23,9 +25,7 @@ export const view = () => {
       <InputText label="Booking label" />
       <ReservationGuestList />
       <ExtraList title="Extras" />
-      <InputText label="terms" required/>
-
-   
+      <InputText label="terms" required />
     </div>
 
   </div>)
