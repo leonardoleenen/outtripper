@@ -5,6 +5,7 @@ engine/firebase-debug.log
 engine/firestore-debug.log
 *.log
 
+webapp/styles/index.scss
 webapp/outtripper/
 webapp/package-lock.json
 .DS_Store
