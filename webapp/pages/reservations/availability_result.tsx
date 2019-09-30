@@ -1,9 +1,15 @@
 import React from 'react';
 import "../../styles/index.scss";
 import AvailabilityResultWeek from '../../components/availability_result_week';
+import ButtonToggle from '../../components/button_toggle';
 
 export const view = () => {
   return (<div className="availabilityResult ">
+    <div class="inline-flex mb-5">
+      <ButtonToggle text="Programs" />
+      <ButtonToggle text="2 anglers"/>
+    </div>
+    
     <h2>Full Week</h2>
     <AvailabilityResultWeek 
       dayStar="Oct 03th" 
