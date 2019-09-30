@@ -4,6 +4,8 @@ import User from '../../static/svg/Icon/Outline/user.svg';
 import Chip from '../chip'
 
 export const view = (props) => {
+  let color = 'unset'
+
   return <div className="contactRowAgenda">
     <div className="avatar"  >
       <img src={User}/>
@@ -12,7 +14,7 @@ export const view = (props) => {
       <p>{` ${props.last_name }, ${props.first_name }`} </p>
       <label>{props.email}</label>
     </div>
-    <Chip color='green' text='Guest'></Chip>
+    <Chip color='unset' text='Guest'></Chip>
 
   </div>
 }
