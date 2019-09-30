@@ -3,7 +3,7 @@ import '../../styles/index.scss';
 
 export const view = (props) => {
   return <div className="inputTextField">
-    <input type="text"  />
+    <input type="text"  required />
     <span className="highlight"></span>
     <span className="bar"></span>
     <label>{props.label}</label>
