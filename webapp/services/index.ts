@@ -119,7 +119,9 @@ export class PouchDatabaseService implements IDataBaseService {
       selector: {
         collectionKind: 'datesAvailable'
       }
-    }).then(result => result.docs)
+    }).then( (result) => {
+      return result.docs
+    })
   }
 
 

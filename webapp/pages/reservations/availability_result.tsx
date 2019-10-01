@@ -1,47 +1,72 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import "../../styles/index.scss";
 import AvailabilityResultWeek from '../../components/availability_result_week';
 import ButtonToggle from '../../components/button_toggle';
+import { connect, useSelector, useDispatch  } from 'react-redux'
+import { useRouter } from 'next/router'
+import { setMonthFilter } from '../../redux/actions/reservation';
+import { IDateAvailable } from 'services/type';
+import moment from 'moment'
 
-export const view = () => {
+
+const AvailabilityResult = () => {
+  
+  const route = useRouter()
+  const {month} = route.query
+  const dispatch = useDispatch()
+   
+  useEffect ( () => {
+    const  fetchAvailability = async() => {
+      dispatch(setMonthFilter( parseInt(month.toString())))
+    }
+
+    fetchAvailability()
+  },[]) 
+
+  const availability = useSelector(state => state.reservation.queryResult)
+ 
   return (<div className="availabilityResult ">
-    <div class="inline-flex mb-5">
-      <ButtonToggle text="Programs" />
-      <ButtonToggle text="2 anglers"/>
-    </div>
-    
-    <h2>Full Week</h2>
-    <AvailabilityResultWeek 
-      dayStar="Oct 03th" 
-      dayEnd="to Oct 12th" 
-      price="$ 6,900" 
-      description="10 spots"
-      status="Sale"
-    />
-    <AvailabilityResultWeek 
-      dayStar="Oct 03th" 
-      dayEnd="to Oct 12th" 
-      price="$ 6,900" 
-      description="10 spots"
-    />
-    <AvailabilityResultWeek 
-      dayStar="Oct 03th" 
-      dayEnd="to Oct 12th" 
-      price="$ 6,900" 
-      description="10 spots"
-    />
-   
-   <h2>First Half Week</h2>
-   
-  </div>)
+      <div className="inline-flex mb-5">
+        <ButtonToggle text="Programs" />
+        <ButtonToggle text="2 anglers" />
+      </div>
+
+      <h2>Full Week</h2>
+      {availability.map( (date:IDateAvailable) => (
+        <AvailabilityResultWeek
+          key={date['_id']}
+          startDay={date.start_date}
+          endDay={date.end_date}
+          price={6300}
+          description={`${ date.program_limit - date.reserved } free spots`}
+          status="Sale"
+          occupationLevel = {date.program_limit / date.reserved}
+          isOnSale={false}
+      />
+      ))}
+
+      
+      <h2>First Half Week</h2>
+
+    </div>)
 }
 
 
-class Events extends React.Component {
-  constructor(props) {
-    super(props)
+const mapStateToProps = state => {
+  
+  return {
+   
   }
-  render = () => view()
-
 }
-export default Events
+
+const mapDispatchToProps = dispatch => {
+  return {
+    setMonth: (month: number): Promise<any> => dispatch(setMonthFilter(month))
+  }
+}
+
+
+
+// export default connect(mapStateToProps, mapDispatchToProps)(AvailabilityResult)
+
+export default AvailabilityResult

@@ -1,17 +1,17 @@
 import React from 'react';
 import '../../styles/index.scss';
-
+import moment from 'moment'
 
 export const view = (props) => {
   return <div className="calendarDay">
     <div className="day">
-    <div className="chip">{props.status}</div>
+      {props.isOnSale ?  <div className="chip">Sale</div> : ''}
+     
       <div className="circleWhite">
         <s></s><s></s>
       </div>
-     
-      <h4>{props.dayStar}</h4>
-      <p>{props.dayEnd }</p>
+      <h4>{moment(props.startDay).format('MMM Do')}</h4>
+      <p>{moment(props.endDay).format('MMM Do')}</p>
     </div>
 
     <div className="price">

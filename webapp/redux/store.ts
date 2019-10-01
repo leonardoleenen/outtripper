@@ -5,7 +5,7 @@ import { combineReducers } from 'redux';
 import {userReducer,signUpReducer} from '../redux/reducers/user';
 import {mainProcessReducer} from '../redux/reducers/core'
 import {agendaReducer} from '../redux/reducers/agenda';
-
+import {reservationReducer} from '../redux/reducers/reservation';
 
 
 const initialState = {
@@ -24,7 +24,8 @@ const reducers = combineReducers({
   user: userReducer,
   signupProcess: signUpReducer, 
   mainProcess: mainProcessReducer,
-  agenda: agendaReducer
+  agenda: agendaReducer,
+  reservation: reservationReducer
 });
 
 export function initializeStore (initialState) {
