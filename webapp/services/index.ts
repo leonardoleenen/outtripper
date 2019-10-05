@@ -94,7 +94,7 @@ export class OutTripperDatabase extends Dexie implements IDataBaseService {
 
 
 export class PouchDatabaseService implements IDataBaseService {
-
+  
   private db: any 
   private remote: any
 
@@ -152,10 +152,13 @@ export class PouchDatabaseService implements IDataBaseService {
     }).then(result => result.docs[0].token)
   }
 
+  
+
   setSession(data: ISession): void {
     data['collectionKind'] = 'session'
     this.db.post(data)
   }
+
 
   cleanSession(): void {
     throw new Error("Method not implemented.");
@@ -207,6 +210,8 @@ export interface IBusinessService {
 
   getContacts() : Promise<IContact[]>
   insertContact(contact: IContact): void
+
+  getValidToken(): Promise<any>
 }
 
 // export const dataService = new OutTripperDatabase()
@@ -216,9 +221,6 @@ export const dataService = new PouchDatabaseService()
 export class BusinessService implements IBusinessService {
   
   
-  
-  
-
   ds: any
 
   getProgram(program_id: string): Promise<IProgram> {
@@ -238,6 +240,9 @@ export class BusinessService implements IBusinessService {
     })
   }
 
+
+
+
   insertContact(contact: IContact): void {
     this.ds.insertContact(contact)
   }
@@ -250,6 +255,13 @@ export class BusinessService implements IBusinessService {
     throw new Error("Method not implemented.");
   }
 
+  getValidToken(): Promise<any> {
+
+    //TODO: Filter by token valid
+    return this.ds.getToken()
+  }
+
+  
   constructor(_ds: any) {
     this.ds = _ds
   }

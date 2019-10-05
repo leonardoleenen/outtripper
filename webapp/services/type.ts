@@ -108,6 +108,8 @@ export interface IDataBaseService {
   setUser(user: IUser): void
   getDestinationInfo(): Promise<IDestination>
   insertDestinationInfo(info: IDestination): void
+
+  
   setSession(data: ISession): void
   cleanSession(): void
   getToken(): Promise<string>

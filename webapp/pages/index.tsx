@@ -31,9 +31,13 @@ class IndexPage extends React.Component {
 
   async componentWillMount() {
     // this.user = await this.ds.getUser()
+    const validToken = await this.bs.getValidToken()
+
+    if (validToken)
+      this.props['router'].push('/dashboard/no_events')
   }
 
-
+  
   componentDidMount() {
     window['connector'] = this.bs
   }
@@ -51,6 +55,8 @@ class IndexPage extends React.Component {
   }
 
   render() {
+
+
     return (
       <div className="m-auto bg-gradient"> 
         <div className="login h-screen  max-w-md min-w-sm">
