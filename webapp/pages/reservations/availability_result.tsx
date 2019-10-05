@@ -1,12 +1,12 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import "../../styles/index.scss";
 import AvailabilityResultWeek from '../../components/availability_result_week';
 import ButtonToggle from '../../components/button_toggle';
-import { connect, useSelector, useDispatch  } from 'react-redux'
+import {  useSelector, useDispatch  } from 'react-redux'
 import { useRouter } from 'next/router'
 import { setMonthFilter } from '../../redux/actions/reservation';
 import { IDateAvailable } from 'services/type';
-import moment from 'moment'
+import Loading from '../../components/Loading';
 
 
 const AvailabilityResult = () => {
@@ -14,17 +14,26 @@ const AvailabilityResult = () => {
   const route = useRouter()
   const {month} = route.query
   const dispatch = useDispatch()
-   
+  const [isLoading, setLoading] = useState(true)
+
+  
   useEffect ( () => {
     const  fetchAvailability = async() => {
       dispatch(setMonthFilter( parseInt(month.toString())))
     }
 
     fetchAvailability()
+    setLoading(false)
+    
+
   },[]) 
 
   const availability = useSelector(state => state.reservation.queryResult)
- 
+  
+
+  if (isLoading)
+    return <Loading></Loading>
+
   return (<div className="availabilityResult ">
       <div className="inline-flex mb-5">
         <ButtonToggle text="Programs" />
@@ -35,13 +44,14 @@ const AvailabilityResult = () => {
       {availability.map( (date:IDateAvailable) => (
         <AvailabilityResultWeek
           key={date['_id']}
+          date= {date}
           startDay={date.start_date}
           endDay={date.end_date}
-          price={6300}
+          price={date.price}
           description={`${ date.program_limit - date.reserved } free spots`}
           status="Sale"
           occupationLevel = {date.program_limit / date.reserved}
-          isOnSale={false}
+          isOnSale={date.is_on_sale}
       />
       ))}
 

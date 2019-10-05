@@ -1,10 +1,26 @@
 import React from 'react';
 import '../../styles/index.scss';
 import moment from 'moment'
+import {  useSelector, useDispatch  } from 'react-redux'
+import {setAvailableDate} from '../../redux/actions/reservation';
+import { IDateAvailable } from 'services/type';
+import { withRouter } from 'next/router';
 
-export const view = (props) => {
+interface Props {
+  startDay: Date
+  endDay: Date 
+  price: number
+  description: string 
+  status: string 
+  isOnSale: boolean
+  occupationLevel: number
+  date: IDateAvailable
+}
+
+const AvailabilityResultWeek = (props: Props) => {
   let levelColor = 'Green'
-
+  const dispatch = useDispatch()
+  
   
   if (props.occupationLevel>=2 && props.occupationLevel!=Number.POSITIVE_INFINITY )
     levelColor = 'Yellow'
@@ -12,7 +28,11 @@ export const view = (props) => {
   if (props.occupationLevel<2 && props.occupationLevel!=Number.POSITIVE_INFINITY )
     levelColor = 'Orange'
 
-  return <div className="calendarDay">
+  return <div className="calendarDay" onClick={ () => {
+    dispatch(setAvailableDate(props.date))
+    props['router'].push('/reservation')
+
+  }}>
     <div className={`day${levelColor}`}>
       {props.isOnSale ?  <div className="chip">Sale</div> : ''}
      
@@ -29,3 +49,5 @@ export const view = (props) => {
     </div>
   </div>
 }
+
+export default withRouter(AvailabilityResultWeek)

@@ -28,7 +28,7 @@ export const view = (props) => {
           kindOf={contact.kindOf}/>
     )) 
     }
-    <ButtonFloatingAdd />
+    <ButtonFloatingAdd goTo='/new_contact' />
   </div>)
 }
 

@@ -3,7 +3,7 @@ import '../../styles/index.scss';
 import User from '../../static/svg/Icon/Outline/user.svg';
 
 
-export const view = (props) => {
+ const ContactAvatar = (props) => {
   return <div className="contactAvatar">
     <div className="avatar"  >
       <img src={User} />
@@ -12,3 +12,5 @@ export const view = (props) => {
     
   </div>
 }
+
+export default ContactAvatar

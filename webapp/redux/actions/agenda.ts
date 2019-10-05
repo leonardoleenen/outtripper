@@ -1,6 +1,6 @@
 
 
-import { FILTER_AGENDA, LOAD_AGENDA } from '../reducers/agenda'
+import { FILTER_AGENDA, LOAD_AGENDA, NEW_CONTACT } from '../reducers/agenda'
 
 import { businessService, BusinessService } from '../../services/index'
 import { IContact } from 'services/type';
@@ -28,5 +28,15 @@ export const loadAgenda = () => {
         contacts :  result
       })
     })  
+  }
+}
+
+export const newContact = (contact: IContact) => {
+  ds.insertContact(contact)
+  return (dispatch, getState ) => {
+    return dispatch({
+      type: NEW_CONTACT,
+      contact
+    })
   }
 }

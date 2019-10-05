@@ -94,12 +94,13 @@ export class OutTripperDatabase extends Dexie implements IDataBaseService {
 
 
 export class PouchDatabaseService implements IDataBaseService {
+
   private db: any 
   private remote: any
 
   insertContact(contact: IContact): void {
     contact['collectionKind'] = 'contact'
-    this.db.put(contact)
+    this.db.post(contact)
   }
 
   getContacts(): Promise<IContact[]> {
@@ -108,6 +109,14 @@ export class PouchDatabaseService implements IDataBaseService {
         collectionKind: 'contact'
       }
     }).then(result => result.docs)
+  }
+
+  getPrograms(): Promise<IProgram[]> {
+    return this.db.find({
+      selector: {
+        collectionKind: 'program'
+      }
+    }).then( result =>  result.docs)
   }
 
   getProgram(id: string): Promise<import("./type").IProgram> {
@@ -194,8 +203,10 @@ export interface IBusinessService {
   getDatesAvailabilityList(program_id?:string): Promise<IDateAvailable[]>
 
   getProgram(program_id:string): Promise<IProgram>
+  getPrograms(): Promise<IProgram[]>
 
   getContacts() : Promise<IContact[]>
+  insertContact(contact: IContact): void
 }
 
 // export const dataService = new OutTripperDatabase()
@@ -205,11 +216,17 @@ export const dataService = new PouchDatabaseService()
 export class BusinessService implements IBusinessService {
   
   
+  
+  
 
   ds: any
 
   getProgram(program_id: string): Promise<IProgram> {
     return this.ds.getProgram(program_id)
+  }
+
+  getPrograms(): Promise<IProgram[]> {
+    return this.ds.getPrograms()
   }
 
   getContacts(): Promise<IContact[]> {
@@ -219,6 +236,10 @@ export class BusinessService implements IBusinessService {
         return e
       }), 'last_name')
     })
+  }
+
+  insertContact(contact: IContact): void {
+    this.ds.insertContact(contact)
   }
 
   getDatesAvailabilityList(program_id?: string): Promise<IDateAvailable[]> {

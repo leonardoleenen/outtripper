@@ -80,6 +80,8 @@ export interface IDateAvailable {
   end_date: Date
   program_limit: number 
   reserved: number 
+  price: number
+  is_on_sale: boolean
 }
 
 export interface IContact {
@@ -88,6 +90,9 @@ export interface IContact {
   first_name: string 
   last_name: string 
   email: string 
+  country: string 
+  address1: string 
+  address2: string 
   tags: string[] 
   created_by: IUser
   created_at: Date
@@ -109,11 +114,13 @@ export interface IDataBaseService {
 
   insertProgram(program:IProgram): void
   getProgram(id:string): Promise<IProgram>
+  getPrograms(): Promise<IProgram[]>
   insertDateAvailable(IDateAvailable): void
   getDatesAvailables(): Promise<IDateAvailable[]>
 
   insertContact(contact:IContact) : void
   getContacts(): Promise<IContact[]>
+  insertContact(contact: IContact) : void
 }
 
 
