@@ -24,12 +24,19 @@ button:focus {
 }
 
 h2 {
-  font-size: 20px;
+  font-size: 36px;
   line-height: 27px;
   letter-spacing: 0.15px;
   color: $font_color_primary;
+  font-weight: bold;
 }
 
+h1 {
+  font-size: 60px;
+  letter-spacing: 0.15px;
+  color: $font_color_primary;
+  font-weight: bold;
+}
 $bachground-gradient: linear-gradient(
   179.96deg,
   #f56565 2.18%,
@@ -95,6 +102,36 @@ $bachground-gradient: linear-gradient(
   @apply justify-center m-auto  mr-4 bg-white    px-6  ;
 }
 
+.chip_green {
+  text-align: center;
+  @apply inline-block  rounded-full px-3 py-1 text-sm font-semibold text-white bg-green-400;
+}
+
+.chip_red {
+  text-align: center;
+  @apply inline-block  rounded-full px-3 py-1 text-sm font-semibold text-white bg-red-700;
+}
+
+.chip_blue {
+  text-align: center;
+  @apply inline-block  rounded-full px-3 py-1 text-sm font-semibold text-white bg-blue-400;
+}
+
+.chip_yellow {
+  text-align: center;
+  @apply inline-block  rounded-full px-3 py-1 text-sm font-semibold text-white bg-yellow-400;
+}
+
+.chip_orange {
+  text-align: center;
+  @apply inline-block  rounded-full px-3 py-1 text-sm font-semibold text-white bg-orange-400;
+}
+
+.chip_unset {
+  text-align: center;
+  color: $black_color;
+  @apply inline-block  rounded-full px-3 py-1 text-sm font-semibold border;
+}
 
 .contactRowAgenda{
   display: grid;
@@ -123,23 +160,6 @@ $bachground-gradient: linear-gradient(
     line-height: 12px;
     letter-spacing: 0.15px;
     color: $font_color_primary;
-  }
-  .chip_green {
-    text-align: center;
-    @apply inline-block  rounded-full px-3 py-1 text-sm font-semibold text-white bg-green-400;
-  }
-  .chip_red {
-    text-align: center;
-    @apply inline-block  rounded-full px-3 py-1 text-sm font-semibold text-white bg-red-400;
-  }
-  .chip_blue {
-    text-align: center;
-    @apply inline-block  rounded-full px-3 py-1 text-sm font-semibold text-white bg-blue-400;
-  }
-  .chip_unset {
-    text-align: center;
-    color: $black_color;
-    @apply inline-block  rounded-full px-3 py-1 text-sm font-semibold border;
   }
 }
 
@@ -971,5 +991,36 @@ input:focus ~ label, input:valid ~ label{
         @apply text-center;
       }
     }
+  }
+}
+
+.availabilty {
+  display: grid;
+  grid-template-rows: 1fr 2fr;
+  header {
+    display: grid;
+    margin: auto;
+    grid-template-rows: 2fr 1fr;
+    width: 100%;
+
+    div:first-child {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      text-align: center;
+      margin:auto
+    };
+    div:nth-child(2){
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      margin: auto;
+      width: 100%;
+      grid-gap: 5px;
+    }
+  };
+  article {
+    
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    grid-gap: 20px;
   }
 }

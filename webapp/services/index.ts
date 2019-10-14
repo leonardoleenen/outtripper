@@ -211,7 +211,7 @@ export interface IBusinessService {
   getContacts() : Promise<IContact[]>
   insertContact(contact: IContact): void
 
-  getValidToken(): Promise<any>
+  getValidToken(): Promise<IUser>
 }
 
 // export const dataService = new OutTripperDatabase()
@@ -244,7 +244,15 @@ export class BusinessService implements IBusinessService {
 
 
   insertContact(contact: IContact): void {
-    this.ds.insertContact(contact)
+    this.getValidToken().then( (user:IUser) => {
+      contact.created_by = {} as IUser
+      contact['created_by']['cn'] = user.cn
+      contact['created_by']['id'] = user.id
+      contact['created_at'] = new Date()
+      contact['kind']= 'Guest'
+      contact['tenant'] = user.rol.id
+      this.ds.insertContact(contact)
+    })
   }
 
   getDatesAvailabilityList(program_id?: string): Promise<IDateAvailable[]> {
@@ -255,10 +263,12 @@ export class BusinessService implements IBusinessService {
     throw new Error("Method not implemented.");
   }
 
-  getValidToken(): Promise<any> {
+  getValidToken(): Promise<IUser> {
 
     //TODO: Filter by token valid
-    return this.ds.getToken()
+    return this.ds.getToken().then(result => {
+        return JSON.parse(decodeURIComponent(escape(window.atob( result ))))
+    })
   }
 
   

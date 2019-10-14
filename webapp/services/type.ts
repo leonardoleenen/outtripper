@@ -29,12 +29,18 @@ export enum ProgramKind {
   forGuide = 'FORGUIDE'
 }
 
+export interface IUserRol {
+  kind: string 
+  id: string
+}
 
 export interface IUser {
   cn: string,
   email: string
   id?: string
   photoCover: string
+  rol: IUserRol
+  
 }
 
 export interface IDestination {

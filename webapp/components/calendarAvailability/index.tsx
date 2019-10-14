@@ -1,6 +1,19 @@
 import React from 'react'
 import '../../styles/index.scss';
-import {Props} from './index';
+import moment from 'moment'
+
+interface occuptaionDetail { 
+  day: number
+  reserved: number
+  limit: number
+}
+
+export interface Props {
+  month: number
+  year: number
+  limit: number
+  occupation: occuptaionDetail[]
+}
 
 const getBackground = (reserved:number, limit: number) => {
 
@@ -21,10 +34,10 @@ const getBackground = (reserved:number, limit: number) => {
 
 } 
 
-export const view = (props:Props) => {
+const CalendarAvailability = (props:Props) => {
   return (
     <div style={{height: "140px", width:"164px" }} >
-      <label>January</label>
+      <label>{moment(props.month,'MM').format('MMMM')} </label>
       <div className="calendarAvailabilityResume" >
       {props.occupation.map(d => <div
               className={`${getBackground(d.reserved,d.limit)} rounded h-5 w-5`}
@@ -32,7 +45,8 @@ export const view = (props:Props) => {
               style={d.day===1 ? {gridColumnStart:new Date(props.year, props.month, 1).getDay()} : {} }
               ></div>)}
     </div>
-    </div>
-    
+    </div> 
   )
 }
+
+export default CalendarAvailability
