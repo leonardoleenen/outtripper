@@ -206,6 +206,11 @@ export interface IBusinessService {
   getDatesAvailabilityList(program_id?:string): Promise<IDateAvailable[]>
 
   getProgram(program_id:string): Promise<IProgram>
+
+  /**
+   * retrieve a program list 
+   * @returns IProgram[]
+   */
   getPrograms(): Promise<IProgram[]>
 
   getContacts() : Promise<IContact[]>
@@ -218,15 +223,37 @@ export interface IBusinessService {
 export const dataService = new PouchDatabaseService()
 
 
+
+
 export class BusinessService implements IBusinessService {
   
   
   ds: any
 
+  loadDates(dates: any[]): void {
+    this.getPrograms().then( (programs:IProgram[]) => {
+
+      dates.forEach((d:any) => {
+        const program = programs.filter( (p:IProgram) => p.id === d.program_id)[0] as IProgram
+        this.ds.insertDateAvailable({
+          start_date:dates['date'],
+          end_date:dates['date'],
+          program_limit: program.maxPax,
+          program_id: d.program_id,
+          reserved:program.maxPax - d.freeSpots,
+          price: d.price,
+          is_on_sale: false
+        } as IDateAvailable)
+      })
+      
+    })
+  }
+
   getProgram(program_id: string): Promise<IProgram> {
     return this.ds.getProgram(program_id)
   }
 
+  
   getPrograms(): Promise<IProgram[]> {
     return this.ds.getPrograms()
   }

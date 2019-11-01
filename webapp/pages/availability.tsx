@@ -159,18 +159,18 @@ class Availability extends React.Component {
 
   render() {
     return (<div className='body availabilty'>
-      <header> 
+      <header>
         <div>
-          <div><img src={ArrowLeft}/></div>
+          <div><img src={ArrowLeft} /></div>
           <h2> 2019</h2>
-          <div><img src={ArrowRight}/></div>
+          <div><img src={ArrowRight} /></div>
         </div>
         <div>
-        <Chip  text='Empty' color='green'/>
-        <Chip  text='5-9' color='yellow'/>
-        <Chip  text='1-4' color='orange'/>
-        <Chip  text='Full' color='red'/>
-        
+          <Chip text='Empty' color='green' />
+          <Chip text='5-9' color='yellow' />
+          <Chip text='1-4' color='orange' />
+          <Chip text='Full' color='red' />
+
 
         </div>
       </header>

@@ -55,6 +55,7 @@ export interface IProgramForLodge {
   months: string[]
   monthForService: Month[],
   startingDay:  Day,
+  durationInDays: number
   fixedDay : boolean    
 }
 
