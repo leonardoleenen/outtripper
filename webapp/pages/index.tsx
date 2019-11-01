@@ -14,7 +14,6 @@ import {  BusinessService, businessService } from '../services/index';
 import { withRouter } from 'next/router';
 import { IUser } from 'services/type';
 
-
 class IndexPage extends React.Component {
   state = {
     isRegistered: false
