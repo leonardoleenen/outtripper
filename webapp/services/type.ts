@@ -130,6 +130,9 @@ export interface IDataBaseService {
   insertContact(contact:IContact) : void
   getContacts(): Promise<IContact[]>
   insertContact(contact: IContact) : void
+
+  getClientTrip(bookId: string) : Promise<any>
+  
 }
 
 

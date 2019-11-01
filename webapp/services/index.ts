@@ -32,65 +32,6 @@ if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig);
 }
 
-/*
-export class OutTripperDatabase extends Dexie implements IDataBaseService {
-  insertDateAvailable(IDateAvailable: any): void {
-    throw new Error("Method not implemented.");
-  }
-  
-  insertProgram(program: import("./type").IProgram): void {
-    this.program.put(program)
-  }
-
-  getToken(): Promise<string> {
-    return this.session.toCollection().first().then( (session:ISession) => session.token)
-  }
-
-  setSession(data: ISession): void {
-    this.session.put(data)
-  }
-  cleanSession(): void {
-    this.session.clear()
-  }
-
-  insertDestinationInfo(info: IDestination): void {
-    this.destination.put(info)
-  }
-
-  getDestinationInfo(): Promise<IDestination> {
-    throw new Error("Method not implemented.");
-  }
-
-  getUser(): Promise<IUser> {
-    return this.user.toCollection().first()
-  }
-
-  setUser(user: IUser): void {
-    this.user.put(user)
-  }
-
-  user: Dexie.Table<IUser, string>
-  destination: Dexie.Table<IDestination,string>
-  session: Dexie.Table<ISession,string>
-  program: Dexie.Table<IProgram,string>
-  dateAvailable : Dexie.Table<IDateAvailable, string>
-  constructor() {
-    super("OutTripperDatabase");
-    this.version(1).stores({
-      user: 'id',
-      destination: 'id',
-      session: 'userid',
-      program: 'id',
-      dateAvailable: 'id'
-    });
-
-    this.session.mapToClass(DateAvailable)
-    this.session.mapToClass(Program)
-    this.session.mapToClass(Session)
-    this.destination.mapToClass(Destination)
-    this.user.mapToClass(User);
-  }
-}*/
 
 
 export class PouchDatabaseService implements IDataBaseService {
@@ -98,10 +39,22 @@ export class PouchDatabaseService implements IDataBaseService {
   private db: any 
   private remote: any
 
+
+  getClientTrip(bookId: string): Promise<any> {
+    return this.db.find({
+      selector: {
+        collectionKind: 'clientTrip'
+      }
+    }).then(result => result.docs)
+  }
+  
+
   insertContact(contact: IContact): void {
     contact['collectionKind'] = 'contact'
     this.db.post(contact)
   }
+
+  
 
   getContacts(): Promise<IContact[]> {
     return this.db.find({
@@ -217,6 +170,8 @@ export interface IBusinessService {
   insertContact(contact: IContact): void
 
   getValidToken(): Promise<IUser>
+
+  getClientTrip(bookId: string) : Promise<any>
 }
 
 // export const dataService = new OutTripperDatabase()
@@ -227,8 +182,11 @@ export const dataService = new PouchDatabaseService()
 
 export class BusinessService implements IBusinessService {
   
-  
   ds: any
+
+  getClientTrip(bookId: string): Promise<any> {
+    return this.ds.getClientTrip(bookId)
+  }
 
   loadDates(dates: any[]): void {
     this.getPrograms().then( (programs:IProgram[]) => {
