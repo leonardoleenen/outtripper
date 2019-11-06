@@ -64,7 +64,7 @@ export default (props: Props) => {
                         display: grid;
                         grid-template-columns: 1fr 1fr 1fr;
                       }
-                      .article-column {
+                      .flights_data .article-column {
                         display: grid;
                         grid-template-rows:1fr 3fr 1fr;
                       }
