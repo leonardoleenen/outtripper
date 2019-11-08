@@ -1,8 +1,8 @@
-module.exports = {
-    theme: {
-      extend: {}
-    },
-    variants: {},
-    plugins: []
-  }
-  
+export default {
+  theme: {
+    extend: {},
+  },
+  variants: {},
+  plugins: [],
+}
+

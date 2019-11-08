@@ -1,7 +1,11 @@
 import React from 'react'
 import {view} from './view'
 
-class CardReservationOwner extends React.Component {
+interface Props {
+  chips: string 
+}
+
+class CardReservationOwner extends React.Component<Props> {
   constructor(props) {
     super(props)
     

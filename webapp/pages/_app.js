@@ -1,12 +1,12 @@
-import App, { Container } from 'next/app'
+import App, {Container} from 'next/app'
 import React from 'react'
 import withReduxStore from '../lib/with-redux-store'
-import { Provider } from 'react-redux'
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { fab } from '@fortawesome/free-brands-svg-icons'
+import {Provider} from 'react-redux'
+import {library} from '@fortawesome/fontawesome-svg-core'
+import {fab} from '@fortawesome/free-brands-svg-icons'
 
-import { 
-  faCheckSquare, 
+import {
+  faCheckSquare,
   faCoffee,
   faHome,
   faClock,
@@ -21,13 +21,29 @@ import {
   faUser,
   faTrash,
   faMinus,
-  faSearch
- } from '@fortawesome/free-solid-svg-icons'
+  faSearch,
+} from '@fortawesome/free-solid-svg-icons'
 
-library.add(fab, faCheckSquare, faCoffee, faSearch)
+library.add(faCheckSquare, fab,
+    faCoffee,
+    faHome,
+    faClock,
+    faClipboard,
+    faBell,
+    faEllipsisV,
+    faCalendar,
+    faPlus,
+    faMapMarkerAlt,
+    faHear,
+    faPaperPlane,
+    faUser,
+    faTrash,
+    faMinus,
+    faSearch)
+
 class MyApp extends App {
-  render () {
-    const { Component, pageProps, reduxStore } = this.props
+  render() {
+    const {Component, pageProps, reduxStore} = this.props
     return (
       <Container>
         <Provider store={reduxStore}>

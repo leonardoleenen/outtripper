@@ -2,7 +2,7 @@ import React from 'react'
 import {view} from './view'
 
 interface Props {
-  callBack: any,
+  callBack?: any,
 
 }
 

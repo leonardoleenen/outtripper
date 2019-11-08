@@ -1,8 +1,13 @@
-const tailwindcss = require('tailwindcss')
-module.exports = {
+
+import tailwindcss from 'tailwindcss'
+import PostCssEasyImport from 'postcss-easy-import'
+import AutoPrefixer from 'autoprefixer'
+
+export default {
   plugins: [
-    require('postcss-easy-import'),
+    PostCssEasyImport,
     tailwindcss('./tailwind.config.js'),
-    require('autoprefixer')
-  ]
+    AutoPrefixer,
+  ],
 }
+

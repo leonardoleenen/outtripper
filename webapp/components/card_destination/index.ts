@@ -1,7 +1,12 @@
 import React from 'react'
 import {view} from './view'
 
-class CardDestination extends React.Component {
+interface Props {
+  destination: string
+  description: string 
+}
+
+class CardDestination extends React.Component<Props> {
   constructor(props) {
     super(props)
     

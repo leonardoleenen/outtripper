@@ -16,7 +16,7 @@ export const view = (props) => {
     <Head>
       <meta name="viewport" content="width=device-width, user-scalable=no" />
     </Head>
-    <Navigation />
+    <Navigation title="test"/>
     <SearchByText callBack = {props.filter} />
     {
       props.contacts.map((contact: IContact) => (
