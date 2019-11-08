@@ -1,8 +1,11 @@
 import React from 'react'
 import '../styles/index.scss';
 
+interface Props {
+  message : any
+}
 
-class ChatSystem extends React.Component {
+class ChatSystem extends React.Component<Props> {
   render() {
     return <div className="flex items-center mb-4 ">
       <img className="w-10 h-10 rounded-full mr-4" src="../static/wimo.jpg" />

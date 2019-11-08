@@ -5,7 +5,7 @@ class ReservationGuestList extends React.Component {
   constructor(props) {
     super(props)
   }
-  render = () => view(this.props)
+  render = () => view()
 }
 
 export default ReservationGuestList

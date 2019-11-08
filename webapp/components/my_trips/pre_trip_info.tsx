@@ -3,7 +3,7 @@ import '../../styles/index.scss'
 import Link from 'next/link'
 
 
-export default (props: Props) => {
+export default () => {
 
     return <div>
         <article className="pre-trip p-5 border-t-2 border-b-2">

@@ -3,7 +3,16 @@ import { connect } from 'react-redux'
 import '../styles/index.scss'
 import { RenderEngine, ProcessNode } from '../services/renderEngine';
 import {signUpProcess} from '../services/index';
-class ChatMultiButton extends React.Component {
+
+
+interface Props {
+  chatTrace: any
+  user: any
+  engine: any
+  submit(value:any): void
+}
+
+class ChatMultiButton extends React.Component<Props> {
 
   
   constructor(props){

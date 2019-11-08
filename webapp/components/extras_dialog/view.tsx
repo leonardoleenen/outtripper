@@ -1,7 +1,7 @@
 import React from 'react';
 import '../../styles/index.scss';
-import Minus from '../../static/svg/Icon/Outline/minus.svg';
-import Plus from '../../static/svg/Icon/Outline/iconAdd.svg';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export const view = (props) => {
   return <div className="reservationNotesDialog">
@@ -12,21 +12,21 @@ export const view = (props) => {
         <div className="extraDialogRow">
           <h3>Single Room</h3>
           <button>
-            <img src={Minus} />
+          <FontAwesomeIcon icon="minus" />
           </button>
           <p>3</p>
           <button>
-            <img src={Plus} />
+            <FontAwesomeIcon icon="plus" />
           </button>
         </div>
         <div className="extraDialogRow">
           <h3>Single Room</h3>
           <button>
-            <img src={Minus} />
+          <FontAwesomeIcon icon="minus" />
           </button>
           <p>3</p>
           <button>
-            <img src={Plus} />
+            <FontAwesomeIcon icon="plus" />
           </button>
         </div>
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import { connect } from 'react-redux'
+
 import '../styles/index.scss'
 
 
@@ -36,6 +36,8 @@ class ChatToggleButton extends React.Component {
   }
 }
 
+
+/*
 const mapStateToProps = state => {
   return {
 
@@ -48,4 +50,6 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ChatToggleButton)
+export default connect(mapStateToProps, mapDispatchToProps)(ChatToggleButton) */ 
+
+export default ChatToggleButton

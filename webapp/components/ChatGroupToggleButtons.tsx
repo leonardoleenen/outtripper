@@ -3,15 +3,23 @@ import { connect } from 'react-redux'
 import '../styles/index.scss';
 import { RenderEngine, ProcessNode } from '../services/renderEngine';
 import {signUpProcess} from '../services/index';
+import { User } from '../services/type';
 
 const styles = {
   toggled: 'bg-red-700 mb-2 mr-2  py-2 px-2 self-auto  w-auto border border-red-500  text-white border tracking-wide uppercase   rounded cursor-not-allowed',
   unToggled: 'bg-red-700 mb-2  mr-2  py-2 px-2 self-auto  w-auto border border-red-500  text-white border tracking-wide uppercase   rounded opacity-50 cursor-not-allowed',
 }
 
-class ChatGroupToggleButtons extends React.Component {
+
+interface Props {
+  chatTrace: any,
+  user: User,
+  submit(value: any):void
+}
 
 
+
+class ChatGroupToggleButtons extends React.Component<Props> {
   state = {
     values: {}
   }

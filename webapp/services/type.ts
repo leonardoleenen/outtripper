@@ -174,6 +174,7 @@ export class Program implements  IProgram {
 }
 
 export class User implements IUser {
+  rol: IUserRol;
   cn: string; email: string;
   id?: string;
   photoCover: string;

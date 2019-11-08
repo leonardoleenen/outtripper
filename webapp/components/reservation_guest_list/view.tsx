@@ -1,13 +1,16 @@
 import React from 'react';
 import '../../styles/index.scss';
-import Add from '../../static/svg/Icon/Outline/iconAdd.svg';
-import ReservationGuestRow from './reservation_guest_row';
 
-export const view = (props) => {
+import ReservationGuestRow from './reservation_guest_row';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
+
+
+export const view = () => {
   return <div> <div className="reservationGuestList">
   <h2>Guest</h2>
   <button>
-    <img src={Add}/>
+  <FontAwesomeIcon icon="plus" />
   </button>
   
 </div>

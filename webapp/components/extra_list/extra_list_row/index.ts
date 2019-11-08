@@ -1,7 +1,10 @@
 import React from 'react'
 import {view} from './view'
 
-class ExtraListRow extends React.Component {
+interface Props {
+  title: string 
+}
+class ExtraListRow extends React.Component<Props> {
   constructor(props) {
     super(props)
   }

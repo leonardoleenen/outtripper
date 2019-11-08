@@ -1,8 +1,7 @@
 import React from 'react';
 import '../../../styles/index.scss';
-import GiftCard from '../../../static/svg/Icon/Outline/giftCard.svg';
-import Delete from '../../../static/svg/Icon/Outline/trash.svg';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 
 export const view = (props) => {
@@ -12,10 +11,10 @@ export const view = (props) => {
       <p>{props.extra}</p>
     </div>
     <button>
-      <img src={GiftCard} />
+    <FontAwesomeIcon icon="trash" />
     </button>
     <button>
-      <img src={Delete} />
+    <FontAwesomeIcon icon="trash" />
     </button>
   </div>
 }

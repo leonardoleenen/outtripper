@@ -1,7 +1,6 @@
 import React from 'react';
 import '../../styles/index.scss';
-import Add from '../../static/svg/Icon/Outline/plus.svg';
-import  {withRouter} from 'next/router';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 interface Props {
   goTo: string
@@ -9,8 +8,8 @@ interface Props {
 
 const ButtonFloatingAdd = (props: Props) => {
   return <button className="buttonFloatingAdd" onClick={() => props['router'].push(props.goTo)}>
-    <img src={Add} />
+    <FontAwesomeIcon icon="plus" />
   </button>
 }
 
-export default withRouter(ButtonFloatingAdd)
+export default ButtonFloatingAdd

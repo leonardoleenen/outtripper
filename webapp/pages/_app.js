@@ -4,7 +4,24 @@ import withReduxStore from '../lib/with-redux-store'
 import { Provider } from 'react-redux'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
-import { faCheckSquare, faCoffee } from '@fortawesome/free-solid-svg-icons'
+
+import { 
+  faCheckSquare, 
+  faCoffee,
+  faHome,
+  faClock,
+  faClipboard,
+  faBell,
+  faEllipsisV,
+  faCalendar,
+  faPlus,
+  faMapMarkerAlt,
+  faHear,
+  faPaperPlane,
+  faUser,
+  faTrash,
+  faMinus
+ } from '@fortawesome/free-solid-svg-icons'
 
 library.add(fab, faCheckSquare, faCoffee)
 class MyApp extends App {

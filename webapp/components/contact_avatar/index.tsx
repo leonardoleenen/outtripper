@@ -1,12 +1,12 @@
 import React from 'react';
 import '../../styles/index.scss';
-import User from '../../static/svg/Icon/Outline/user.svg';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 
- const ContactAvatar = (props) => {
+ const ContactAvatar = () => {
   return <div className="contactAvatar">
     <div className="avatar"  >
-      <img src={User} />
+    <FontAwesomeIcon icon="user" className="icon" />
       <a>Change</a>
     </div>
     

@@ -3,7 +3,7 @@ import '../../styles/index.scss'
 import Link from 'next/link'
 
 
-export default (props: Props) => {
+export default () => {
 
     return <div>
         <header className="nav_bar_head p-2 border-t-2">

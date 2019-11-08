@@ -1,12 +1,18 @@
 import React from 'react'
-import Send from '../static/svg/send.svg'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 import { connect } from 'react-redux'
 import '../styles/index.scss'
 import {signUpProcess} from '../services/index';
 import { ProcessNode, RenderEngine} from '../services/renderEngine';
 
-
-class ChatInput extends React.Component {
+interface Props {
+  chatTrace: any
+  user: any
+  engine: any
+  submit(value:any): void
+}
+class ChatInput extends React.Component<Props> {
 
 
   state = {
@@ -48,7 +54,8 @@ class ChatInput extends React.Component {
           name="price" 
           className="bg-grey-lighter text-grey-darker py-2 font-normal w-3/4 text-grey-darkest border-b border-grey-lighter rounded-l-none font-bold" />
         <span className="flex items-center bg-grey-lighter rounded rounded-r-none px-3 font-bold text-gray-700">
-          <img src={Send} className="w-8 h-8" onClick={() => this.handleSubmit()} />
+          {/*<img src={Send} className="w-8 h-8" onClick={() => this.handleSubmit()} /> */}
+          <FontAwesomeIcon icon="paper-plane" className="icon" />
         </span>
       </div>
     </div>

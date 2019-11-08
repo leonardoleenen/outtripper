@@ -3,7 +3,7 @@ import '../../styles/index.scss'
 import Link from 'next/link'
 
 
-export default (props: Props) => {
+export default () => {
 
     return <div>
         <header className="bottom_bar p-2 mt-5 border-t-2">

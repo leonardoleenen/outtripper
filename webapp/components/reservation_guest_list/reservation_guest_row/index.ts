@@ -1,7 +1,12 @@
 import React from 'react'
 import {view} from './view'
 
-class ReservationGuestRow extends React.Component {
+
+interface Props {
+  title: string 
+  extra: string 
+}
+class ReservationGuestRow extends React.Component<Props> {
   constructor(props) {
     super(props)
   }

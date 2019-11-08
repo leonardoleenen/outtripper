@@ -1,5 +1,4 @@
 import React from 'react'
-import { connect } from 'react-redux'
 
 class ChatInputSelect extends React.Component {
 
@@ -16,6 +15,7 @@ class ChatInputSelect extends React.Component {
 }
 
 
+/*
 const mapStateToProps = state => {
   return {
 
@@ -30,3 +30,6 @@ const mapDispatchToProps = dispatch => {
 
 
 export default connect(mapStateToProps, mapDispatchToProps)(ChatInputSelect)
+*/ 
+
+export default ChatInputSelect

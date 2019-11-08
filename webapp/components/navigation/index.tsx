@@ -1,6 +1,7 @@
 import React from 'react';
 import '../../styles/index.scss';
-import ArrowLeft from '../../static/svg/Icon/Outline/arrow_left.svg';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 
 interface Props {
@@ -9,7 +10,7 @@ interface Props {
 
 const NavigationBar = (props: Props) => {
   return  <div className="navigation">
-      <div><img src={ArrowLeft} className="path" /></div>
+      <div><FontAwesomeIcon icon="user" /></div>
       <h2>{props.title}</h2>
       <div></div>
 </div>

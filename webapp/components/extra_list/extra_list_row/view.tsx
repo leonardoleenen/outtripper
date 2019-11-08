@@ -1,6 +1,6 @@
 import React from 'react';
 import '../../../styles/index.scss';
-import Delete from '../../../static/svg/Icon/Outline/trash.svg';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 
 
@@ -9,7 +9,7 @@ export const view = (props) => {
     <h3> {props.title}</h3>
     
     <button>
-      <img src={Delete} />
+      <FontAwesomeIcon icon="trash" />
     </button>
   </div>
 }

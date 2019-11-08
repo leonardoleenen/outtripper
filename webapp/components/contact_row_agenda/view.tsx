@@ -1,14 +1,15 @@
 import React from 'react';
 import '../../styles/index.scss';
-import User from '../../static/svg/Icon/Outline/user.svg';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 import Chip from '../chip'
 
 export const view = (props) => {
-  let color = 'unset'
-
+ 
   return <div className="contactRowAgenda">
     <div className="avatar"  >
-      <img src={User}/>
+    <FontAwesomeIcon icon="user" />
     </div>
     <div >
       <p>{` ${props.last_name }, ${props.first_name }`} </p>

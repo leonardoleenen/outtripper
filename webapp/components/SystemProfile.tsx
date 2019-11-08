@@ -1,10 +1,14 @@
 import React from 'react'
 import '../styles/index.scss';
-import Star from '../static/svg/star.svg'
-import StarFill from '../static/svg/star_fill.svg'
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 
-class SystemProfile extends React.Component {
+interface Props {
+  userName: string 
+}
+
+class SystemProfile extends React.Component<Props> {
 
   userName:string 
   
@@ -14,12 +18,11 @@ class SystemProfile extends React.Component {
       <div className="px-6 py-4 text-center">
         <div className=" text-xl mb-2">{this.props.userName}</div>
         <div className="flex text-center mb-2 content-center items-center justify-center" >
-          <img src={Star} className="w-4 h-4 text-red-500 mr-2 fill-current " />
-          <img src={Star} className="w-4 h-4 text-red-500 mr-2" />
-          <img src={Star} className="w-4 h-4 text-red-500 mr-2" />
-
-          <img src={StarFill} className="w-4 h-4 text-red-500 mr-2" />
-          <img src={StarFill} className="w-4 h-4 text-red-500 mr-2 " />
+          <FontAwesomeIcon icon="star" className="icon" />
+          <FontAwesomeIcon icon="star" className="icon" />
+          <FontAwesomeIcon icon="star" className="icon" />
+          <FontAwesomeIcon icon="star" className="icon" />
+          <FontAwesomeIcon icon="star" className="icon" />
         </div>
         <p className="text-gray-700 text-base">Your personal assistant</p>
       </div>
