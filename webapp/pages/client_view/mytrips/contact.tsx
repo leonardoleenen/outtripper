@@ -4,6 +4,7 @@ import ProgramHeader from '../../../components/my_trips/program_header'
 import NavBar from '../../../components/my_trips/nav_bar'
 import PreTripInfo from '../../../components/my_trips/pre_trip_info'
 import Loading from '../../../components/Loading'
+import BottomBar from '../../../components/my_trips/bottom_bar'
 
 export default () => {
   const bs = businessService
@@ -32,6 +33,7 @@ export default () => {
           <div className="mt-1"><Phone></Phone> From USA <a>0801 811 7888</a></div>
           <div className="mt-1"><Phone></Phone> From the rest of the world <a>+1 788 112 2445</a></div>
         </article>
+        <BottomBar></BottomBar>
         <style>
             {
                 `

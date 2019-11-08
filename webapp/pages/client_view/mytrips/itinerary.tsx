@@ -9,9 +9,7 @@ import NavBar from '../../../components/my_trips/nav_bar'
 import BottomBar from '../../../components/my_trips/bottom_bar'
 import PreTripInfo from '../../../components/my_trips/pre_trip_info'
 import Loading from '../../../components/Loading'
-import {FlightData} from '../../../components/my_trips/itinerary/card_international_flight'
 import moment from 'moment';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 
 export interface Itinerary {
@@ -49,9 +47,6 @@ export default () => {
   if (itinerary.length == 0) return <Loading></Loading>
 
   return <div>
-      <FontAwesomeIcon icon="check-square" />
-      <FontAwesomeIcon icon="coffee" />
-      aaaa
       <ProgramHeader program={program}></ProgramHeader>
       <NavBar></NavBar>
       <PreTripInfo></PreTripInfo>

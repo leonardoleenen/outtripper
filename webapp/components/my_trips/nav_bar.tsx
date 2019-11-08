@@ -20,6 +20,9 @@ export default () => {
                   display: grid;
                   grid-template-columns: 20% 20% 20% 20% 19%;
                 }
+                header.nav_bar_head svg {
+                  display: block;
+                }
                 `
             }
         </style>
