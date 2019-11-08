@@ -7,10 +7,13 @@ const styles = {
   toggled: 'bg-red-700 mb-2 mr-2  py-2 px-2 self-auto  w-1/4 border border-red-500  text-white border tracking-wide uppercase   rounded cursor-not-allowed',
   unToggled: 'bg-red-700 mb-2  mr-2  py-2 px-2 self-auto  w-1/4 border border-red-500  text-white border tracking-wide uppercase   rounded opacity-50 cursor-not-allowed',
 }
-class ChatToggleButton extends React.Component {
 
+interface Props {
+  values: [];
+}
+class ChatToggleButton extends React.Component<Props> {
   state ={
-    isToggled: false 
+    isToggled: false,
   }
 
 
@@ -23,16 +26,16 @@ class ChatToggleButton extends React.Component {
   }
 
 
-  constructor(props){
+  constructor(props) {
     super(props)
   }
 
   render() {
-    return <button 
+    return <button
       onClick = {() => this.handle()}
       className={this.state.isToggled ? styles.toggled : styles.unToggled}>
       {this.props['value']}
-            </button>
+    </button>
   }
 }
 
@@ -50,6 +53,6 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ChatToggleButton) */ 
+export default connect(mapStateToProps, mapDispatchToProps)(ChatToggleButton) */
 
 export default ChatToggleButton

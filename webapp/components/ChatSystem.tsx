@@ -1,8 +1,8 @@
 import React from 'react'
-import '../styles/index.scss';
+import '../styles/index.scss'
 
 interface Props {
-  message : any
+  message: any
 }
 
 class ChatSystem extends React.Component<Props> {
@@ -13,7 +13,7 @@ class ChatSystem extends React.Component<Props> {
         <p className="text-gray-900 leading-none">{this.props.message}</p>
         <p className="text-gray-600">Aug 18</p>
       </div>
-    </div>;
+    </div>
   }
 }
 

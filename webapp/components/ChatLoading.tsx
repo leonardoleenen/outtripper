@@ -3,18 +3,17 @@ import '../styles/index.css'
 
 
 class ChatLoading extends React.Component {
+  render() {
+    return <div className="flex  mb-4 ">
+      <div className='load-wrap'>
+        <div className='load-3'>
 
-    render() {
-        return <div className="flex  mb-4 ">
-     <div className='load-wrap'>
-            <div className='load-3'>
-            
-                <div className='line bg-gray-500'></div>
-                <div className='line  bg-gray-500'></div>
-                <div className='line  bg-gray-500'></div>
-            </div>
+          <div className='line bg-gray-500'></div>
+          <div className='line  bg-gray-500'></div>
+          <div className='line  bg-gray-500'></div>
         </div>
-        <style global jsx>{`
+      </div>
+      <style global jsx>{`
         .load-wrap {
             float: left;
             margin: 0 10px 10px 0;
@@ -78,10 +77,9 @@ class ChatLoading extends React.Component {
           }
           
         `}
-        </style>
-      </div>
-
-      }
+      </style>
+    </div>
+  }
 }
 
 export default ChatLoading

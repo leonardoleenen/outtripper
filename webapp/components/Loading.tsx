@@ -3,22 +3,22 @@ import '../styles/index.scss'
 
 class Loading extends React.Component {
 
-    render() {
-        return (
-            <div className='container'>
-                <div className="preloader-1 object-none" style={{position: 'absolute',left:'70%',top:'35%',marginLeft:'-100px'}}>
-                    <div>Loading</div>
-                    <span className="line line-1"></span>
-                    <span className="line line-2"></span>
-                    <span className="line line-3"></span>
-                    <span className="line line-4"></span>
-                    <span className="line line-5"></span>
-                    <span className="line line-6"></span>
-                    <span className="line line-7"></span>
-                    <span className="line line-8"></span>
-                    <span className="line line-9"></span>
-                </div>
-                <style global jsx>{`
+  render() {
+    return (
+      <div className='container'>
+        <div className="preloader-1 object-none" style={{ position: 'absolute', left: '70%', top: '35%', marginLeft: '-100px' }}>
+          <div>Loading</div>
+          <span className="line line-1"></span>
+          <span className="line line-2"></span>
+          <span className="line line-3"></span>
+          <span className="line line-4"></span>
+          <span className="line line-5"></span>
+          <span className="line line-6"></span>
+          <span className="line line-7"></span>
+          <span className="line line-8"></span>
+          <span className="line line-9"></span>
+        </div>
+        <style global jsx>{`
                     body {
                         margin: 0
                     }
@@ -101,12 +101,12 @@ class Loading extends React.Component {
                     }  
                     }
                 `}</style>
-            </div>
+      </div>
 
 
 
-        )
-    }
+    )
+  }
 }
 
 export default Loading

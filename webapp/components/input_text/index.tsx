@@ -2,8 +2,8 @@ import React from 'react';
 import '../../styles/index.scss';
 
 interface Props {
-  value : string
-  handler: any
+  value?: string
+  handler?: any
   label: string
 }
 

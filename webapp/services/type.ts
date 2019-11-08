@@ -185,5 +185,96 @@ export class User implements IUser {
   }
 }
 
+interface MyTripProgram {
+  thumbnail: string
+  lodge: string
+  title: string
+  subtitle: string
+  from: number
+  to: number
+}
+
+
+interface MyTripManageAction {
+  title: string
+  text: string
+}
+
+interface MyTripPaymentCharge {
+  text: string
+  amount: number
+}
+
+interface MyTripPayment {
+  title: string
+  reservation: string
+  invoice_date: number
+  received_amount: number
+  received_date: number
+  received_card: string
+  charges: Array<MyTripPaymentCharge>
+}
+
+export interface MyTripFlightData {
+  code: string
+  type: string
+  flight_number?: string
+  flight_status?: string
+  flight_gate?: string
+  departure_data?: MyTripFlightDataDetail
+  arrival_data?: MyTripFlightDataDetail
+}
+
+interface MyTripFlightDataDetail {
+  airport_code: string
+  time?: string
+}
+
+interface MyTripCharterData {
+  code: string
+  type: string
+  title: string
+  date: string
+  items?: Array<string>
+}
+
+interface MyTripTransferData {
+  code: string
+  type: string
+  from: string
+  to: string
+  pickup_time: string
+  driver?: MyTripDriver
+}
+
+interface MyTripDriver {
+  firstname: string
+  lastname: string
+  photo: string
+  phone: string
+  live: string
+}
+
+interface MyTripLodgeActivitiesData {
+  code: string
+  type: string
+  text: string
+  service_included?: Array<string>
+}
+
+interface MyTripItinerary {
+  date: number
+  items: Array<MyTripFlightData | MyTripCharterData | MyTripTransferData | MyTripLodgeActivitiesData>
+}
+
+export interface MyTrip {
+  booking_id: string
+  reservation_holder: string
+  program: MyTripProgram
+  manage: Array<MyTripManageAction>
+  payment: MyTripPayment
+  itinerary: MyTripItinerary
+}
+
 
 

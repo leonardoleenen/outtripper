@@ -20,10 +20,11 @@ import {
   faPaperPlane,
   faUser,
   faTrash,
-  faMinus
+  faMinus,
+  faSearch
  } from '@fortawesome/free-solid-svg-icons'
 
-library.add(fab, faCheckSquare, faCoffee)
+library.add(fab, faCheckSquare, faCoffee, faSearch)
 class MyApp extends App {
   render () {
     const { Component, pageProps, reduxStore } = this.props

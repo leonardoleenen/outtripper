@@ -1,7 +1,10 @@
 import React from 'react'
 
-class ChatUser extends React.Component {
+interface Props {
+  message: string;
+}
 
+class ChatUser extends React.Component<Props> {
   constructor(props) {
     super(props)
   }
@@ -13,7 +16,7 @@ class ChatUser extends React.Component {
         <p className="text-white">Aug 18</p>
       </div>
       <img className="w-10 h-10 rounded-full " src={this.props['urlAvatar']} />
-    </div>;
+    </div>
   }
 }
 
