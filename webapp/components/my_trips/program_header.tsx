@@ -44,6 +44,9 @@ export default (props: Props) => {
               font-weight: 600;
               font-size: 12px;
             }
+            .share_trip svg {
+              display: inline-block;
+            }
             .program_header_container .heading-3 {
               font-weight: normal;
               font-size: 24px;
