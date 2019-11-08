@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'next/router';
-import '../styles/index.css';
+import '../styles/index.scss';
 import { getDialogFlowRegisterUrl, DIALOGFLOW_REGISTER_AGENT_API_KEY } from '../config'
 import uuidv4 from 'uuid/v4'
 import axios, { AxiosRequestConfig } from 'axios'

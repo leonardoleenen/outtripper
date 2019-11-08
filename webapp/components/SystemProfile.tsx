@@ -1,5 +1,5 @@
 import React from 'react'
-import '../styles/index.css';
+import '../styles/index.scss';
 import Star from '../static/svg/star.svg'
 import StarFill from '../static/svg/star_fill.svg'
 

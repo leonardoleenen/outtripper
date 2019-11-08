@@ -1,10 +1,9 @@
 import React from 'react';
 import '../../styles/index.scss';
 import moment from 'moment'
-import {  useSelector, useDispatch  } from 'react-redux'
+import {  useDispatch  } from 'react-redux'
 import {setAvailableDate} from '../../redux/actions/reservation';
 import { IDateAvailable } from 'services/type';
-import { withRouter } from 'next/router';
 
 interface Props {
   startDay: Date
@@ -50,4 +49,4 @@ const AvailabilityResultWeek = (props: Props) => {
   </div>
 }
 
-export default withRouter(AvailabilityResultWeek)
+export default AvailabilityResultWeek

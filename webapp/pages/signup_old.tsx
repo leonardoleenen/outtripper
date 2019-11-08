@@ -1,7 +1,7 @@
 
 import React from 'react';
 import {connect} from 'react-redux';
-import '../styles/index.css';
+import '../styles/index.scss';
 import firebase from '../services/index'
 import { dataService, OutTripperDatabase } from '../services/index';
 import { withRouter } from 'next/router';

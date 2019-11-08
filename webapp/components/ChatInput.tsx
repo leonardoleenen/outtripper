@@ -1,10 +1,9 @@
 import React from 'react'
 import Send from '../static/svg/send.svg'
 import { connect } from 'react-redux'
-import '../styles/index.css'
+import '../styles/index.scss'
 import {signUpProcess} from '../services/index';
 import { ProcessNode, RenderEngine} from '../services/renderEngine';
-import ChatUser from '../components/ChatUser'
 
 
 class ChatInput extends React.Component {
