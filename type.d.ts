@@ -1,0 +1,3 @@
+type Settings = {
+    companyName: string
+}
