@@ -1,6 +1,14 @@
 import React from 'react'
+import { Themes, UIAppStore } from '../../stores/app.store'
 
 export default (): JSX.Element => {
+    const changeTheme = (theme: Themes) => {
+        document.documentElement.setAttribute('data-theme', theme)
+        UIAppStore.update(s => {
+            s.sectionSelected = theme
+        })
+    }
+
     return (
         <div className="navbar mb-2 shadow-lg bg-neutral text-neutral-content rounded-box">
             <div className="flex-none hidden lg:flex">
@@ -26,31 +34,39 @@ export default (): JSX.Element => {
                 </span>
             </div>
             <div className="flex-1 lg:flex-none">
-                <div className="form-control">
-                    <input
-                        type="text"
-                        placeholder="Search"
-                        className="input input-ghost"
-                    />
+                <div className="dropdown">
+                    <div tabIndex="0" className="m-1 btn">
+                        Themes
+                    </div>
+                    <ul
+                        tabIndex="0"
+                        className="p-2 shadow menu dropdown-content bg-base-100 rounded-box w-52"
+                    >
+                        <li onClick={() => changeTheme(Themes.DEFAULT)}>
+                            <a>Default</a>
+                        </li>
+                        <li onClick={() => changeTheme(Themes.DARK)}>
+                            <a>Dark</a>
+                        </li>
+                        <li onClick={() => changeTheme(Themes.LIGTH)}>
+                            <a>Light</a>
+                        </li>
+                        <li onClick={() => changeTheme(Themes.FANTASY)}>
+                            <a>fantasy</a>
+                        </li>
+                        <li onClick={() => changeTheme(Themes.CORPORATE)}>
+                            <a>Corporate</a>
+                        </li>
+                        <li onClick={() => changeTheme(Themes.LUXURY)}>
+                            <a>Luxury</a>
+                        </li>
+                        <li onClick={() => changeTheme(Themes.DRACULA)}>
+                            <a>Dracula</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
-            <div className="flex-none">
-                <button className="btn btn-square btn-ghost">
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        className="inline-block w-6 h-6 stroke-current"
-                    >
-                        <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth="2"
-                            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                        ></path>
-                    </svg>
-                </button>
-            </div>
+
             <div className="flex-none">
                 <button className="btn btn-square btn-ghost">
                     <svg
@@ -69,7 +85,7 @@ export default (): JSX.Element => {
                 </button>
             </div>
             <div className="flex-none">
-                <div className="avatar">
+                <div className="avatar ">
                     <div className="rounded-full w-10 h-10 m-1">
                         <img src="https://i.pravatar.cc/500?img=32" />
                     </div>

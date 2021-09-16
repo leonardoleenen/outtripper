@@ -1,4 +1,10 @@
 import React from 'react'
+import { UIAppStore } from '../../../../stores/app.store'
+import {
+    ConfigureServiceSections,
+    UIConfigureServiceStore
+} from '../../../../stores/configure.store'
+import { EVoucherSections, UIEVoucher } from '../../../../stores/evoucher.store'
 
 const IconGeneralInfo = () => {
     return (
@@ -57,6 +63,8 @@ const IconTripInfo = () => {
     )
 }
 
+const MENU_SELECTED_STYLE = ' bordered font-bold'
+
 const IconPaymentMethods = () => {
     return (
         <svg
@@ -75,7 +83,54 @@ const IconPaymentMethods = () => {
         </svg>
     )
 }
+
+const IconContact = () => {
+    return (
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="inline-block w-5 h-5 mr-2 stroke-current"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+        >
+            <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+            />
+        </svg>
+    )
+}
+
 export default (): JSX.Element => {
+    const sectionSelected: ConfigureServiceSections =
+        UIConfigureServiceStore.useState(s => s.sectionSelected)
+
+    const selectedService: TripServices | null =
+        UIConfigureServiceStore.useState(s => s.serviceSelected)
+
+    const selectSection = (section: string) => {
+        UIConfigureServiceStore.update(s => {
+            s.sectionSelected = section as ConfigureServiceSections
+        })
+        UIEVoucher.update(s => {
+            s.sectionSelected =
+                section === 'GENERAL INFO'
+                    ? EVoucherSections.TRIP_INFO
+                    : (section as EVoucherSections)
+        })
+    }
+
+    const createNewService = () => {
+        UIConfigureServiceStore.update(s => {
+            s.serviceSelected = {
+                name: 'NoName',
+                description: ''
+            }
+        })
+    }
+
     return (
         <div className="p-4 ">
             <select className="select select-bordered w-full max-w-xs my-4">
@@ -84,41 +139,105 @@ export default (): JSX.Element => {
                 <option>invisibility</option>
             </select>
             <ul className="menu py-4 ">
-                <li className="bordered font-bold">
+                <li
+                    className={
+                        sectionSelected === 'GENERAL INFO'
+                            ? MENU_SELECTED_STYLE
+                            : ''
+                    }
+                    onClick={() =>
+                        selectSection(ConfigureServiceSections.GENERAL_INFO)
+                    }
+                >
                     <a>
                         <IconGeneralInfo />
                         General Info
                     </a>
                 </li>
 
-                <li className="">
+                <li
+                    className={
+                        sectionSelected === ConfigureServiceSections.CONTACT
+                            ? MENU_SELECTED_STYLE
+                            : ''
+                    }
+                    onClick={() =>
+                        selectSection(ConfigureServiceSections.CONTACT)
+                    }
+                >
+                    <a>
+                        <IconContact />
+                        Contact Information
+                    </a>
+                </li>
+
+                <li
+                    className={
+                        sectionSelected === 'TRIP INFO'
+                            ? MENU_SELECTED_STYLE
+                            : ''
+                    }
+                    onClick={() =>
+                        selectSection(ConfigureServiceSections.TRIP_INFO)
+                    }
+                >
                     <a>
                         <IconTripInfo />
                         Trip Info
                     </a>
                 </li>
 
-                <li className="">
+                <li
+                    className={
+                        sectionSelected === 'QUESTIONARIE'
+                            ? MENU_SELECTED_STYLE
+                            : ''
+                    }
+                    onClick={() =>
+                        selectSection(ConfigureServiceSections.QUESTIONARIE)
+                    }
+                >
                     <a>
                         <IconQuestion />
                         Questionarie
                     </a>
                 </li>
 
-                <li className="">
+                <li
+                    className={
+                        sectionSelected === 'PAYMENT METHOD'
+                            ? MENU_SELECTED_STYLE
+                            : ''
+                    }
+                    onClick={() =>
+                        selectSection(ConfigureServiceSections.PAYMENT_METHOD)
+                    }
+                >
                     <a>
                         <IconPaymentMethods />
                         Accept Payment methods
                     </a>
                 </li>
             </ul>
-            <button className="btn btn-success w-full bottom-0">
+
+            <button
+                onClick={createNewService}
+                className="btn btn-success w-full bottom-0 mt-4"
+            >
                 Create New Service
             </button>
 
-            <button className="btn btn-error w-full bottom-0 mt-4">
-                Remove
-            </button>
+            {selectedService && (
+                <button className="btn btn-info w-full bottom-0 mt-4">
+                    Save
+                </button>
+            )}
+
+            {selectedService && (
+                <button className="btn btn-error w-full bottom-0 mt-4">
+                    Remove
+                </button>
+            )}
         </div>
     )
 }

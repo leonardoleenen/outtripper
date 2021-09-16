@@ -12,6 +12,7 @@ const Page: NextPage = () => {
         <div>
             <aside>Aside</aside>
             <main> asdfasd</main>
+
             <PreviewPage />
         </div>
     )
